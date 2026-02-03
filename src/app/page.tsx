@@ -1,65 +1,2242 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+
+type DsaItem = {
+  id: string;
+  title: string;
+  topic: string;
+  difficulty: "Easy" | "Medium" | "Hard";
+  solution: string;
+  solutionLink: string;
+  youtube: string;
+  java: string;
+};
+
+const STORAGE_KEY = "dsa-sheet-progress-v1";
+
+const LINKED_LIST_ITEMS: DsaItem[] = [
+  {
+    id: "reverse-linked-list",
+    title: "Reverse Linked List",
+    topic: "Linked List",
+    difficulty: "Easy",
+    solution: "Iterative pointer reversal with prev/current.",
+    solutionLink: "https://leetcode.com/problems/reverse-linked-list/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=reverse+linked+list+leetcode",
+    java: "https://github.com/search?q=reverse+linked+list+leetcode+java&type=code",
+  },
+  {
+    id: "merge-two-sorted-lists",
+    title: "Merge Two Sorted Lists",
+    topic: "Linked List",
+    difficulty: "Easy",
+    solution: "Merge with a dummy head pointer.",
+    solutionLink:
+      "https://leetcode.com/problems/merge-two-sorted-lists/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=merge+two+sorted+lists+leetcode",
+    java: "https://github.com/search?q=merge+two+sorted+lists+leetcode+java&type=code",
+  },
+  {
+    id: "linked-list-cycle",
+    title: "Linked List Cycle",
+    topic: "Linked List",
+    difficulty: "Easy",
+    solution: "Floyd’s slow/fast pointers detect cycle.",
+    solutionLink: "https://leetcode.com/problems/linked-list-cycle/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=linked+list+cycle+leetcode",
+    java: "https://github.com/search?q=linked+list+cycle+leetcode+java&type=code",
+  },
+  {
+    id: "middle-of-the-linked-list",
+    title: "Middle of the Linked List",
+    topic: "Linked List",
+    difficulty: "Easy",
+    solution: "Use slow/fast pointers; slow ends at middle.",
+    solutionLink:
+      "https://leetcode.com/problems/middle-of-the-linked-list/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=middle+of+the+linked+list+leetcode",
+    java: "https://github.com/search?q=middle+of+the+linked+list+leetcode+java&type=code",
+  },
+  {
+    id: "remove-duplicates-from-sorted-list",
+    title: "Remove Duplicates from Sorted List",
+    topic: "Linked List",
+    difficulty: "Easy",
+    solution: "Skip equal neighbors in one pass.",
+    solutionLink:
+      "https://leetcode.com/problems/remove-duplicates-from-sorted-list/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=remove+duplicates+from+sorted+list+leetcode",
+    java: "https://github.com/search?q=remove+duplicates+from+sorted+list+leetcode+java&type=code",
+  },
+  {
+    id: "intersection-of-two-linked-lists",
+    title: "Intersection of Two Linked Lists",
+    topic: "Linked List",
+    difficulty: "Easy",
+    solution: "Two-pointer switch heads to align lengths.",
+    solutionLink:
+      "https://leetcode.com/problems/intersection-of-two-linked-lists/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=intersection+of+two+linked+lists+leetcode",
+    java: "https://github.com/search?q=intersection+of+two+linked+lists+leetcode+java&type=code",
+  },
+  {
+    id: "palindrome-linked-list",
+    title: "Palindrome Linked List",
+    topic: "Linked List",
+    difficulty: "Easy",
+    solution: "Find mid, reverse second half, compare.",
+    solutionLink:
+      "https://leetcode.com/problems/palindrome-linked-list/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=palindrome+linked+list+leetcode",
+    java: "https://github.com/search?q=palindrome+linked+list+leetcode+java&type=code",
+  },
+  {
+    id: "delete-node-in-a-linked-list",
+    title: "Delete Node in a Linked List",
+    topic: "Linked List",
+    difficulty: "Easy",
+    solution: "Copy next node value and bypass it.",
+    solutionLink:
+      "https://leetcode.com/problems/delete-node-in-a-linked-list/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=delete+node+in+a+linked+list+leetcode",
+    java: "https://github.com/search?q=delete+node+in+a+linked+list+leetcode+java&type=code",
+  },
+  {
+    id: "remove-linked-list-elements",
+    title: "Remove Linked List Elements",
+    topic: "Linked List",
+    difficulty: "Easy",
+    solution: "Use dummy head, skip target values.",
+    solutionLink:
+      "https://leetcode.com/problems/remove-linked-list-elements/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=remove+linked+list+elements+leetcode",
+    java: "https://github.com/search?q=remove+linked+list+elements+leetcode+java&type=code",
+  },
+  {
+    id: "convert-binary-number-in-linked-list-to-integer",
+    title: "Convert Binary Number in a Linked List to Integer",
+    topic: "Linked List",
+    difficulty: "Easy",
+    solution: "Accumulate value: val = val * 2 + node.",
+    solutionLink:
+      "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=convert+binary+number+in+a+linked+list+to+integer+leetcode",
+    java: "https://github.com/search?q=convert+binary+number+in+a+linked+list+to+integer+leetcode+java&type=code",
+  },
+  {
+    id: "add-two-numbers",
+    title: "Add Two Numbers",
+    topic: "Linked List",
+    difficulty: "Medium",
+    solution: "Digit-wise addition with carry in new list.",
+    solutionLink: "https://leetcode.com/problems/add-two-numbers/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=add+two+numbers+leetcode",
+    java: "https://github.com/search?q=add+two+numbers+leetcode+java&type=code",
+  },
+  {
+    id: "remove-nth-node-from-end-of-list",
+    title: "Remove Nth Node From End of List",
+    topic: "Linked List",
+    difficulty: "Medium",
+    solution: "Two pointers with gap of n, remove target.",
+    solutionLink:
+      "https://leetcode.com/problems/remove-nth-node-from-end-of-list/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=remove+nth+node+from+end+of+list+leetcode",
+    java: "https://github.com/search?q=remove+nth+node+from+end+of+list+leetcode+java&type=code",
+  },
+  {
+    id: "swap-nodes-in-pairs",
+    title: "Swap Nodes in Pairs",
+    topic: "Linked List",
+    difficulty: "Medium",
+    solution: "Iteratively swap pairs using pointers.",
+    solutionLink: "https://leetcode.com/problems/swap-nodes-in-pairs/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=swap+nodes+in+pairs+leetcode",
+    java: "https://github.com/search?q=swap+nodes+in+pairs+leetcode+java&type=code",
+  },
+  {
+    id: "rotate-list",
+    title: "Rotate List",
+    topic: "Linked List",
+    difficulty: "Medium",
+    solution: "Make it circular, break at new tail.",
+    solutionLink: "https://leetcode.com/problems/rotate-list/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=rotate+list+leetcode",
+    java: "https://github.com/search?q=rotate+list+leetcode+java&type=code",
+  },
+  {
+    id: "partition-list",
+    title: "Partition List",
+    topic: "Linked List",
+    difficulty: "Medium",
+    solution: "Build two lists (<x and >=x), join.",
+    solutionLink: "https://leetcode.com/problems/partition-list/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=partition+list+leetcode",
+    java: "https://github.com/search?q=partition+list+leetcode+java&type=code",
+  },
+  {
+    id: "odd-even-linked-list",
+    title: "Odd Even Linked List",
+    topic: "Linked List",
+    difficulty: "Medium",
+    solution: "Separate odd/even chains, then join.",
+    solutionLink:
+      "https://leetcode.com/problems/odd-even-linked-list/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=odd+even+linked+list+leetcode",
+    java: "https://github.com/search?q=odd+even+linked+list+leetcode+java&type=code",
+  },
+  {
+    id: "sort-list",
+    title: "Sort List",
+    topic: "Linked List",
+    difficulty: "Medium",
+    solution: "Merge sort on linked list, O(n log n).",
+    solutionLink: "https://leetcode.com/problems/sort-list/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=sort+list+leetcode",
+    java: "https://github.com/search?q=sort+list+leetcode+java&type=code",
+  },
+  {
+    id: "reorder-list",
+    title: "Reorder List",
+    topic: "Linked List",
+    difficulty: "Medium",
+    solution: "Split, reverse second half, weave.",
+    solutionLink: "https://leetcode.com/problems/reorder-list/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=reorder+list+leetcode",
+    java: "https://github.com/search?q=reorder+list+leetcode+java&type=code",
+  },
+  {
+    id: "copy-list-with-random-pointer",
+    title: "Copy List with Random Pointer",
+    topic: "Linked List",
+    difficulty: "Medium",
+    solution: "Interleave copies, assign random, split.",
+    solutionLink:
+      "https://leetcode.com/problems/copy-list-with-random-pointer/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=copy+list+with+random+pointer+leetcode",
+    java: "https://github.com/search?q=copy+list+with+random+pointer+leetcode+java&type=code",
+  },
+  {
+    id: "remove-duplicates-from-sorted-list-ii",
+    title: "Remove Duplicates from Sorted List II",
+    topic: "Linked List",
+    difficulty: "Medium",
+    solution: "Skip all duplicates using a dummy head.",
+    solutionLink:
+      "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=remove+duplicates+from+sorted+list+ii+leetcode",
+    java: "https://github.com/search?q=remove+duplicates+from+sorted+list+ii+leetcode+java&type=code",
+  },
+  {
+    id: "linked-list-cycle-ii",
+    title: "Linked List Cycle II",
+    topic: "Linked List",
+    difficulty: "Medium",
+    solution: "Floyd’s algorithm; reset pointer to head.",
+    solutionLink:
+      "https://leetcode.com/problems/linked-list-cycle-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=linked+list+cycle+ii+leetcode",
+    java: "https://github.com/search?q=linked+list+cycle+ii+leetcode+java&type=code",
+  },
+  {
+    id: "add-two-numbers-ii",
+    title: "Add Two Numbers II",
+    topic: "Linked List",
+    difficulty: "Medium",
+    solution: "Use stacks to add from tail to head.",
+    solutionLink:
+      "https://leetcode.com/problems/add-two-numbers-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=add+two+numbers+ii+leetcode",
+    java: "https://github.com/search?q=add+two+numbers+ii+leetcode+java&type=code",
+  },
+  {
+    id: "split-linked-list-in-parts",
+    title: "Split Linked List in Parts",
+    topic: "Linked List",
+    difficulty: "Medium",
+    solution: "Compute sizes, split into k parts.",
+    solutionLink:
+      "https://leetcode.com/problems/split-linked-list-in-parts/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=split+linked+list+in+parts+leetcode",
+    java: "https://github.com/search?q=split+linked+list+in+parts+leetcode+java&type=code",
+  },
+  {
+    id: "delete-the-middle-node-of-a-linked-list",
+    title: "Delete the Middle Node of a Linked List",
+    topic: "Linked List",
+    difficulty: "Medium",
+    solution: "Slow/fast to find middle, bypass it.",
+    solutionLink:
+      "https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=delete+the+middle+node+of+a+linked+list+leetcode",
+    java: "https://github.com/search?q=delete+the+middle+node+of+a+linked+list+leetcode+java&type=code",
+  },
+  {
+    id: "flatten-a-multilevel-doubly-linked-list",
+    title: "Flatten a Multilevel Doubly Linked List",
+    topic: "Linked List",
+    difficulty: "Medium",
+    solution: "DFS flatten, reconnect prev/next pointers.",
+    solutionLink:
+      "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=flatten+a+multilevel+doubly+linked+list+leetcode",
+    java: "https://github.com/search?q=flatten+a+multilevel+doubly+linked+list+leetcode+java&type=code",
+  },
+  {
+    id: "merge-k-sorted-lists",
+    title: "Merge k Sorted Lists",
+    topic: "Linked List",
+    difficulty: "Hard",
+    solution: "Min-heap or divide and conquer merge.",
+    solutionLink:
+      "https://leetcode.com/problems/merge-k-sorted-lists/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=merge+k+sorted+lists+leetcode",
+    java: "https://github.com/search?q=merge+k+sorted+lists+leetcode+java&type=code",
+  },
+  {
+    id: "reverse-nodes-in-k-group",
+    title: "Reverse Nodes in k-Group",
+    topic: "Linked List",
+    difficulty: "Hard",
+    solution: "Reverse k nodes at a time with pointers.",
+    solutionLink:
+      "https://leetcode.com/problems/reverse-nodes-in-k-group/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=reverse+nodes+in+k-group+leetcode",
+    java: "https://github.com/search?q=reverse+nodes+in+k-group+leetcode+java&type=code",
+  },
+  {
+    id: "lru-cache",
+    title: "LRU Cache",
+    topic: "Linked List",
+    difficulty: "Hard",
+    solution: "Hash map + doubly linked list for O(1).",
+    solutionLink: "https://leetcode.com/problems/lru-cache/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=lru+cache+leetcode",
+    java: "https://github.com/search?q=lru+cache+leetcode+java&type=code",
+  },
+  {
+    id: "lfu-cache",
+    title: "LFU Cache",
+    topic: "Linked List",
+    difficulty: "Hard",
+    solution: "Freq buckets + linked lists, O(1).",
+    solutionLink: "https://leetcode.com/problems/lfu-cache/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=lfu+cache+leetcode",
+    java: "https://github.com/search?q=lfu+cache+leetcode+java&type=code",
+  },
+  {
+    id: "palindrome-pairs",
+    title: "Palindrome Pairs",
+    topic: "Linked List",
+    difficulty: "Hard",
+    solution: "Hash map words, check prefix/suffix cases.",
+    solutionLink: "https://leetcode.com/problems/palindrome-pairs/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=palindrome+pairs+leetcode",
+    java: "https://github.com/search?q=palindrome+pairs+leetcode+java&type=code",
+  },
+  {
+    id: "reverse-linked-list-ii",
+    title: "Reverse Linked List II",
+    topic: "Linked List",
+    difficulty: "Hard",
+    solution: "Reverse sublist between left and right.",
+    solutionLink:
+      "https://leetcode.com/problems/reverse-linked-list-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=reverse+linked+list+ii+leetcode",
+    java: "https://github.com/search?q=reverse+linked+list+ii+leetcode+java&type=code",
+  },
+  {
+    id: "design-skiplist",
+    title: "Design Skiplist",
+    topic: "Linked List",
+    difficulty: "Hard",
+    solution: "Layered linked lists with random levels.",
+    solutionLink: "https://leetcode.com/problems/design-skiplist/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=design+skiplist+leetcode",
+    java: "https://github.com/search?q=design+skiplist+leetcode+java&type=code",
+  },
+  {
+    id: "all-oone-data-structure",
+    title: "All O(1) Data Structure",
+    topic: "Linked List",
+    difficulty: "Hard",
+    solution: "Hash map + doubly linked list of counts.",
+    solutionLink:
+      "https://leetcode.com/problems/all-oone-data-structure/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=all+oone+data+structure+leetcode",
+    java: "https://github.com/search?q=all+oone+data+structure+leetcode+java&type=code",
+  },
+];
+const DP_ITEMS: DsaItem[] = [
+  {
+    id: "climbing-stairs",
+    title: "Climbing Stairs",
+    topic: "DP",
+    difficulty: "Easy",
+    solution: "Fibonacci-style DP, O(1) space.",
+    solutionLink: "https://leetcode.com/problems/climbing-stairs/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=climbing+stairs+leetcode",
+    java: "https://github.com/search?q=climbing+stairs+leetcode+java&type=code",
+  },
+  {
+    id: "fibonacci-number",
+    title: "Fibonacci Number",
+    topic: "DP",
+    difficulty: "Easy",
+    solution: "Bottom-up DP or memoized recursion.",
+    solutionLink: "https://leetcode.com/problems/fibonacci-number/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=fibonacci+number+leetcode",
+    java: "https://github.com/search?q=fibonacci+number+leetcode+java&type=code",
+  },
+  {
+    id: "min-cost-climbing-stairs",
+    title: "Min Cost Climbing Stairs",
+    topic: "DP",
+    difficulty: "Easy",
+    solution: "DP over costs; min of two previous.",
+    solutionLink:
+      "https://leetcode.com/problems/min-cost-climbing-stairs/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=min+cost+climbing+stairs+leetcode",
+    java: "https://github.com/search?q=min+cost+climbing+stairs+leetcode+java&type=code",
+  },
+  {
+    id: "house-robber",
+    title: "House Robber",
+    topic: "DP",
+    difficulty: "Easy",
+    solution: "Rob or skip; keep two running states.",
+    solutionLink: "https://leetcode.com/problems/house-robber/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=house+robber+leetcode",
+    java: "https://github.com/search?q=house+robber+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-subarray",
+    title: "Maximum Subarray",
+    topic: "DP",
+    difficulty: "Easy",
+    solution: "Kadane’s algorithm, O(n).",
+    solutionLink: "https://leetcode.com/problems/maximum-subarray/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+subarray+leetcode",
+    java: "https://github.com/search?q=maximum+subarray+leetcode+java&type=code",
+  },
+  {
+    id: "range-sum-query-immutable",
+    title: "Range Sum Query (Immutable)",
+    topic: "DP",
+    difficulty: "Easy",
+    solution: "Prefix sums for O(1) range queries.",
+    solutionLink:
+      "https://leetcode.com/problems/range-sum-query-immutable/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=range+sum+query+immutable+leetcode",
+    java: "https://github.com/search?q=range+sum+query+immutable+leetcode+java&type=code",
+  },
+  {
+    id: "counting-bits",
+    title: "Counting Bits",
+    topic: "DP",
+    difficulty: "Easy",
+    solution: "DP: bits[i] = bits[i >> 1] + (i & 1).",
+    solutionLink: "https://leetcode.com/problems/counting-bits/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=counting+bits+leetcode",
+    java: "https://github.com/search?q=counting+bits+leetcode+java&type=code",
+  },
+  {
+    id: "tribonacci-number",
+    title: "Tribonacci Number",
+    topic: "DP",
+    difficulty: "Easy",
+    solution: "DP with rolling window of size 3.",
+    solutionLink:
+      "https://leetcode.com/problems/n-th-tribonacci-number/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=tribonacci+number+leetcode",
+    java: "https://github.com/search?q=tribonacci+number+leetcode+java&type=code",
+  },
+  {
+    id: "best-time-to-buy-and-sell-stock",
+    title: "Best Time to Buy and Sell Stock",
+    topic: "DP",
+    difficulty: "Easy",
+    solution: "Track minimum price; update max profit.",
+    solutionLink:
+      "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=best+time+to+buy+and+sell+stock+leetcode",
+    java: "https://github.com/search?q=best+time+to+buy+and+sell+stock+leetcode+java&type=code",
+  },
+  {
+    id: "pascals-triangle",
+    title: "Pascal’s Triangle",
+    topic: "DP",
+    difficulty: "Easy",
+    solution: "Build rows using previous row values.",
+    solutionLink: "https://leetcode.com/problems/pascals-triangle/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=pascals+triangle+leetcode",
+    java: "https://github.com/search?q=pascals+triangle+leetcode+java&type=code",
+  },
+  {
+    id: "coin-change",
+    title: "Coin Change",
+    topic: "DP",
+    difficulty: "Medium",
+    solution: "Bottom-up DP for min coins.",
+    solutionLink: "https://leetcode.com/problems/coin-change/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=coin+change+leetcode",
+    java: "https://github.com/search?q=coin+change+leetcode+java&type=code",
+  },
+  {
+    id: "longest-increasing-subsequence",
+    title: "Longest Increasing Subsequence",
+    topic: "DP",
+    difficulty: "Medium",
+    solution: "DP O(n^2) or patience sorting O(n log n).",
+    solutionLink:
+      "https://leetcode.com/problems/longest-increasing-subsequence/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=longest+increasing+subsequence+leetcode",
+    java: "https://github.com/search?q=longest+increasing+subsequence+leetcode+java&type=code",
+  },
+  {
+    id: "longest-common-subsequence",
+    title: "Longest Common Subsequence",
+    topic: "DP",
+    difficulty: "Medium",
+    solution: "2D DP over prefixes.",
+    solutionLink:
+      "https://leetcode.com/problems/longest-common-subsequence/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=longest+common+subsequence+leetcode",
+    java: "https://github.com/search?q=longest+common+subsequence+leetcode+java&type=code",
+  },
+  {
+    id: "edit-distance",
+    title: "Edit Distance",
+    topic: "DP",
+    difficulty: "Medium",
+    solution: "Classic DP on string edits.",
+    solutionLink: "https://leetcode.com/problems/edit-distance/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=edit+distance+leetcode",
+    java: "https://github.com/search?q=edit+distance+leetcode+java&type=code",
+  },
+  {
+    id: "house-robber-ii",
+    title: "House Robber II",
+    topic: "DP",
+    difficulty: "Medium",
+    solution: "Two runs: exclude first or last house.",
+    solutionLink: "https://leetcode.com/problems/house-robber-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=house+robber+ii+leetcode",
+    java: "https://github.com/search?q=house+robber+ii+leetcode+java&type=code",
+  },
+  {
+    id: "partition-equal-subset-sum",
+    title: "Partition Equal Subset Sum",
+    topic: "DP",
+    difficulty: "Medium",
+    solution: "Subset sum DP to target total/2.",
+    solutionLink:
+      "https://leetcode.com/problems/partition-equal-subset-sum/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=partition+equal+subset+sum+leetcode",
+    java: "https://github.com/search?q=partition+equal+subset+sum+leetcode+java&type=code",
+  },
+  {
+    id: "target-sum",
+    title: "Target Sum",
+    topic: "DP",
+    difficulty: "Medium",
+    solution: "Transform to subset sum; DP count ways.",
+    solutionLink: "https://leetcode.com/problems/target-sum/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=target+sum+leetcode",
+    java: "https://github.com/search?q=target+sum+leetcode+java&type=code",
+  },
+  {
+    id: "word-break",
+    title: "Word Break",
+    topic: "DP",
+    difficulty: "Medium",
+    solution: "DP over string positions using dictionary.",
+    solutionLink: "https://leetcode.com/problems/word-break/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=word+break+leetcode",
+    java: "https://github.com/search?q=word+break+leetcode+java&type=code",
+  },
+  {
+    id: "decode-ways",
+    title: "Decode Ways",
+    topic: "DP",
+    difficulty: "Medium",
+    solution: "DP with one/two-digit transitions.",
+    solutionLink: "https://leetcode.com/problems/decode-ways/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=decode+ways+leetcode",
+    java: "https://github.com/search?q=decode+ways+leetcode+java&type=code",
+  },
+  {
+    id: "unique-paths",
+    title: "Unique Paths",
+    topic: "DP",
+    difficulty: "Medium",
+    solution: "Grid DP counting ways from top-left.",
+    solutionLink: "https://leetcode.com/problems/unique-paths/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=unique+paths+leetcode",
+    java: "https://github.com/search?q=unique+paths+leetcode+java&type=code",
+  },
+  {
+    id: "unique-paths-ii",
+    title: "Unique Paths II",
+    topic: "DP",
+    difficulty: "Medium",
+    solution: "Grid DP with obstacles.",
+    solutionLink: "https://leetcode.com/problems/unique-paths-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=unique+paths+ii+leetcode",
+    java: "https://github.com/search?q=unique+paths+ii+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-path-sum",
+    title: "Minimum Path Sum",
+    topic: "DP",
+    difficulty: "Medium",
+    solution: "DP accumulating min cost to each cell.",
+    solutionLink: "https://leetcode.com/problems/minimum-path-sum/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+path+sum+leetcode",
+    java: "https://github.com/search?q=minimum+path+sum+leetcode+java&type=code",
+  },
+  {
+    id: "jump-game",
+    title: "Jump Game",
+    topic: "DP",
+    difficulty: "Medium",
+    solution: "Greedy reachability; DP interpretation.",
+    solutionLink: "https://leetcode.com/problems/jump-game/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=jump+game+leetcode",
+    java: "https://github.com/search?q=jump+game+leetcode+java&type=code",
+  },
+  {
+    id: "jump-game-ii",
+    title: "Jump Game II",
+    topic: "DP",
+    difficulty: "Medium",
+    solution: "Greedy levels or DP min jumps.",
+    solutionLink: "https://leetcode.com/problems/jump-game-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=jump+game+ii+leetcode",
+    java: "https://github.com/search?q=jump+game+ii+leetcode+java&type=code",
+  },
+  {
+    id: "palindromic-substrings",
+    title: "Palindromic Substrings",
+    topic: "DP",
+    difficulty: "Medium",
+    solution: "DP over substrings or expand around center.",
+    solutionLink:
+      "https://leetcode.com/problems/palindromic-substrings/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=palindromic+substrings+leetcode",
+    java: "https://github.com/search?q=palindromic+substrings+leetcode+java&type=code",
+  },
+  {
+    id: "regular-expression-matching",
+    title: "Regular Expression Matching",
+    topic: "DP",
+    difficulty: "Hard",
+    solution: "DP on pattern/text with * and . rules.",
+    solutionLink:
+      "https://leetcode.com/problems/regular-expression-matching/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=regular+expression+matching+leetcode",
+    java: "https://github.com/search?q=regular+expression+matching+leetcode+java&type=code",
+  },
+  {
+    id: "wildcard-matching",
+    title: "Wildcard Matching",
+    topic: "DP",
+    difficulty: "Hard",
+    solution: "DP with ? and * transitions.",
+    solutionLink: "https://leetcode.com/problems/wildcard-matching/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=wildcard+matching+leetcode",
+    java: "https://github.com/search?q=wildcard+matching+leetcode+java&type=code",
+  },
+  {
+    id: "burst-balloons",
+    title: "Burst Balloons",
+    topic: "DP",
+    difficulty: "Hard",
+    solution: "Interval DP; choose last balloon to burst.",
+    solutionLink: "https://leetcode.com/problems/burst-balloons/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=burst+balloons+leetcode",
+    java: "https://github.com/search?q=burst+balloons+leetcode+java&type=code",
+  },
+  {
+    id: "distinct-subsequences",
+    title: "Distinct Subsequences",
+    topic: "DP",
+    difficulty: "Hard",
+    solution: "DP counting ways to form target from source.",
+    solutionLink:
+      "https://leetcode.com/problems/distinct-subsequences/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=distinct+subsequences+leetcode",
+    java: "https://github.com/search?q=distinct+subsequences+leetcode+java&type=code",
+  },
+  {
+    id: "dungeon-game",
+    title: "Dungeon Game",
+    topic: "DP",
+    difficulty: "Hard",
+    solution: "Reverse DP for minimum health needed.",
+    solutionLink: "https://leetcode.com/problems/dungeon-game/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=dungeon+game+leetcode",
+    java: "https://github.com/search?q=dungeon+game+leetcode+java&type=code",
+  },
+  {
+    id: "scramble-string",
+    title: "Scramble String",
+    topic: "DP",
+    difficulty: "Hard",
+    solution: "DP on substrings with split checks.",
+    solutionLink: "https://leetcode.com/problems/scramble-string/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=scramble+string+leetcode",
+    java: "https://github.com/search?q=scramble+string+leetcode+java&type=code",
+  },
+  {
+    id: "longest-valid-parentheses",
+    title: "Longest Valid Parentheses",
+    topic: "DP",
+    difficulty: "Hard",
+    solution: "DP or stack; track longest valid ending at i.",
+    solutionLink:
+      "https://leetcode.com/problems/longest-valid-parentheses/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=longest+valid+parentheses+leetcode",
+    java: "https://github.com/search?q=longest+valid+parentheses+leetcode+java&type=code",
+  },
+  {
+    id: "cherry-pickup",
+    title: "Cherry Pickup",
+    topic: "DP",
+    difficulty: "Hard",
+    solution: "3D DP for two traversals in grid.",
+    solutionLink: "https://leetcode.com/problems/cherry-pickup/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=cherry+pickup+leetcode",
+    java: "https://github.com/search?q=cherry+pickup+leetcode+java&type=code",
+  },
+  {
+    id: "shortest-common-supersequence",
+    title: "Shortest Common Supersequence",
+    topic: "DP",
+    difficulty: "Hard",
+    solution: "DP on LCS to build the shortest supersequence.",
+    solutionLink:
+      "https://leetcode.com/problems/shortest-common-supersequence/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=shortest+common+supersequence+leetcode",
+    java: "https://github.com/search?q=shortest+common+supersequence+leetcode+java&type=code",
+  },
+];
+const TREE_ITEMS: DsaItem[] = [
+  {
+    id: "maximum-depth-of-binary-tree",
+    title: "Maximum Depth of Binary Tree",
+    topic: "Tree",
+    difficulty: "Easy",
+    solution: "DFS height of left/right + 1.",
+    solutionLink:
+      "https://leetcode.com/problems/maximum-depth-of-binary-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+depth+of+binary+tree+leetcode",
+    java: "https://github.com/search?q=maximum+depth+of+binary+tree+leetcode+java&type=code",
+  },
+  {
+    id: "same-tree",
+    title: "Same Tree",
+    topic: "Tree",
+    difficulty: "Easy",
+    solution: "DFS both trees; compare node values and structure.",
+    solutionLink: "https://leetcode.com/problems/same-tree/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=same+tree+leetcode",
+    java: "https://github.com/search?q=same+tree+leetcode+java&type=code",
+  },
+  {
+    id: "invert-binary-tree",
+    title: "Invert Binary Tree",
+    topic: "Tree",
+    difficulty: "Easy",
+    solution: "Swap left/right at each node.",
+    solutionLink: "https://leetcode.com/problems/invert-binary-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=invert+binary+tree+leetcode",
+    java: "https://github.com/search?q=invert+binary+tree+leetcode+java&type=code",
+  },
+  {
+    id: "symmetric-tree",
+    title: "Symmetric Tree",
+    topic: "Tree",
+    difficulty: "Easy",
+    solution: "Check mirror symmetry with DFS.",
+    solutionLink: "https://leetcode.com/problems/symmetric-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=symmetric+tree+leetcode",
+    java: "https://github.com/search?q=symmetric+tree+leetcode+java&type=code",
+  },
+  {
+    id: "path-sum",
+    title: "Path Sum",
+    topic: "Tree",
+    difficulty: "Easy",
+    solution: "DFS subtract target sum along the path.",
+    solutionLink: "https://leetcode.com/problems/path-sum/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=path+sum+leetcode",
+    java: "https://github.com/search?q=path+sum+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-depth-of-binary-tree",
+    title: "Minimum Depth of Binary Tree",
+    topic: "Tree",
+    difficulty: "Easy",
+    solution: "BFS for first leaf or DFS with care on nulls.",
+    solutionLink:
+      "https://leetcode.com/problems/minimum-depth-of-binary-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+depth+of+binary+tree+leetcode",
+    java: "https://github.com/search?q=minimum+depth+of+binary+tree+leetcode+java&type=code",
+  },
+  {
+    id: "balanced-binary-tree",
+    title: "Balanced Binary Tree",
+    topic: "Tree",
+    difficulty: "Easy",
+    solution: "Postorder height check with early fail.",
+    solutionLink:
+      "https://leetcode.com/problems/balanced-binary-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=balanced+binary+tree+leetcode",
+    java: "https://github.com/search?q=balanced+binary+tree+leetcode+java&type=code",
+  },
+  {
+    id: "diameter-of-binary-tree",
+    title: "Diameter of Binary Tree",
+    topic: "Tree",
+    difficulty: "Easy",
+    solution: "DFS height; track max left+right.",
+    solutionLink:
+      "https://leetcode.com/problems/diameter-of-binary-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=diameter+of+binary+tree+leetcode",
+    java: "https://github.com/search?q=diameter+of+binary+tree+leetcode+java&type=code",
+  },
+  {
+    id: "merge-two-binary-trees",
+    title: "Merge Two Binary Trees",
+    topic: "Tree",
+    difficulty: "Easy",
+    solution: "DFS merge nodes recursively.",
+    solutionLink:
+      "https://leetcode.com/problems/merge-two-binary-trees/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=merge+two+binary+trees+leetcode",
+    java: "https://github.com/search?q=merge+two+binary+trees+leetcode+java&type=code",
+  },
+  {
+    id: "subtree-of-another-tree",
+    title: "Subtree of Another Tree",
+    topic: "Tree",
+    difficulty: "Easy",
+    solution: "Traverse main tree and match subtrees.",
+    solutionLink:
+      "https://leetcode.com/problems/subtree-of-another-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=subtree+of+another+tree+leetcode",
+    java: "https://github.com/search?q=subtree+of+another+tree+leetcode+java&type=code",
+  },
+  {
+    id: "binary-tree-level-order-traversal",
+    title: "Binary Tree Level Order Traversal",
+    topic: "Tree",
+    difficulty: "Medium",
+    solution: "BFS with queue per level.",
+    solutionLink:
+      "https://leetcode.com/problems/binary-tree-level-order-traversal/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=binary+tree+level+order+traversal+leetcode",
+    java: "https://github.com/search?q=binary+tree+level+order+traversal+leetcode+java&type=code",
+  },
+  {
+    id: "binary-tree-zigzag-level-order-traversal",
+    title: "Binary Tree Zigzag Level Order Traversal",
+    topic: "Tree",
+    difficulty: "Medium",
+    solution: "BFS and reverse alternate levels.",
+    solutionLink:
+      "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=binary+tree+zigzag+level+order+traversal+leetcode",
+    java: "https://github.com/search?q=binary+tree+zigzag+level+order+traversal+leetcode+java&type=code",
+  },
+  {
+    id: "binary-tree-right-side-view",
+    title: "Binary Tree Right Side View",
+    topic: "Tree",
+    difficulty: "Medium",
+    solution: "BFS, take last node at each level.",
+    solutionLink:
+      "https://leetcode.com/problems/binary-tree-right-side-view/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=binary+tree+right+side+view+leetcode",
+    java: "https://github.com/search?q=binary+tree+right+side+view+leetcode+java&type=code",
+  },
+  {
+    id: "flatten-binary-tree-to-linked-list",
+    title: "Flatten Binary Tree to Linked List",
+    topic: "Tree",
+    difficulty: "Medium",
+    solution: "Reverse preorder; rewire pointers.",
+    solutionLink:
+      "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=flatten+binary+tree+to+linked+list+leetcode",
+    java: "https://github.com/search?q=flatten+binary+tree+to+linked+list+leetcode+java&type=code",
+  },
+  {
+    id: "path-sum-ii",
+    title: "Path Sum II",
+    topic: "Tree",
+    difficulty: "Medium",
+    solution: "DFS with path tracking and backtracking.",
+    solutionLink: "https://leetcode.com/problems/path-sum-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=path+sum+ii+leetcode",
+    java: "https://github.com/search?q=path+sum+ii+leetcode+java&type=code",
+  },
+  {
+    id: "binary-tree-maximum-path-sum",
+    title: "Binary Tree Maximum Path Sum",
+    topic: "Tree",
+    difficulty: "Medium",
+    solution: "Postorder; compute max gain at each node.",
+    solutionLink:
+      "https://leetcode.com/problems/binary-tree-maximum-path-sum/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=binary+tree+maximum+path+sum+leetcode",
+    java: "https://github.com/search?q=binary+tree+maximum+path+sum+leetcode+java&type=code",
+  },
+  {
+    id: "sum-root-to-leaf-numbers",
+    title: "Sum Root to Leaf Numbers",
+    topic: "Tree",
+    difficulty: "Medium",
+    solution: "DFS with running number.",
+    solutionLink:
+      "https://leetcode.com/problems/sum-root-to-leaf-numbers/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=sum+root+to+leaf+numbers+leetcode",
+    java: "https://github.com/search?q=sum+root+to+leaf+numbers+leetcode+java&type=code",
+  },
+  {
+    id: "house-robber-iii",
+    title: "House Robber III",
+    topic: "Tree",
+    difficulty: "Medium",
+    solution: "Tree DP: rob vs skip per node.",
+    solutionLink: "https://leetcode.com/problems/house-robber-iii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=house+robber+iii+leetcode",
+    java: "https://github.com/search?q=house+robber+iii+leetcode+java&type=code",
+  },
+  {
+    id: "binary-tree-paths",
+    title: "Binary Tree Paths",
+    topic: "Tree",
+    difficulty: "Medium",
+    solution: "DFS accumulate path strings.",
+    solutionLink: "https://leetcode.com/problems/binary-tree-paths/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=binary+tree+paths+leetcode",
+    java: "https://github.com/search?q=binary+tree+paths+leetcode+java&type=code",
+  },
+  {
+    id: "all-nodes-distance-k-in-binary-tree",
+    title: "All Nodes Distance K in Binary Tree",
+    topic: "Tree",
+    difficulty: "Medium",
+    solution: "Parent map + BFS from target.",
+    solutionLink:
+      "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=all+nodes+distance+k+in+binary+tree+leetcode",
+    java: "https://github.com/search?q=all+nodes+distance+k+in+binary+tree+leetcode+java&type=code",
+  },
+  {
+    id: "construct-binary-tree-from-preorder-and-inorder-traversal",
+    title: "Construct Binary Tree from Preorder and Inorder Traversal",
+    topic: "Tree",
+    difficulty: "Medium",
+    solution: "Use preorder root index with inorder splits.",
+    solutionLink:
+      "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=construct+binary+tree+from+preorder+and+inorder+traversal+leetcode",
+    java: "https://github.com/search?q=construct+binary+tree+from+preorder+and+inorder+traversal+leetcode+java&type=code",
+  },
+  {
+    id: "construct-binary-tree-from-postorder-and-inorder-traversal",
+    title: "Construct Binary Tree from Postorder and Inorder Traversal",
+    topic: "Tree",
+    difficulty: "Medium",
+    solution: "Use postorder root index with inorder splits.",
+    solutionLink:
+      "https://leetcode.com/problems/construct-binary-tree-from-postorder-and-inorder-traversal/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=construct+binary+tree+from+postorder+and+inorder+traversal+leetcode",
+    java: "https://github.com/search?q=construct+binary+tree+from+postorder+and+inorder+traversal+leetcode+java&type=code",
+  },
+  {
+    id: "count-complete-tree-nodes",
+    title: "Count Complete Tree Nodes",
+    topic: "Tree",
+    difficulty: "Medium",
+    solution: "Binary search on last level + height.",
+    solutionLink:
+      "https://leetcode.com/problems/count-complete-tree-nodes/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=count+complete+tree+nodes+leetcode",
+    java: "https://github.com/search?q=count+complete+tree+nodes+leetcode+java&type=code",
+  },
+  {
+    id: "find-duplicate-subtrees",
+    title: "Find Duplicate Subtrees",
+    topic: "Tree",
+    difficulty: "Medium",
+    solution: "Serialize subtrees and count duplicates.",
+    solutionLink:
+      "https://leetcode.com/problems/find-duplicate-subtrees/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+duplicate+subtrees+leetcode",
+    java: "https://github.com/search?q=find+duplicate+subtrees+leetcode+java&type=code",
+  },
+  {
+    id: "add-one-row-to-tree",
+    title: "Add One Row to Tree",
+    topic: "Tree",
+    difficulty: "Medium",
+    solution: "BFS/DFS to depth-1 then insert nodes.",
+    solutionLink: "https://leetcode.com/problems/add-one-row-to-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=add+one+row+to+tree+leetcode",
+    java: "https://github.com/search?q=add+one+row+to+tree+leetcode+java&type=code",
+  },
+  {
+    id: "serialize-and-deserialize-binary-tree",
+    title: "Serialize and Deserialize Binary Tree",
+    topic: "Tree",
+    difficulty: "Hard",
+    solution: "DFS/BFS encode with null markers.",
+    solutionLink:
+      "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=serialize+and+deserialize+binary+tree+leetcode",
+    java: "https://github.com/search?q=serialize+and+deserialize+binary+tree+leetcode+java&type=code",
+  },
+  {
+    id: "binary-tree-cameras",
+    title: "Binary Tree Cameras",
+    topic: "Tree",
+    difficulty: "Hard",
+    solution: "Greedy DP states on postorder.",
+    solutionLink:
+      "https://leetcode.com/problems/binary-tree-cameras/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=binary+tree+cameras+leetcode",
+    java: "https://github.com/search?q=binary+tree+cameras+leetcode+java&type=code",
+  },
+  {
+    id: "vertical-order-traversal-of-a-binary-tree",
+    title: "Vertical Order Traversal of a Binary Tree",
+    topic: "Tree",
+    difficulty: "Hard",
+    solution: "DFS with column/row sorting.",
+    solutionLink:
+      "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=vertical+order+traversal+of+a+binary+tree+leetcode",
+    java: "https://github.com/search?q=vertical+order+traversal+of+a+binary+tree+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-sum-bst-in-binary-tree",
+    title: "Maximum Sum BST in Binary Tree",
+    topic: "Tree",
+    difficulty: "Hard",
+    solution: "Postorder DP with BST validity and sums.",
+    solutionLink:
+      "https://leetcode.com/problems/maximum-sum-bst-in-binary-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+sum+bst+in+binary+tree+leetcode",
+    java: "https://github.com/search?q=maximum+sum+bst+in+binary+tree+leetcode+java&type=code",
+  },
+  {
+    id: "recover-binary-tree-from-preorder-traversal",
+    title: "Recover Binary Tree from Preorder Traversal",
+    topic: "Tree",
+    difficulty: "Hard",
+    solution: "Parse depth markers, rebuild with stack.",
+    solutionLink:
+      "https://leetcode.com/problems/recover-a-tree-from-preorder-traversal/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=recover+binary+tree+from+preorder+traversal+leetcode",
+    java: "https://github.com/search?q=recover+binary+tree+from+preorder+traversal+leetcode+java&type=code",
+  },
+  {
+    id: "binary-tree-coloring-game",
+    title: "Binary Tree Coloring Game",
+    topic: "Tree",
+    difficulty: "Hard",
+    solution: "Count left/right subtree sizes to decide move.",
+    solutionLink:
+      "https://leetcode.com/problems/binary-tree-coloring-game/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=binary+tree+coloring+game+leetcode",
+    java: "https://github.com/search?q=binary+tree+coloring+game+leetcode+java&type=code",
+  },
+  {
+    id: "height-of-binary-tree-after-subtree-removal-queries",
+    title: "Height of Binary Tree After Subtree Removal Queries",
+    topic: "Tree",
+    difficulty: "Hard",
+    solution: "Precompute heights and reroot-like answers.",
+    solutionLink:
+      "https://leetcode.com/problems/height-of-binary-tree-after-subtree-removal-queries/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=height+of+binary+tree+after+subtree+removal+queries+leetcode",
+    java: "https://github.com/search?q=height+of+binary+tree+after+subtree+removal+queries+leetcode+java&type=code",
+  },
+  {
+    id: "smallest-subtree-with-all-the-deepest-nodes",
+    title: "Smallest Subtree with all the Deepest Nodes",
+    topic: "Tree",
+    difficulty: "Hard",
+    solution: "DFS return depth and candidate node.",
+    solutionLink:
+      "https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=smallest+subtree+with+all+the+deepest+nodes+leetcode",
+    java: "https://github.com/search?q=smallest+subtree+with+all+the+deepest+nodes+leetcode+java&type=code",
+  },
+];
+
+const GREEDY_ITEMS: DsaItem[] = [
+  {
+    id: "assign-cookies",
+    title: "Assign Cookies",
+    topic: "Greedy",
+    difficulty: "Easy",
+    solution: "Sort and greedily match smallest cookie to smallest child.",
+    solutionLink: "https://leetcode.com/problems/assign-cookies/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=assign+cookies+leetcode",
+    java: "https://github.com/search?q=assign+cookies+leetcode+java&type=code",
+  },
+  {
+    id: "best-time-to-buy-and-sell-stock-ii",
+    title: "Best Time to Buy and Sell Stock II",
+    topic: "Greedy",
+    difficulty: "Easy",
+    solution: "Sum all positive price differences.",
+    solutionLink:
+      "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=best+time+to+buy+and+sell+stock+ii+leetcode",
+    java: "https://github.com/search?q=best+time+to+buy+and+sell+stock+ii+leetcode+java&type=code",
+  },
+  {
+    id: "lemonade-change",
+    title: "Lemonade Change",
+    topic: "Greedy",
+    difficulty: "Easy",
+    solution: "Maintain counts of $5 and $10 to give change.",
+    solutionLink: "https://leetcode.com/problems/lemonade-change/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=lemonade+change+leetcode",
+    java: "https://github.com/search?q=lemonade+change+leetcode+java&type=code",
+  },
+  {
+    id: "can-place-flowers",
+    title: "Can Place Flowers",
+    topic: "Greedy",
+    difficulty: "Easy",
+    solution: "Greedily place where neighbors are empty.",
+    solutionLink: "https://leetcode.com/problems/can-place-flowers/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=can+place+flowers+leetcode",
+    java: "https://github.com/search?q=can+place+flowers+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-subarray-greedy",
+    title: "Maximum Subarray",
+    topic: "Greedy",
+    difficulty: "Easy",
+    solution: "Kadane’s algorithm; keep max ending here.",
+    solutionLink: "https://leetcode.com/problems/maximum-subarray/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+subarray+leetcode",
+    java: "https://github.com/search?q=maximum+subarray+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-number-of-moves-to-seat-everyone",
+    title: "Minimum Number of Moves to Seat Everyone",
+    topic: "Greedy",
+    difficulty: "Easy",
+    solution: "Sort seats and students; sum absolute diffs.",
+    solutionLink:
+      "https://leetcode.com/problems/minimum-number-of-moves-to-seat-everyone/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+number+of+moves+to+seat+everyone+leetcode",
+    java: "https://github.com/search?q=minimum+number+of+moves+to+seat+everyone+leetcode+java&type=code",
+  },
+  {
+    id: "largest-perimeter-triangle",
+    title: "Largest Perimeter Triangle",
+    topic: "Greedy",
+    difficulty: "Easy",
+    solution: "Sort descending; first valid triplet works.",
+    solutionLink:
+      "https://leetcode.com/problems/largest-perimeter-triangle/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=largest+perimeter+triangle+leetcode",
+    java: "https://github.com/search?q=largest+perimeter+triangle+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-units-on-a-truck",
+    title: "Maximum Units on a Truck",
+    topic: "Greedy",
+    difficulty: "Easy",
+    solution: "Sort by units per box descending.",
+    solutionLink:
+      "https://leetcode.com/problems/maximum-units-on-a-truck/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+units+on+a+truck+leetcode",
+    java: "https://github.com/search?q=maximum+units+on+a+truck+leetcode+java&type=code",
+  },
+  {
+    id: "split-a-string-in-balanced-strings",
+    title: "Split a String in Balanced Strings",
+    topic: "Greedy",
+    difficulty: "Easy",
+    solution: "Count balance; increment result when zero.",
+    solutionLink:
+      "https://leetcode.com/problems/split-a-string-in-balanced-strings/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=split+a+string+in+balanced+strings+leetcode",
+    java: "https://github.com/search?q=split+a+string+in+balanced+strings+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-absolute-difference",
+    title: "Minimum Absolute Difference",
+    topic: "Greedy",
+    difficulty: "Easy",
+    solution: "Sort and scan adjacent differences.",
+    solutionLink:
+      "https://leetcode.com/problems/minimum-absolute-difference/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+absolute+difference+leetcode",
+    java: "https://github.com/search?q=minimum+absolute+difference+leetcode+java&type=code",
+  },
+  {
+    id: "jump-game-greedy",
+    title: "Jump Game",
+    topic: "Greedy",
+    difficulty: "Medium",
+    solution: "Track farthest reachable index.",
+    solutionLink: "https://leetcode.com/problems/jump-game/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=jump+game+leetcode",
+    java: "https://github.com/search?q=jump+game+leetcode+java&type=code",
+  },
+  {
+    id: "jump-game-ii-greedy",
+    title: "Jump Game II",
+    topic: "Greedy",
+    difficulty: "Medium",
+    solution: "Greedy BFS levels with current range.",
+    solutionLink: "https://leetcode.com/problems/jump-game-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=jump+game+ii+leetcode",
+    java: "https://github.com/search?q=jump+game+ii+leetcode+java&type=code",
+  },
+  {
+    id: "gas-station",
+    title: "Gas Station",
+    topic: "Greedy",
+    difficulty: "Medium",
+    solution: "Reset start when tank drops below zero.",
+    solutionLink: "https://leetcode.com/problems/gas-station/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=gas+station+leetcode",
+    java: "https://github.com/search?q=gas+station+leetcode+java&type=code",
+  },
+  {
+    id: "partition-labels",
+    title: "Partition Labels",
+    topic: "Greedy",
+    difficulty: "Medium",
+    solution: "Track last occurrence; cut when current end met.",
+    solutionLink: "https://leetcode.com/problems/partition-labels/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=partition+labels+leetcode",
+    java: "https://github.com/search?q=partition+labels+leetcode+java&type=code",
+  },
+  {
+    id: "non-overlapping-intervals",
+    title: "Non-overlapping Intervals",
+    topic: "Greedy",
+    difficulty: "Medium",
+    solution: "Sort by end; remove overlaps greedily.",
+    solutionLink:
+      "https://leetcode.com/problems/non-overlapping-intervals/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=non+overlapping+intervals+leetcode",
+    java: "https://github.com/search?q=non+overlapping+intervals+leetcode+java&type=code",
+  },
+  {
+    id: "merge-intervals",
+    title: "Merge Intervals",
+    topic: "Greedy",
+    difficulty: "Medium",
+    solution: "Sort by start; merge when overlapping.",
+    solutionLink: "https://leetcode.com/problems/merge-intervals/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=merge+intervals+leetcode",
+    java: "https://github.com/search?q=merge+intervals+leetcode+java&type=code",
+  },
+  {
+    id: "insert-interval",
+    title: "Insert Interval",
+    topic: "Greedy",
+    difficulty: "Medium",
+    solution: "Merge overlaps while inserting new interval.",
+    solutionLink: "https://leetcode.com/problems/insert-interval/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=insert+interval+leetcode",
+    java: "https://github.com/search?q=insert+interval+leetcode+java&type=code",
+  },
+  {
+    id: "task-scheduler",
+    title: "Task Scheduler",
+    topic: "Greedy",
+    difficulty: "Medium",
+    solution: "Greedy by most frequent; compute idle slots.",
+    solutionLink: "https://leetcode.com/problems/task-scheduler/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=task+scheduler+leetcode",
+    java: "https://github.com/search?q=task+scheduler+leetcode+java&type=code",
+  },
+  {
+    id: "reorganize-string",
+    title: "Reorganize String",
+    topic: "Greedy",
+    difficulty: "Medium",
+    solution: "Greedy with max-heap placement.",
+    solutionLink: "https://leetcode.com/problems/reorganize-string/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=reorganize+string+leetcode",
+    java: "https://github.com/search?q=reorganize+string+leetcode+java&type=code",
+  },
+  {
+    id: "wiggle-subsequence",
+    title: "Wiggle Subsequence",
+    topic: "Greedy",
+    difficulty: "Medium",
+    solution: "Greedy count direction changes.",
+    solutionLink:
+      "https://leetcode.com/problems/wiggle-subsequence/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=wiggle+subsequence+leetcode",
+    java: "https://github.com/search?q=wiggle+subsequence+leetcode+java&type=code",
+  },
+  {
+    id: "queue-reconstruction-by-height",
+    title: "Queue Reconstruction by Height",
+    topic: "Greedy",
+    difficulty: "Medium",
+    solution: "Sort by height desc, insert by k.",
+    solutionLink:
+      "https://leetcode.com/problems/queue-reconstruction-by-height/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=queue+reconstruction+by+height+leetcode",
+    java: "https://github.com/search?q=queue+reconstruction+by+height+leetcode+java&type=code",
+  },
+  {
+    id: "candy",
+    title: "Candy",
+    topic: "Greedy",
+    difficulty: "Medium",
+    solution: "Two-pass greedy with left/right constraints.",
+    solutionLink: "https://leetcode.com/problems/candy/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=candy+leetcode",
+    java: "https://github.com/search?q=candy+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-number-of-arrows-to-burst-balloons",
+    title: "Minimum Number of Arrows to Burst Balloons",
+    topic: "Greedy",
+    difficulty: "Medium",
+    solution: "Sort by end; shoot arrows greedily.",
+    solutionLink:
+      "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+number+of+arrows+to+burst+balloons+leetcode",
+    java: "https://github.com/search?q=minimum+number+of+arrows+to+burst+balloons+leetcode+java&type=code",
+  },
+  {
+    id: "hand-of-straights",
+    title: "Hand of Straights",
+    topic: "Greedy",
+    difficulty: "Medium",
+    solution: "Greedy with ordered counts of cards.",
+    solutionLink: "https://leetcode.com/problems/hand-of-straights/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=hand+of+straights+leetcode",
+    java: "https://github.com/search?q=hand+of+straights+leetcode+java&type=code",
+  },
+  {
+    id: "remove-k-digits",
+    title: "Remove K Digits",
+    topic: "Greedy",
+    difficulty: "Medium",
+    solution: "Monotonic stack to remove larger digits first.",
+    solutionLink: "https://leetcode.com/problems/remove-k-digits/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=remove+k+digits+leetcode",
+    java: "https://github.com/search?q=remove+k+digits+leetcode+java&type=code",
+  },
+  {
+    id: "jump-game-iv",
+    title: "Jump Game IV",
+    topic: "Greedy",
+    difficulty: "Hard",
+    solution: "Graph/BFS with value jumps; optimize with visited groups.",
+    solutionLink: "https://leetcode.com/problems/jump-game-iv/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=jump+game+iv+leetcode",
+    java: "https://github.com/search?q=jump+game+iv+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-performance-of-a-team",
+    title: "Maximum Performance of a Team",
+    topic: "Greedy",
+    difficulty: "Hard",
+    solution: "Sort by efficiency; keep top speeds in heap.",
+    solutionLink:
+      "https://leetcode.com/problems/maximum-performance-of-a-team/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+performance+of+a+team+leetcode",
+    java: "https://github.com/search?q=maximum+performance+of+a+team+leetcode+java&type=code",
+  },
+  {
+    id: "create-maximum-number",
+    title: "Create Maximum Number",
+    topic: "Greedy",
+    difficulty: "Hard",
+    solution: "Greedy pick + merge with max subsequences.",
+    solutionLink:
+      "https://leetcode.com/problems/create-maximum-number/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=create+maximum+number+leetcode",
+    java: "https://github.com/search?q=create+maximum+number+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-number-of-refueling-stops",
+    title: "Minimum Number of Refueling Stops",
+    topic: "Greedy",
+    difficulty: "Hard",
+    solution: "Max-heap of fuels; refuel when needed.",
+    solutionLink:
+      "https://leetcode.com/problems/minimum-number-of-refueling-stops/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+number+of+refueling+stops+leetcode",
+    java: "https://github.com/search?q=minimum+number+of+refueling+stops+leetcode+java&type=code",
+  },
+  {
+    id: "course-schedule-iii",
+    title: "Course Schedule III",
+    topic: "Greedy",
+    difficulty: "Hard",
+    solution: "Sort by end; keep durations in max-heap.",
+    solutionLink:
+      "https://leetcode.com/problems/course-schedule-iii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=course+schedule+iii+leetcode",
+    java: "https://github.com/search?q=course+schedule+iii+leetcode+java&type=code",
+  },
+  {
+    id: "ipo",
+    title: "IPO",
+    topic: "Greedy",
+    difficulty: "Hard",
+    solution: "Select projects by profit with max-heap as capital grows.",
+    solutionLink: "https://leetcode.com/problems/ipo/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=ipo+leetcode",
+    java: "https://github.com/search?q=ipo+leetcode+java&type=code",
+  },
+  {
+    id: "candy-distribution-ii",
+    title: "Candy Distribution II (advanced variant)",
+    topic: "Greedy",
+    difficulty: "Hard",
+    solution: "Greedy distribution with ordering constraints.",
+    solutionLink:
+      "https://leetcode.com/problems/candy/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=candy+distribution+advanced+variant",
+    java: "https://github.com/search?q=candy+distribution+ii+leetcode+java&type=code",
+  },
+  {
+    id: "patching-array",
+    title: "Patching Array",
+    topic: "Greedy",
+    difficulty: "Hard",
+    solution: "Greedy extend coverage with minimal patches.",
+    solutionLink: "https://leetcode.com/problems/patching-array/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=patching+array+leetcode",
+    java: "https://github.com/search?q=patching+array+leetcode+java&type=code",
+  },
+];
+
+const GRAPH_ITEMS: DsaItem[] = [
+  {
+    id: "find-if-path-exists-in-graph",
+    title: "Find if Path Exists in Graph",
+    topic: "Graph",
+    difficulty: "Easy",
+    solution: "DFS/BFS to test reachability.",
+    solutionLink:
+      "https://leetcode.com/problems/find-if-path-exists-in-graph/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+if+path+exists+in+graph+leetcode",
+    java: "https://github.com/search?q=find+if+path+exists+in+graph+leetcode+java&type=code",
+  },
+  {
+    id: "find-the-town-judge",
+    title: "Find the Town Judge",
+    topic: "Graph",
+    difficulty: "Easy",
+    solution: "Count indegree/outdegree; judge has indegree n-1.",
+    solutionLink: "https://leetcode.com/problems/find-the-town-judge/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+the+town+judge+leetcode",
+    java: "https://github.com/search?q=find+the+town+judge+leetcode+java&type=code",
+  },
+  {
+    id: "number-of-provinces",
+    title: "Number of Provinces",
+    topic: "Graph",
+    difficulty: "Easy",
+    solution: "Count connected components with DFS/BFS.",
+    solutionLink: "https://leetcode.com/problems/number-of-provinces/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=number+of+provinces+leetcode",
+    java: "https://github.com/search?q=number+of+provinces+leetcode+java&type=code",
+  },
+  {
+    id: "flood-fill",
+    title: "Flood Fill",
+    topic: "Graph",
+    difficulty: "Easy",
+    solution: "BFS/DFS repaint connected pixels.",
+    solutionLink: "https://leetcode.com/problems/flood-fill/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=flood+fill+leetcode",
+    java: "https://github.com/search?q=flood+fill+leetcode+java&type=code",
+  },
+  {
+    id: "find-center-of-star-graph",
+    title: "Find Center of Star Graph",
+    topic: "Graph",
+    difficulty: "Easy",
+    solution: "Center is common node in first two edges.",
+    solutionLink:
+      "https://leetcode.com/problems/find-center-of-star-graph/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+center+of+star+graph+leetcode",
+    java: "https://github.com/search?q=find+center+of+star+graph+leetcode+java&type=code",
+  },
+  {
+    id: "valid-path",
+    title: "Valid Path in Undirected Graph",
+    topic: "Graph",
+    difficulty: "Easy",
+    solution: "Union-Find or BFS from source.",
+    solutionLink: "https://leetcode.com/problems/find-if-path-exists-in-graph/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=valid+path+in+undirected+graph+leetcode",
+    java: "https://github.com/search?q=valid+path+in+undirected+graph+leetcode+java&type=code",
+  },
+  {
+    id: "keys-and-rooms",
+    title: "Keys and Rooms",
+    topic: "Graph",
+    difficulty: "Easy",
+    solution: "DFS/BFS from room 0; check visited count.",
+    solutionLink: "https://leetcode.com/problems/keys-and-rooms/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=keys+and+rooms+leetcode",
+    java: "https://github.com/search?q=keys+and+rooms+leetcode+java&type=code",
+  },
+  {
+    id: "employee-importance",
+    title: "Employee Importance",
+    topic: "Graph",
+    difficulty: "Easy",
+    solution: "Build map; DFS sum importance values.",
+    solutionLink: "https://leetcode.com/problems/employee-importance/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=employee+importance+leetcode",
+    java: "https://github.com/search?q=employee+importance+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-depth-of-binary-tree-graph-bfs",
+    title: "Minimum Depth of Binary Tree",
+    topic: "Graph",
+    difficulty: "Easy",
+    solution: "BFS to first leaf (graph-style thinking).",
+    solutionLink:
+      "https://leetcode.com/problems/minimum-depth-of-binary-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+depth+of+binary+tree+leetcode",
+    java: "https://github.com/search?q=minimum+depth+of+binary+tree+leetcode+java&type=code",
+  },
+  {
+    id: "clone-graph",
+    title: "Clone Graph",
+    topic: "Graph",
+    difficulty: "Easy",
+    solution: "DFS/BFS with hashmap old->new nodes.",
+    solutionLink: "https://leetcode.com/problems/clone-graph/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=clone+graph+leetcode",
+    java: "https://github.com/search?q=clone+graph+leetcode+java&type=code",
+  },
+  {
+    id: "number-of-islands",
+    title: "Number of Islands",
+    topic: "Graph",
+    difficulty: "Medium",
+    solution: "DFS/BFS over grid components.",
+    solutionLink: "https://leetcode.com/problems/number-of-islands/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=number+of+islands+leetcode",
+    java: "https://github.com/search?q=number+of+islands+leetcode+java&type=code",
+  },
+  {
+    id: "course-schedule",
+    title: "Course Schedule",
+    topic: "Graph",
+    difficulty: "Medium",
+    solution: "Detect cycle with DFS or Kahn’s BFS.",
+    solutionLink: "https://leetcode.com/problems/course-schedule/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=course+schedule+leetcode",
+    java: "https://github.com/search?q=course+schedule+leetcode+java&type=code",
+  },
+  {
+    id: "course-schedule-ii",
+    title: "Course Schedule II",
+    topic: "Graph",
+    difficulty: "Medium",
+    solution: "Topological sort for valid ordering.",
+    solutionLink: "https://leetcode.com/problems/course-schedule-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=course+schedule+ii+leetcode",
+    java: "https://github.com/search?q=course+schedule+ii+leetcode+java&type=code",
+  },
+  {
+    id: "rotting-oranges",
+    title: "Rotting Oranges",
+    topic: "Graph",
+    difficulty: "Medium",
+    solution: "Multi-source BFS over grid.",
+    solutionLink: "https://leetcode.com/problems/rotting-oranges/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=rotting+oranges+leetcode",
+    java: "https://github.com/search?q=rotting+oranges+leetcode+java&type=code",
+  },
+  {
+    id: "pacific-atlantic-water-flow",
+    title: "Pacific Atlantic Water Flow",
+    topic: "Graph",
+    difficulty: "Medium",
+    solution: "Reverse BFS/DFS from oceans to cells.",
+    solutionLink:
+      "https://leetcode.com/problems/pacific-atlantic-water-flow/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=pacific+atlantic+water+flow+leetcode",
+    java: "https://github.com/search?q=pacific+atlantic+water+flow+leetcode+java&type=code",
+  },
+  {
+    id: "surrounded-regions",
+    title: "Surrounded Regions",
+    topic: "Graph",
+    difficulty: "Medium",
+    solution: "Mark border-connected regions via BFS/DFS.",
+    solutionLink: "https://leetcode.com/problems/surrounded-regions/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=surrounded+regions+leetcode",
+    java: "https://github.com/search?q=surrounded+regions+leetcode+java&type=code",
+  },
+  {
+    id: "word-ladder",
+    title: "Word Ladder",
+    topic: "Graph",
+    difficulty: "Medium",
+    solution: "BFS through wildcard adjacency.",
+    solutionLink: "https://leetcode.com/problems/word-ladder/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=word+ladder+leetcode",
+    java: "https://github.com/search?q=word+ladder+leetcode+java&type=code",
+  },
+  {
+    id: "graph-valid-tree",
+    title: "Graph Valid Tree",
+    topic: "Graph",
+    difficulty: "Medium",
+    solution: "Check connected + edges = n-1.",
+    solutionLink: "https://leetcode.com/problems/graph-valid-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=graph+valid+tree+leetcode",
+    java: "https://github.com/search?q=graph+valid+tree+leetcode+java&type=code",
+  },
+  {
+    id: "network-delay-time",
+    title: "Network Delay Time",
+    topic: "Graph",
+    difficulty: "Medium",
+    solution: "Dijkstra shortest paths from source.",
+    solutionLink: "https://leetcode.com/problems/network-delay-time/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=network+delay+time+leetcode",
+    java: "https://github.com/search?q=network+delay+time+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-height-trees",
+    title: "Minimum Height Trees",
+    topic: "Graph",
+    difficulty: "Medium",
+    solution: "Trim leaves layer by layer.",
+    solutionLink: "https://leetcode.com/problems/minimum-height-trees/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+height+trees+leetcode",
+    java: "https://github.com/search?q=minimum+height+trees+leetcode+java&type=code",
+  },
+  {
+    id: "is-graph-bipartite",
+    title: "Is Graph Bipartite",
+    topic: "Graph",
+    difficulty: "Medium",
+    solution: "BFS/DFS coloring with two colors.",
+    solutionLink: "https://leetcode.com/problems/is-graph-bipartite/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=is+graph+bipartite+leetcode",
+    java: "https://github.com/search?q=is+graph+bipartite+leetcode+java&type=code",
+  },
+  {
+    id: "evaluate-division",
+    title: "Evaluate Division",
+    topic: "Graph",
+    difficulty: "Medium",
+    solution: "Graph with weights; DFS/BFS for ratios.",
+    solutionLink: "https://leetcode.com/problems/evaluate-division/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=evaluate+division+leetcode",
+    java: "https://github.com/search?q=evaluate+division+leetcode+java&type=code",
+  },
+  {
+    id: "cheapest-flights-within-k-stops",
+    title: "Cheapest Flights Within K Stops",
+    topic: "Graph",
+    difficulty: "Medium",
+    solution: "BFS/DP by stops or modified Dijkstra.",
+    solutionLink:
+      "https://leetcode.com/problems/cheapest-flights-within-k-stops/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=cheapest+flights+within+k+stops+leetcode",
+    java: "https://github.com/search?q=cheapest+flights+within+k+stops+leetcode+java&type=code",
+  },
+  {
+    id: "reorder-routes-to-make-all-paths-lead-to-the-city-zero",
+    title: "Reorder Routes to Make All Paths Lead to the City Zero",
+    topic: "Graph",
+    difficulty: "Medium",
+    solution: "DFS/BFS count edges needing reversal.",
+    solutionLink:
+      "https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=reorder+routes+to+make+all+paths+lead+to+the+city+zero+leetcode",
+    java: "https://github.com/search?q=reorder+routes+to+make+all+paths+lead+to+the+city+zero+leetcode+java&type=code",
+  },
+  {
+    id: "all-paths-from-source-to-target",
+    title: "All Paths From Source to Target",
+    topic: "Graph",
+    difficulty: "Medium",
+    solution: "DFS backtracking over DAG.",
+    solutionLink:
+      "https://leetcode.com/problems/all-paths-from-source-to-target/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=all+paths+from+source+to+target+leetcode",
+    java: "https://github.com/search?q=all+paths+from+source+to+target+leetcode+java&type=code",
+  },
+  {
+    id: "alien-dictionary",
+    title: "Alien Dictionary",
+    topic: "Graph",
+    difficulty: "Hard",
+    solution: "Build precedence graph; topo sort.",
+    solutionLink:
+      "https://leetcode.com/problems/alien-dictionary/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=alien+dictionary+leetcode",
+    java: "https://github.com/search?q=alien+dictionary+leetcode+java&type=code",
+  },
+  {
+    id: "word-ladder-ii",
+    title: "Word Ladder II",
+    topic: "Graph",
+    difficulty: "Hard",
+    solution: "BFS layers + backtrack paths.",
+    solutionLink: "https://leetcode.com/problems/word-ladder-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=word+ladder+ii+leetcode",
+    java: "https://github.com/search?q=word+ladder+ii+leetcode+java&type=code",
+  },
+  {
+    id: "critical-connections-in-a-network",
+    title: "Critical Connections in a Network",
+    topic: "Graph",
+    difficulty: "Hard",
+    solution: "Tarjan bridges algorithm.",
+    solutionLink:
+      "https://leetcode.com/problems/critical-connections-in-a-network/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=critical+connections+in+a+network+leetcode",
+    java: "https://github.com/search?q=critical+connections+in+a+network+leetcode+java&type=code",
+  },
+  {
+    id: "shortest-path-visiting-all-nodes",
+    title: "Shortest Path Visiting All Nodes",
+    topic: "Graph",
+    difficulty: "Hard",
+    solution: "BFS over state (node, mask).",
+    solutionLink:
+      "https://leetcode.com/problems/shortest-path-visiting-all-nodes/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=shortest+path+visiting+all+nodes+leetcode",
+    java: "https://github.com/search?q=shortest+path+visiting+all+nodes+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-cost-to-connect-two-groups-of-points",
+    title: "Minimum Cost to Connect Two Groups of Points",
+    topic: "Graph",
+    difficulty: "Hard",
+    solution: "DP + bitmask or min-cost matching approach.",
+    solutionLink:
+      "https://leetcode.com/problems/minimum-cost-to-connect-two-groups-of-points/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+cost+to+connect+two+groups+of+points+leetcode",
+    java: "https://github.com/search?q=minimum+cost+to+connect+two+groups+of+points+leetcode+java&type=code",
+  },
+  {
+    id: "swim-in-rising-water",
+    title: "Swim in Rising Water",
+    topic: "Graph",
+    difficulty: "Hard",
+    solution: "Dijkstra or binary search + BFS.",
+    solutionLink:
+      "https://leetcode.com/problems/swim-in-rising-water/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=swim+in+rising+water+leetcode",
+    java: "https://github.com/search?q=swim+in+rising+water+leetcode+java&type=code",
+  },
+  {
+    id: "remove-max-number-of-edges-to-keep-graph-fully-traversable",
+    title: "Remove Max Number of Edges to Keep Graph Fully Traversable",
+    topic: "Graph",
+    difficulty: "Hard",
+    solution: "Union-Find for Alice/Bob with shared edges.",
+    solutionLink:
+      "https://leetcode.com/problems/remove-max-number-of-edges-to-keep-graph-fully-traversable/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=remove+max+number+of+edges+to+keep+graph+fully+traversable+leetcode",
+    java: "https://github.com/search?q=remove+max+number+of+edges+to+keep+graph+fully+traversable+leetcode+java&type=code",
+  },
+  {
+    id: "bus-routes",
+    title: "Bus Routes",
+    topic: "Graph",
+    difficulty: "Hard",
+    solution: "BFS over routes using stop adjacency.",
+    solutionLink: "https://leetcode.com/problems/bus-routes/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=bus+routes+leetcode",
+    java: "https://github.com/search?q=bus+routes+leetcode+java&type=code",
+  },
+];
+const DSA_ITEMS: DsaItem[] = [
+  ...LINKED_LIST_ITEMS,
+  ...DP_ITEMS,
+  ...TREE_ITEMS,
+  ...GREEDY_ITEMS,
+  ...GRAPH_ITEMS,
+];
+
+const difficultyClass: Record<DsaItem["difficulty"], string> = {
+  Easy: "chip chip-sky",
+  Medium: "chip chip-lemon",
+  Hard: "chip chip-peach",
+};
+
+const TOPICS = [
+  "All",
+  "Arrays",
+  "Linked List",
+  "Greedy",
+  "Tree",
+  "Graph",
+  "DP",
+] as const;
 
 export default function Home() {
+  const [progress, setProgress] = useState<Record<string, boolean>>({});
+  const [hydrated, setHydrated] = useState(false);
+  const [filter, setFilter] = useState<"All" | DsaItem["difficulty"]>("All");
+  const [topicFilter, setTopicFilter] =
+    useState<(typeof TOPICS)[number]>("All");
+  const [page, setPage] = useState(1);
+  const pageSize = 10;
+
+  useEffect(() => {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      try {
+        setProgress(JSON.parse(raw));
+      } catch {
+        setProgress({});
+      }
+    }
+    setHydrated(true);
+  }, []);
+
+  const filteredItems = useMemo(() => {
+    return DSA_ITEMS.filter((item) => {
+      const matchDifficulty = filter === "All" || item.difficulty === filter;
+      const matchTopic = topicFilter === "All" || item.topic === topicFilter;
+      return matchDifficulty && matchTopic;
+    });
+  }, [filter, topicFilter]);
+
+  const isAllSection = filter === "All" && topicFilter === "All";
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredItems.length / pageSize),
+  );
+  const currentPage = Math.min(page, totalPages);
+  const visibleItems = useMemo(() => {
+    if (!isAllSection) return filteredItems;
+    const startIndex = (currentPage - 1) * pageSize;
+    return filteredItems.slice(startIndex, startIndex + pageSize);
+  }, [filteredItems, isAllSection, currentPage]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [filter, topicFilter]);
+
+  const doneCount = useMemo(() => {
+    if (!hydrated) return 0;
+    return DSA_ITEMS.filter((item) => progress[item.id]).length;
+  }, [progress, hydrated]);
+
+  const percent = Math.round((doneCount / DSA_ITEMS.length) * 100);
+
+  const handleToggle = (id: string) => {
+    setProgress((prev) => {
+      const next = { ...prev, [id]: !prev[id] };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      return next;
+    });
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen px-6 py-12">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-10">
+        <header className="glass rounded-[32px] p-8 md:p-10">
+          <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-2xl">
+              <span className="chip chip-accent">DSA Sheet Studio</span>
+              <h1 className="font-display mt-4 text-4xl font-semibold leading-tight text-violet-50 md:text-5xl">
+                Let's Master DSA !
+              </h1>
+              <p className="text-soft mt-4 text-base leading-relaxed md:text-lg">
+                A living DSA notebook — progress tracking, bite-size solutions, and instant access to handpicked Java & video references.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                <span className="chip chip-sky">Curated Problem List</span>
+                <span className="chip chip-peach">Auto Progress Saving</span>
+                <span className="chip chip-lemon">Personalized References</span>
+              </div>
+            </div>
+            <div className="glass-strong w-full rounded-[28px] p-6 md:w-[320px]">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-soft text-[0.65rem] uppercase tracking-[0.35em]">
+                    Progress
+                  </p>
+                  <p className="font-display text-3xl font-semibold">
+                    {percent}%
+                  </p>
+                </div>
+                <div className="text-right">
+                  <p className="text-soft text-sm">Solved</p>
+                  <p className="text-2xl font-semibold text-violet-50">
+                    {doneCount}/{DSA_ITEMS.length}
+                  </p>
+                </div>
+              </div>
+              <div className="mt-4 h-3 w-full rounded-full bg-violet-900/80">
+                <div
+                  className="h-full rounded-full bg-[linear-gradient(90deg,#a855f7,#f472b6)] transition-all duration-300"
+                  style={{ width: `${percent}%` }}
+                />
+              </div>
+              <p className="text-soft mt-3 text-xs">
+                Changes are saved instantly. No account required.
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <section className="glass rounded-[32px] p-6 md:p-8">
+          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h2 className="font-display text-2xl font-semibold text-violet-50">
+                DSA Sheet
+              </h2>
+              <p className="text-soft text-sm">
+                Written solution, YouTube explainer, and Java code link in one
+                table.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {(["All", "Easy", "Medium", "Hard"] as const).map((level) => (
+                <button
+                  key={level}
+                  type="button"
+                  onClick={() => setFilter(level)}
+                  className={`chip ${
+                    level === "All"
+                      ? "chip-accent"
+                      : level === "Easy"
+                        ? "chip-sky"
+                        : level === "Medium"
+                          ? "chip-lemon"
+                          : "chip-peach"
+                  } ${filter === level ? "chip-active" : "chip-muted"}`}
+                >
+                  {level}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {TOPICS.map((topic) => (
+              <button
+                key={topic}
+                type="button"
+                onClick={() => setTopicFilter(topic)}
+                className={`chip chip-accent ${
+                  topicFilter === topic ? "chip-active" : "chip-muted"
+                }`}
+              >
+                {topic}
+              </button>
+            ))}
+          </div>
+
+            <div className="table-shell glass-strong mt-6">
+              <div className="overflow-x-auto">
+                <table>
+                <thead>
+                  <tr>
+                    <th>Done</th>
+                    <th>Question</th>
+                    <th>Topic</th>
+                    <th>Difficulty</th>
+                    <th>Written Solution</th>
+                    <th>YouTube</th>
+                    <th>Java Code</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {visibleItems.map((item) => {
+                    const checked = !!progress[item.id];
+                    return (
+                      <tr key={item.id}>
+                        <td>
+                          <button
+                            type="button"
+                            aria-pressed={checked}
+                            aria-label={`Mark ${item.title} as done`}
+                            className="checkbox"
+                            data-checked={checked}
+                            onClick={() => handleToggle(item.id)}
+                          >
+                            <svg
+                              width="14"
+                              height="10"
+                              viewBox="0 0 14 10"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M1 5L5 9L13 1"
+                                stroke="#0f766e"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </button>
+                        </td>
+                        <td>
+                          <div className="flex flex-col gap-1">
+                            <span className="font-semibold text-violet-50">
+                              {item.title}
+                            </span>
+                            <span className="text-soft text-xs">
+                              {item.id.replaceAll("-", " ")}
+                            </span>
+                          </div>
+                        </td>
+                        <td className="text-soft">{item.topic}</td>
+                        <td>
+                          <span className={difficultyClass[item.difficulty]}>
+                            {item.difficulty}
+                          </span>
+                        </td>
+                        <td>
+                          <div className="flex flex-col gap-2">
+                            <span className="text-soft">{item.solution}</span>
+                            
+                          </div>
+                        </td>
+                        <td>
+                          <a
+                            className="link-pill"
+                            href={item.youtube}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Watch
+                          </a>
+                        </td>
+                        <td>
+                          <a
+                            className="link-pill"
+                            href={item.java}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Java
+                          </a>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+                </table>
+              </div>
+            </div>
+
+            {isAllSection && (
+              <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-sm">
+                <span className="text-soft">
+                  Showing {(currentPage - 1) * pageSize + 1}-
+                  {Math.min(currentPage * pageSize, filteredItems.length)} of{" "}
+                  {filteredItems.length}
+                </span>
+                <div className="flex flex-wrap items-center gap-2">
+                  <button
+                    type="button"
+                    className="link-pill"
+                    onClick={() => setPage((prev) => Math.max(1, prev - 1))}
+                    disabled={currentPage === 1}
+                  >
+                    Prev
+                  </button>
+                  <span className="text-soft">
+                    Page {currentPage} / {totalPages}
+                  </span>
+                  <button
+                    type="button"
+                    className="link-pill"
+                    onClick={() =>
+                      setPage((prev) => Math.min(totalPages, prev + 1))
+                    }
+                    disabled={currentPage === totalPages}
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            )}
+
+          <p className="text-soft mt-4 text-xs">
+            Tip: swap the links with your preferred resources or add new rows to
+            extend the sheet.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+        </section>
+      </div>
     </div>
   );
 }
