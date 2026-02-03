@@ -1923,12 +1923,387 @@ const GRAPH_ITEMS: DsaItem[] = [
     java: "https://github.com/search?q=bus+routes+leetcode+java&type=code",
   },
 ];
+
+const ARRAYS_ITEMS: DsaItem[] = [
+  {
+    id: "two-sum-arrays",
+    title: "Two Sum",
+    topic: "Arrays",
+    difficulty: "Easy",
+    solution: "Use a hash map for complements; O(n).",
+    solutionLink: "https://leetcode.com/problems/two-sum/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=two+sum+leetcode",
+    java: "https://github.com/search?q=two+sum+leetcode+java&type=code",
+  },
+  {
+    id: "best-time-to-buy-and-sell-stock-arrays",
+    title: "Best Time to Buy and Sell Stock",
+    topic: "Arrays",
+    difficulty: "Easy",
+    solution: "Track min price; update max profit.",
+    solutionLink:
+      "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=best+time+to+buy+and+sell+stock+leetcode",
+    java: "https://github.com/search?q=best+time+to+buy+and+sell+stock+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-subarray-arrays",
+    title: "Maximum Subarray",
+    topic: "Arrays",
+    difficulty: "Easy",
+    solution: "Kadane’s algorithm.",
+    solutionLink: "https://leetcode.com/problems/maximum-subarray/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+subarray+leetcode",
+    java: "https://github.com/search?q=maximum+subarray+leetcode+java&type=code",
+  },
+  {
+    id: "contains-duplicate-arrays",
+    title: "Contains Duplicate",
+    topic: "Arrays",
+    difficulty: "Easy",
+    solution: "Use a set to detect repeats.",
+    solutionLink: "https://leetcode.com/problems/contains-duplicate/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=contains+duplicate+leetcode",
+    java: "https://github.com/search?q=contains+duplicate+leetcode+java&type=code",
+  },
+  {
+    id: "move-zeroes",
+    title: "Move Zeroes",
+    topic: "Arrays",
+    difficulty: "Easy",
+    solution: "Two pointers to compact non-zero values.",
+    solutionLink: "https://leetcode.com/problems/move-zeroes/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=move+zeroes+leetcode",
+    java: "https://github.com/search?q=move+zeroes+leetcode+java&type=code",
+  },
+  {
+    id: "remove-duplicates-from-sorted-array",
+    title: "Remove Duplicates from Sorted Array",
+    topic: "Arrays",
+    difficulty: "Easy",
+    solution: "Slow pointer for unique positions.",
+    solutionLink:
+      "https://leetcode.com/problems/remove-duplicates-from-sorted-array/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=remove+duplicates+from+sorted+array+leetcode",
+    java: "https://github.com/search?q=remove+duplicates+from+sorted+array+leetcode+java&type=code",
+  },
+  {
+    id: "missing-number",
+    title: "Missing Number",
+    topic: "Arrays",
+    difficulty: "Easy",
+    solution: "Use sum formula or XOR trick.",
+    solutionLink: "https://leetcode.com/problems/missing-number/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=missing+number+leetcode",
+    java: "https://github.com/search?q=missing+number+leetcode+java&type=code",
+  },
+  {
+    id: "intersection-of-two-arrays",
+    title: "Intersection of Two Arrays",
+    topic: "Arrays",
+    difficulty: "Easy",
+    solution: "Use sets to compute intersection.",
+    solutionLink:
+      "https://leetcode.com/problems/intersection-of-two-arrays/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=intersection+of+two+arrays+leetcode",
+    java: "https://github.com/search?q=intersection+of+two+arrays+leetcode+java&type=code",
+  },
+  {
+    id: "plus-one",
+    title: "Plus One",
+    topic: "Arrays",
+    difficulty: "Easy",
+    solution: "Add with carry from the end.",
+    solutionLink: "https://leetcode.com/problems/plus-one/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=plus+one+leetcode",
+    java: "https://github.com/search?q=plus+one+leetcode+java&type=code",
+  },
+  {
+    id: "find-pivot-index",
+    title: "Find Pivot Index",
+    topic: "Arrays",
+    difficulty: "Easy",
+    solution: "Track left sum vs total sum.",
+    solutionLink: "https://leetcode.com/problems/find-pivot-index/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+pivot+index+leetcode",
+    java: "https://github.com/search?q=find+pivot+index+leetcode+java&type=code",
+  },
+  {
+    id: "three-sum",
+    title: "3Sum",
+    topic: "Arrays",
+    difficulty: "Medium",
+    solution: "Sort and use two pointers.",
+    solutionLink: "https://leetcode.com/problems/3sum/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=3sum+leetcode",
+    java: "https://github.com/search?q=3sum+leetcode+java&type=code",
+  },
+  {
+    id: "container-with-most-water",
+    title: "Container With Most Water",
+    topic: "Arrays",
+    difficulty: "Medium",
+    solution: "Two pointers with max area.",
+    solutionLink:
+      "https://leetcode.com/problems/container-with-most-water/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=container+with+most+water+leetcode",
+    java: "https://github.com/search?q=container+with+most+water+leetcode+java&type=code",
+  },
+  {
+    id: "product-of-array-except-self",
+    title: "Product of Array Except Self",
+    topic: "Arrays",
+    difficulty: "Medium",
+    solution: "Prefix and suffix products.",
+    solutionLink:
+      "https://leetcode.com/problems/product-of-array-except-self/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=product+of+array+except+self+leetcode",
+    java: "https://github.com/search?q=product+of+array+except+self+leetcode+java&type=code",
+  },
+  {
+    id: "rotate-array",
+    title: "Rotate Array",
+    topic: "Arrays",
+    difficulty: "Medium",
+    solution: "Reverse parts in-place.",
+    solutionLink: "https://leetcode.com/problems/rotate-array/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=rotate+array+leetcode",
+    java: "https://github.com/search?q=rotate+array+leetcode+java&type=code",
+  },
+  {
+    id: "set-matrix-zeroes",
+    title: "Set Matrix Zeroes",
+    topic: "Arrays",
+    difficulty: "Medium",
+    solution: "Use first row/col as markers.",
+    solutionLink:
+      "https://leetcode.com/problems/set-matrix-zeroes/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=set+matrix+zeroes+leetcode",
+    java: "https://github.com/search?q=set+matrix+zeroes+leetcode+java&type=code",
+  },
+  {
+    id: "spiral-matrix",
+    title: "Spiral Matrix",
+    topic: "Arrays",
+    difficulty: "Medium",
+    solution: "Traverse layer by layer.",
+    solutionLink: "https://leetcode.com/problems/spiral-matrix/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=spiral+matrix+leetcode",
+    java: "https://github.com/search?q=spiral+matrix+leetcode+java&type=code",
+  },
+  {
+    id: "subarray-sum-equals-k",
+    title: "Subarray Sum Equals K",
+    topic: "Arrays",
+    difficulty: "Medium",
+    solution: "Prefix sum + hashmap counts.",
+    solutionLink:
+      "https://leetcode.com/problems/subarray-sum-equals-k/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=subarray+sum+equals+k+leetcode",
+    java: "https://github.com/search?q=subarray+sum+equals+k+leetcode+java&type=code",
+  },
+  {
+    id: "jump-game-arrays",
+    title: "Jump Game",
+    topic: "Arrays",
+    difficulty: "Medium",
+    solution: "Greedy reachability.",
+    solutionLink: "https://leetcode.com/problems/jump-game/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=jump+game+leetcode",
+    java: "https://github.com/search?q=jump+game+leetcode+java&type=code",
+  },
+  {
+    id: "merge-intervals-arrays",
+    title: "Merge Intervals",
+    topic: "Arrays",
+    difficulty: "Medium",
+    solution: "Sort and merge overlaps.",
+    solutionLink: "https://leetcode.com/problems/merge-intervals/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=merge+intervals+leetcode",
+    java: "https://github.com/search?q=merge+intervals+leetcode+java&type=code",
+  },
+  {
+    id: "insert-interval-arrays",
+    title: "Insert Interval",
+    topic: "Arrays",
+    difficulty: "Medium",
+    solution: "Merge while inserting interval.",
+    solutionLink: "https://leetcode.com/problems/insert-interval/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=insert+interval+leetcode",
+    java: "https://github.com/search?q=insert+interval+leetcode+java&type=code",
+  },
+  {
+    id: "sort-colors",
+    title: "Sort Colors",
+    topic: "Arrays",
+    difficulty: "Medium",
+    solution: "Dutch national flag partition.",
+    solutionLink: "https://leetcode.com/problems/sort-colors/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=sort+colors+leetcode",
+    java: "https://github.com/search?q=sort+colors+leetcode+java&type=code",
+  },
+  {
+    id: "kth-largest-element-in-an-array",
+    title: "Kth Largest Element in an Array",
+    topic: "Arrays",
+    difficulty: "Medium",
+    solution: "Quickselect or heap.",
+    solutionLink:
+      "https://leetcode.com/problems/kth-largest-element-in-an-array/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=kth+largest+element+in+an+array+leetcode",
+    java: "https://github.com/search?q=kth+largest+element+in+an+array+leetcode+java&type=code",
+  },
+  {
+    id: "find-all-duplicates-in-an-array",
+    title: "Find All Duplicates in an Array",
+    topic: "Arrays",
+    difficulty: "Medium",
+    solution: "Use index marking or cyclic placement.",
+    solutionLink:
+      "https://leetcode.com/problems/find-all-duplicates-in-an-array/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+all+duplicates+in+an+array+leetcode",
+    java: "https://github.com/search?q=find+all+duplicates+in+an+array+leetcode+java&type=code",
+  },
+  {
+    id: "gas-station-arrays",
+    title: "Gas Station",
+    topic: "Arrays",
+    difficulty: "Medium",
+    solution: "Greedy reset when tank negative.",
+    solutionLink: "https://leetcode.com/problems/gas-station/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=gas+station+leetcode",
+    java: "https://github.com/search?q=gas+station+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-product-subarray",
+    title: "Maximum Product Subarray",
+    topic: "Arrays",
+    difficulty: "Medium",
+    solution: "Track max/min product ending at i.",
+    solutionLink:
+      "https://leetcode.com/problems/maximum-product-subarray/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+product+subarray+leetcode",
+    java: "https://github.com/search?q=maximum+product+subarray+leetcode+java&type=code",
+  },
+  {
+    id: "first-missing-positive",
+    title: "First Missing Positive",
+    topic: "Arrays",
+    difficulty: "Hard",
+    solution: "Place values in index positions.",
+    solutionLink:
+      "https://leetcode.com/problems/first-missing-positive/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=first+missing+positive+leetcode",
+    java: "https://github.com/search?q=first+missing+positive+leetcode+java&type=code",
+  },
+  {
+    id: "trapping-rain-water",
+    title: "Trapping Rain Water",
+    topic: "Arrays",
+    difficulty: "Hard",
+    solution: "Two pointers with max left/right.",
+    solutionLink:
+      "https://leetcode.com/problems/trapping-rain-water/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=trapping+rain+water+leetcode",
+    java: "https://github.com/search?q=trapping+rain+water+leetcode+java&type=code",
+  },
+  {
+    id: "largest-rectangle-in-histogram",
+    title: "Largest Rectangle in Histogram",
+    topic: "Arrays",
+    difficulty: "Hard",
+    solution: "Monotonic stack of indices.",
+    solutionLink:
+      "https://leetcode.com/problems/largest-rectangle-in-histogram/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=largest+rectangle+in+histogram+leetcode",
+    java: "https://github.com/search?q=largest+rectangle+in+histogram+leetcode+java&type=code",
+  },
+  {
+    id: "sliding-window-maximum",
+    title: "Sliding Window Maximum",
+    topic: "Arrays",
+    difficulty: "Hard",
+    solution: "Monotonic deque of indices.",
+    solutionLink:
+      "https://leetcode.com/problems/sliding-window-maximum/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=sliding+window+maximum+leetcode",
+    java: "https://github.com/search?q=sliding+window+maximum+leetcode+java&type=code",
+  },
+  {
+    id: "median-of-two-sorted-arrays",
+    title: "Median of Two Sorted Arrays",
+    topic: "Arrays",
+    difficulty: "Hard",
+    solution: "Binary search on partitions.",
+    solutionLink:
+      "https://leetcode.com/problems/median-of-two-sorted-arrays/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=median+of+two+sorted+arrays+leetcode",
+    java: "https://github.com/search?q=median+of+two+sorted+arrays+leetcode+java&type=code",
+  },
+  {
+    id: "candy-arrays",
+    title: "Candy",
+    topic: "Arrays",
+    difficulty: "Hard",
+    solution: "Two-pass greedy for ratings.",
+    solutionLink: "https://leetcode.com/problems/candy/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=candy+leetcode",
+    java: "https://github.com/search?q=candy+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-gap",
+    title: "Maximum Gap",
+    topic: "Arrays",
+    difficulty: "Hard",
+    solution: "Bucket sort by pigeonhole principle.",
+    solutionLink: "https://leetcode.com/problems/maximum-gap/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+gap+leetcode",
+    java: "https://github.com/search?q=maximum+gap+leetcode+java&type=code",
+  },
+  {
+    id: "create-maximum-number-arrays",
+    title: "Create Maximum Number",
+    topic: "Arrays",
+    difficulty: "Hard",
+    solution: "Greedy pick + merge max subsequences.",
+    solutionLink:
+      "https://leetcode.com/problems/create-maximum-number/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=create+maximum+number+leetcode",
+    java: "https://github.com/search?q=create+maximum+number+leetcode+java&type=code",
+  },
+];
 const DSA_ITEMS: DsaItem[] = [
   ...LINKED_LIST_ITEMS,
   ...DP_ITEMS,
   ...TREE_ITEMS,
   ...GREEDY_ITEMS,
   ...GRAPH_ITEMS,
+  ...ARRAYS_ITEMS,
 ];
 
 const difficultyClass: Record<DsaItem["difficulty"], string> = {
@@ -2008,16 +2383,16 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen px-6 py-12">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-10">
-        <header className="glass rounded-[32px] p-8 md:p-10">
+    <div className="min-h-screen px-4 py-8 sm:px-6 sm:py-12">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 md:gap-10">
+        <header className="glass rounded-[28px] p-6 sm:rounded-[32px] sm:p-8 md:p-10">
           <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
             <div className="max-w-2xl">
               <span className="chip chip-accent">DSA Sheet Studio</span>
-              <h1 className="font-display mt-4 text-4xl font-semibold leading-tight text-violet-50 md:text-5xl">
+              <h1 className="font-display mt-4 text-3xl font-semibold leading-tight text-violet-50 sm:text-4xl md:text-5xl">
                 Let's Master DSA !
               </h1>
-              <p className="text-soft mt-4 text-base leading-relaxed md:text-lg">
+              <p className="text-soft mt-4 text-sm leading-relaxed sm:text-base md:text-lg">
                 A living DSA notebook — progress tracking, bite-size solutions, and instant access to handpicked Java & video references.
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
@@ -2026,7 +2401,7 @@ export default function Home() {
                 <span className="chip chip-lemon">Personalized References</span>
               </div>
             </div>
-            <div className="glass-strong w-full rounded-[28px] p-6 md:w-[320px]">
+            <div className="glass-strong w-full rounded-[24px] p-5 sm:rounded-[28px] sm:p-6 md:w-[320px]">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-soft text-[0.65rem] uppercase tracking-[0.35em]">
@@ -2056,10 +2431,10 @@ export default function Home() {
           </div>
         </header>
 
-        <section className="glass rounded-[32px] p-6 md:p-8">
+        <section className="glass rounded-[28px] p-5 sm:rounded-[32px] sm:p-6 md:p-8">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="font-display text-2xl font-semibold text-violet-50">
+              <h2 className="font-display text-xl font-semibold text-violet-50 sm:text-2xl">
                 DSA Sheet
               </h2>
               <p className="text-soft text-sm">
@@ -2104,25 +2479,125 @@ export default function Home() {
           </div>
 
             <div className="table-shell glass-strong mt-6">
-              <div className="overflow-x-auto">
-                <table>
-                <thead>
-                  <tr>
-                    <th>Done</th>
-                    <th>Question</th>
-                    <th>Topic</th>
-                    <th>Difficulty</th>
-                    <th>Written Solution</th>
-                    <th>YouTube</th>
-                    <th>Java Code</th>
-                  </tr>
-                </thead>
-                <tbody>
+              <div className="hidden md:block">
+                <div className="overflow-x-auto">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Done</th>
+                        <th>Question</th>
+                        <th>Topic</th>
+                        <th>Difficulty</th>
+                        <th>Written Solution</th>
+                        <th>YouTube</th>
+                        <th>Java Code</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {visibleItems.map((item) => {
+                        const checked = !!progress[item.id];
+                        return (
+                          <tr key={item.id}>
+                            <td>
+                              <button
+                                type="button"
+                                aria-pressed={checked}
+                                aria-label={`Mark ${item.title} as done`}
+                                className="checkbox"
+                                data-checked={checked}
+                                onClick={() => handleToggle(item.id)}
+                              >
+                                <svg
+                                  width="14"
+                                  height="10"
+                                  viewBox="0 0 14 10"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M1 5L5 9L13 1"
+                                    stroke="#0f766e"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </button>
+                            </td>
+                            <td>
+                              <div className="flex flex-col gap-1">
+                                <span className="font-semibold text-violet-50">
+                                  {item.title}
+                                </span>
+                                <span className="text-soft text-xs">
+                                  {item.id.replaceAll("-", " ")}
+                                </span>
+                              </div>
+                            </td>
+                            <td className="text-soft">{item.topic}</td>
+                            <td>
+                              <span className={difficultyClass[item.difficulty]}>
+                                {item.difficulty}
+                              </span>
+                            </td>
+                            <td>
+                              <div className="flex flex-col gap-2">
+                                <span className="text-soft">{item.solution}</span>
+                                <a
+                                  className="link-pill"
+                                  href={item.solutionLink}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
+                                  Written
+                                </a>
+                              </div>
+                            </td>
+                            <td>
+                              <a
+                                className="link-pill"
+                                href={item.youtube}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                Watch
+                              </a>
+                            </td>
+                            <td>
+                              <a
+                                className="link-pill"
+                                href={item.java}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                Java
+                              </a>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div className="md:hidden">
+                <div className="flex flex-col gap-4 p-4">
                   {visibleItems.map((item) => {
                     const checked = !!progress[item.id];
                     return (
-                      <tr key={item.id}>
-                        <td>
+                      <div
+                        key={item.id}
+                        className="rounded-2xl border border-white/10 bg-white/5 p-4"
+                      >
+                        <div className="flex items-start justify-between gap-3">
+                          <div className="min-w-0">
+                            <p className="font-semibold text-violet-50">
+                              {item.title}
+                            </p>
+                            <p className="text-soft text-xs">
+                              {item.id.replaceAll("-", " ")}
+                            </p>
+                          </div>
                           <button
                             type="button"
                             aria-pressed={checked}
@@ -2140,47 +2615,40 @@ export default function Home() {
                             >
                               <path
                                 d="M1 5L5 9L13 1"
-                                stroke="#0f766e"
+                                stroke="#c084fc"
                                 strokeWidth="2"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                               />
                             </svg>
                           </button>
-                        </td>
-                        <td>
-                          <div className="flex flex-col gap-1">
-                            <span className="font-semibold text-violet-50">
-                              {item.title}
-                            </span>
-                            <span className="text-soft text-xs">
-                              {item.id.replaceAll("-", " ")}
-                            </span>
-                          </div>
-                        </td>
-                        <td className="text-soft">{item.topic}</td>
-                        <td>
+                        </div>
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          <span className="chip chip-accent">{item.topic}</span>
                           <span className={difficultyClass[item.difficulty]}>
                             {item.difficulty}
                           </span>
-                        </td>
-                        <td>
-                          <div className="flex flex-col gap-2">
-                            <span className="text-soft">{item.solution}</span>
-                            
-                          </div>
-                        </td>
-                        <td>
+                        </div>
+                        <p className="text-soft mt-3 text-sm">
+                          {item.solution}
+                        </p>
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          <a
+                            className="link-pill"
+                            href={item.solutionLink}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Written
+                          </a>
                           <a
                             className="link-pill"
                             href={item.youtube}
                             target="_blank"
                             rel="noreferrer"
                           >
-                            Watch
+                            YouTube
                           </a>
-                        </td>
-                        <td>
                           <a
                             className="link-pill"
                             href={item.java}
@@ -2189,12 +2657,11 @@ export default function Home() {
                           >
                             Java
                           </a>
-                        </td>
-                      </tr>
+                        </div>
+                      </div>
                     );
                   })}
-                </tbody>
-                </table>
+                </div>
               </div>
             </div>
 
