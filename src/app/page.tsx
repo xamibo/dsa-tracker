@@ -2773,6 +2773,7 @@ export default function Home() {
   const [dailyIds, setDailyIds] = useState<string[]>([]);
   const [dailyCount, setDailyCount] = useState(10);
   const [dailyError, setDailyError] = useState<string | null>(null);
+  const [celebratingIds, setCelebratingIds] = useState<string[]>([]);
   const pageSize = 10;
 
   useEffect(() => {
@@ -2884,12 +2885,20 @@ export default function Home() {
 
   const percent = Math.round((doneCount / DSA_ITEMS.length) * 100);
 
+  const triggerCelebrate = (id: string) => {
+    setCelebratingIds((prev) => [...prev, id]);
+    window.setTimeout(() => {
+      setCelebratingIds((prev) => prev.filter((item) => item !== id));
+    }, 900);
+  };
+
   const handleToggle = (id: string) => {
     setProgress((prev) => {
       const next = { ...prev, [id]: !prev[id] };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
       return next;
     });
+    triggerCelebrate(id);
   };
 
   return (
@@ -3089,10 +3098,36 @@ export default function Home() {
                                 type="button"
                                 aria-pressed={checked}
                                 aria-label={`Mark ${item.title} as done`}
-                                className="checkbox"
+                                className={`checkbox celebrate-btn ${
+                                  celebratingIds.includes(item.id)
+                                    ? "is-celebrating"
+                                    : ""
+                                }`}
                                 data-checked={checked}
                                 onClick={() => handleToggle(item.id)}
                               >
+                                <span
+                                  className={`celebrate-burst ${
+                                    celebratingIds.includes(item.id)
+                                      ? "is-active"
+                                      : ""
+                                  }`}
+                                >
+                                  <span />
+                                  <span />
+                                  <span />
+                                  <span />
+                                  <span />
+                                  <span />
+                                  <span />
+                                  <span />
+                                  <span />
+                                  <span />
+                                  <span />
+                                  <span />
+                                  <span />
+                                  <span />
+                                </span>
                                 <svg
                                   width="14"
                                   height="10"
@@ -3202,10 +3237,36 @@ export default function Home() {
                             type="button"
                             aria-pressed={checked}
                             aria-label={`Mark ${item.title} as done`}
-                            className="checkbox"
+                            className={`checkbox celebrate-btn ${
+                              celebratingIds.includes(item.id)
+                                ? "is-celebrating"
+                                : ""
+                            }`}
                             data-checked={checked}
                             onClick={() => handleToggle(item.id)}
                           >
+                            <span
+                              className={`celebrate-burst ${
+                                celebratingIds.includes(item.id)
+                                  ? "is-active"
+                                  : ""
+                              }`}
+                            >
+                              <span />
+                              <span />
+                              <span />
+                              <span />
+                              <span />
+                              <span />
+                              <span />
+                              <span />
+                              <span />
+                              <span />
+                              <span />
+                              <span />
+                              <span />
+                              <span />
+                            </span>
                             <svg
                               width="14"
                               height="10"
