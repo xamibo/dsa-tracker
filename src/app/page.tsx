@@ -2735,6 +2735,1065 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     java: "https://github.com/search?q=next+special+palindrome+number+leetcode+java&type=code",
   },
 ];
+
+const BINARY_SEARCH_ITEMS: DsaItem[] = [
+  {
+    id: "binary-search",
+    title: "Binary Search",
+    topic: "Binary Search",
+    difficulty: "Easy",
+    solution: "Standard binary search on sorted array.",
+    solutionLink: "https://leetcode.com/problems/binary-search/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=binary+search+leetcode",
+    java: "https://github.com/search?q=binary+search+leetcode+java&type=code",
+  },
+  {
+    id: "search-insert-position",
+    title: "Search Insert Position",
+    topic: "Binary Search",
+    difficulty: "Easy",
+    solution: "Binary search to find lower bound.",
+    solutionLink:
+      "https://leetcode.com/problems/search-insert-position/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=search+insert+position+leetcode",
+    java: "https://github.com/search?q=search+insert+position+leetcode+java&type=code",
+  },
+  {
+    id: "sqrtx",
+    title: "Sqrt(x)",
+    topic: "Binary Search",
+    difficulty: "Easy",
+    solution: "Binary search on answer range.",
+    solutionLink: "https://leetcode.com/problems/sqrtx/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=sqrtx+leetcode",
+    java: "https://github.com/search?q=sqrtx+leetcode+java&type=code",
+  },
+  {
+    id: "valid-perfect-square",
+    title: "Valid Perfect Square",
+    topic: "Binary Search",
+    difficulty: "Easy",
+    solution: "Binary search to match square.",
+    solutionLink:
+      "https://leetcode.com/problems/valid-perfect-square/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=valid+perfect+square+leetcode",
+    java: "https://github.com/search?q=valid+perfect+square+leetcode+java&type=code",
+  },
+  {
+    id: "guess-number-higher-or-lower",
+    title: "Guess Number Higher or Lower",
+    topic: "Binary Search",
+    difficulty: "Easy",
+    solution: "Binary search using API feedback.",
+    solutionLink:
+      "https://leetcode.com/problems/guess-number-higher-or-lower/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=guess+number+higher+or+lower+leetcode",
+    java: "https://github.com/search?q=guess+number+higher+or+lower+leetcode+java&type=code",
+  },
+  {
+    id: "first-bad-version",
+    title: "First Bad Version",
+    topic: "Binary Search",
+    difficulty: "Easy",
+    solution: "Binary search for first true.",
+    solutionLink: "https://leetcode.com/problems/first-bad-version/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=first+bad+version+leetcode",
+    java: "https://github.com/search?q=first+bad+version+leetcode+java&type=code",
+  },
+  {
+    id: "arranging-coins",
+    title: "Arranging Coins",
+    topic: "Binary Search",
+    difficulty: "Easy",
+    solution: "Binary search maximum k with k(k+1)/2 <= n.",
+    solutionLink: "https://leetcode.com/problems/arranging-coins/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=arranging+coins+leetcode",
+    java: "https://github.com/search?q=arranging+coins+leetcode+java&type=code",
+  },
+  {
+    id: "peak-index-in-a-mountain-array",
+    title: "Peak Index in a Mountain Array",
+    topic: "Binary Search",
+    difficulty: "Easy",
+    solution: "Binary search on peak slope.",
+    solutionLink:
+      "https://leetcode.com/problems/peak-index-in-a-mountain-array/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=peak+index+in+a+mountain+array+leetcode",
+    java: "https://github.com/search?q=peak+index+in+a+mountain+array+leetcode+java&type=code",
+  },
+  {
+    id: "intersection-of-two-arrays-bs",
+    title: "Intersection of Two Arrays",
+    topic: "Binary Search",
+    difficulty: "Easy",
+    solution: "Sort and binary search each element.",
+    solutionLink:
+      "https://leetcode.com/problems/intersection-of-two-arrays/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=intersection+of+two+arrays+leetcode",
+    java: "https://github.com/search?q=intersection+of+two+arrays+leetcode+java&type=code",
+  },
+  {
+    id: "count-negative-numbers-in-a-sorted-matrix",
+    title: "Count Negative Numbers in a Sorted Matrix",
+    topic: "Binary Search",
+    difficulty: "Easy",
+    solution: "Binary search in each row.",
+    solutionLink:
+      "https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=count+negative+numbers+in+a+sorted+matrix+leetcode",
+    java: "https://github.com/search?q=count+negative+numbers+in+a+sorted+matrix+leetcode+java&type=code",
+  },
+  {
+    id: "search-in-rotated-sorted-array",
+    title: "Search in Rotated Sorted Array",
+    topic: "Binary Search",
+    difficulty: "Medium",
+    solution: "Binary search with rotated pivot logic.",
+    solutionLink:
+      "https://leetcode.com/problems/search-in-rotated-sorted-array/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=search+in+rotated+sorted+array+leetcode",
+    java: "https://github.com/search?q=search+in+rotated+sorted+array+leetcode+java&type=code",
+  },
+  {
+    id: "find-first-and-last-position-of-element-in-sorted-array",
+    title: "Find First and Last Position of Element in Sorted Array",
+    topic: "Binary Search",
+    difficulty: "Medium",
+    solution: "Two binary searches for bounds.",
+    solutionLink:
+      "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+first+and+last+position+of+element+in+sorted+array+leetcode",
+    java: "https://github.com/search?q=find+first+and+last+position+of+element+in+sorted+array+leetcode+java&type=code",
+  },
+  {
+    id: "search-a-2d-matrix",
+    title: "Search a 2D Matrix",
+    topic: "Binary Search",
+    difficulty: "Medium",
+    solution: "Binary search on virtual 1D array.",
+    solutionLink: "https://leetcode.com/problems/search-a-2d-matrix/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=search+a+2d+matrix+leetcode",
+    java: "https://github.com/search?q=search+a+2d+matrix+leetcode+java&type=code",
+  },
+  {
+    id: "find-minimum-in-rotated-sorted-array",
+    title: "Find Minimum in Rotated Sorted Array",
+    topic: "Binary Search",
+    difficulty: "Medium",
+    solution: "Binary search on rotated array.",
+    solutionLink:
+      "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+minimum+in+rotated+sorted+array+leetcode",
+    java: "https://github.com/search?q=find+minimum+in+rotated+sorted+array+leetcode+java&type=code",
+  },
+  {
+    id: "find-peak-element",
+    title: "Find Peak Element",
+    topic: "Binary Search",
+    difficulty: "Medium",
+    solution: "Binary search on slope changes.",
+    solutionLink: "https://leetcode.com/problems/find-peak-element/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+peak+element+leetcode",
+    java: "https://github.com/search?q=find+peak+element+leetcode+java&type=code",
+  },
+  {
+    id: "koko-eating-bananas",
+    title: "Koko Eating Bananas",
+    topic: "Binary Search",
+    difficulty: "Medium",
+    solution: "Binary search on eating speed.",
+    solutionLink:
+      "https://leetcode.com/problems/koko-eating-bananas/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=koko+eating+bananas+leetcode",
+    java: "https://github.com/search?q=koko+eating+bananas+leetcode+java&type=code",
+  },
+  {
+    id: "capacity-to-ship-packages-within-d-days",
+    title: "Capacity To Ship Packages Within D Days",
+    topic: "Binary Search",
+    difficulty: "Medium",
+    solution: "Binary search on capacity.",
+    solutionLink:
+      "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=capacity+to+ship+packages+within+d+days+leetcode",
+    java: "https://github.com/search?q=capacity+to+ship+packages+within+d+days+leetcode+java&type=code",
+  },
+  {
+    id: "find-the-smallest-divisor-given-a-threshold",
+    title: "Find the Smallest Divisor Given a Threshold",
+    topic: "Binary Search",
+    difficulty: "Medium",
+    solution: "Binary search on divisor.",
+    solutionLink:
+      "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+the+smallest+divisor+given+a+threshold+leetcode",
+    java: "https://github.com/search?q=find+the+smallest+divisor+given+a+threshold+leetcode+java&type=code",
+  },
+  {
+    id: "search-in-rotated-sorted-array-ii",
+    title: "Search in Rotated Sorted Array II",
+    topic: "Binary Search",
+    difficulty: "Medium",
+    solution: "Binary search with duplicates.",
+    solutionLink:
+      "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=search+in+rotated+sorted+array+ii+leetcode",
+    java: "https://github.com/search?q=search+in+rotated+sorted+array+ii+leetcode+java&type=code",
+  },
+  {
+    id: "time-based-key-value-store",
+    title: "Time Based Key-Value Store",
+    topic: "Binary Search",
+    difficulty: "Medium",
+    solution: "Binary search on timestamps.",
+    solutionLink:
+      "https://leetcode.com/problems/time-based-key-value-store/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=time+based+key+value+store+leetcode",
+    java: "https://github.com/search?q=time+based+key+value+store+leetcode+java&type=code",
+  },
+  {
+    id: "median-of-two-sorted-arrays-bs",
+    title: "Median of Two Sorted Arrays",
+    topic: "Binary Search",
+    difficulty: "Hard",
+    solution: "Binary search on partition.",
+    solutionLink:
+      "https://leetcode.com/problems/median-of-two-sorted-arrays/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=median+of+two+sorted+arrays+leetcode",
+    java: "https://github.com/search?q=median+of+two+sorted+arrays+leetcode+java&type=code",
+  },
+  {
+    id: "split-array-largest-sum",
+    title: "Split Array Largest Sum",
+    topic: "Binary Search",
+    difficulty: "Hard",
+    solution: "Binary search on maximum subarray sum.",
+    solutionLink:
+      "https://leetcode.com/problems/split-array-largest-sum/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=split+array+largest+sum+leetcode",
+    java: "https://github.com/search?q=split+array+largest+sum+leetcode+java&type=code",
+  },
+  {
+    id: "find-minimum-in-rotated-sorted-array-ii-hard",
+    title: "Find Minimum in Rotated Sorted Array II",
+    topic: "Binary Search",
+    difficulty: "Hard",
+    solution: "Binary search with duplicates.",
+    solutionLink:
+      "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+minimum+in+rotated+sorted+array+ii+leetcode",
+    java: "https://github.com/search?q=find+minimum+in+rotated+sorted+array+ii+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-value-at-a-given-index-in-a-bounded-array",
+    title: "Maximum Value at a Given Index in a Bounded Array",
+    topic: "Binary Search",
+    difficulty: "Hard",
+    solution: "Binary search on value with sum constraints.",
+    solutionLink:
+      "https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+value+at+a+given+index+in+a+bounded+array+leetcode",
+    java: "https://github.com/search?q=maximum+value+at+a+given+index+in+a+bounded+array+leetcode+java&type=code",
+  },
+  {
+    id: "nth-magical-number",
+    title: "Nth Magical Number",
+    topic: "Binary Search",
+    difficulty: "Hard",
+    solution: "Binary search with lcm counting.",
+    solutionLink: "https://leetcode.com/problems/nth-magical-number/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=nth+magical+number+leetcode",
+    java: "https://github.com/search?q=nth+magical+number+leetcode+java&type=code",
+  },
+  {
+    id: "kth-smallest-number-in-multiplication-table",
+    title: "Kth Smallest Number in Multiplication Table",
+    topic: "Binary Search",
+    difficulty: "Hard",
+    solution: "Binary search on value with count function.",
+    solutionLink:
+      "https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=kth+smallest+number+in+multiplication+table+leetcode",
+    java: "https://github.com/search?q=kth+smallest+number+in+multiplication+table+leetcode+java&type=code",
+  },
+  {
+    id: "find-kth-smallest-pair-distance",
+    title: "Find Kth Smallest Pair Distance",
+    topic: "Binary Search",
+    difficulty: "Hard",
+    solution: "Binary search on distance with two pointers count.",
+    solutionLink:
+      "https://leetcode.com/problems/find-kth-smallest-pair-distance/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+kth+smallest+pair+distance+leetcode",
+    java: "https://github.com/search?q=find+kth+smallest+pair+distance+leetcode+java&type=code",
+  },
+  {
+    id: "smallest-rectangle-enclosing-black-pixels",
+    title: "Smallest Rectangle Enclosing Black Pixels",
+    topic: "Binary Search",
+    difficulty: "Hard",
+    solution: "Binary search boundaries on rows/cols.",
+    solutionLink:
+      "https://leetcode.com/problems/smallest-rectangle-enclosing-black-pixels/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=smallest+rectangle+enclosing+black+pixels+leetcode",
+    java: "https://github.com/search?q=smallest+rectangle+enclosing+black+pixels+leetcode+java&type=code",
+  },
+  {
+    id: "divide-chocolate",
+    title: "Divide Chocolate",
+    topic: "Binary Search",
+    difficulty: "Hard",
+    solution: "Binary search on minimum sweetness.",
+    solutionLink: "https://leetcode.com/problems/divide-chocolate/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=divide+chocolate+leetcode",
+    java: "https://github.com/search?q=divide+chocolate+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-number-of-days-to-make-m-bouquets",
+    title: "Minimum Number of Days to Make m Bouquets",
+    topic: "Binary Search",
+    difficulty: "Hard",
+    solution: "Binary search on day with feasibility check.",
+    solutionLink:
+      "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+number+of+days+to+make+m+bouquets+leetcode",
+    java: "https://github.com/search?q=minimum+number+of+days+to+make+m+bouquets+leetcode+java&type=code",
+  },
+];
+
+const PRIORITY_QUEUE_ITEMS: DsaItem[] = [
+  {
+    id: "kth-largest-element-in-a-stream",
+    title: "Kth Largest Element in a Stream",
+    topic: "Priority Queue",
+    difficulty: "Easy",
+    solution: "Min-heap of size k.",
+    solutionLink:
+      "https://leetcode.com/problems/kth-largest-element-in-a-stream/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=kth+largest+element+in+a+stream+leetcode",
+    java: "https://github.com/search?q=kth+largest+element+in+a+stream+leetcode+java&type=code",
+  },
+  {
+    id: "last-stone-weight",
+    title: "Last Stone Weight",
+    topic: "Priority Queue",
+    difficulty: "Easy",
+    solution: "Max-heap to smash largest stones.",
+    solutionLink: "https://leetcode.com/problems/last-stone-weight/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=last+stone+weight+leetcode",
+    java: "https://github.com/search?q=last+stone+weight+leetcode+java&type=code",
+  },
+  {
+    id: "relative-ranks",
+    title: "Relative Ranks",
+    topic: "Priority Queue",
+    difficulty: "Easy",
+    solution: "Max-heap or sort indices by score.",
+    solutionLink: "https://leetcode.com/problems/relative-ranks/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=relative+ranks+leetcode",
+    java: "https://github.com/search?q=relative+ranks+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-cost-to-move-chips-to-the-same-position",
+    title: "Minimum Cost to Move Chips to The Same Position",
+    topic: "Priority Queue",
+    difficulty: "Easy",
+    solution: "Count odds/evens, take min.",
+    solutionLink:
+      "https://leetcode.com/problems/minimum-cost-to-move-chips-to-the-same-position/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+cost+to+move+chips+to+the+same+position+leetcode",
+    java: "https://github.com/search?q=minimum+cost+to+move+chips+to+the+same+position+leetcode+java&type=code",
+  },
+  {
+    id: "find-subsequence-of-length-k-with-the-largest-sum",
+    title: "Find Subsequence of Length K With the Largest Sum",
+    topic: "Priority Queue",
+    difficulty: "Easy",
+    solution: "Keep top-k by value with indices.",
+    solutionLink:
+      "https://leetcode.com/problems/find-subsequence-of-length-k-with-the-largest-sum/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+subsequence+of+length+k+with+the+largest+sum+leetcode",
+    java: "https://github.com/search?q=find+subsequence+of+length+k+with+the+largest+sum+leetcode+java&type=code",
+  },
+  {
+    id: "k-closest-points-to-origin",
+    title: "K Closest Points to Origin",
+    topic: "Priority Queue",
+    difficulty: "Easy",
+    solution: "Max-heap of size k or quickselect.",
+    solutionLink:
+      "https://leetcode.com/problems/k-closest-points-to-origin/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=k+closest+points+to+origin+leetcode",
+    java: "https://github.com/search?q=k+closest+points+to+origin+leetcode+java&type=code",
+  },
+  {
+    id: "sort-characters-by-frequency",
+    title: "Sort Characters By Frequency",
+    topic: "Priority Queue",
+    difficulty: "Easy",
+    solution: "Max-heap by frequency.",
+    solutionLink:
+      "https://leetcode.com/problems/sort-characters-by-frequency/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=sort+characters+by+frequency+leetcode",
+    java: "https://github.com/search?q=sort+characters+by+frequency+leetcode+java&type=code",
+  },
+  {
+    id: "top-k-frequent-elements-pq",
+    title: "Top K Frequent Elements",
+    topic: "Priority Queue",
+    difficulty: "Easy",
+    solution: "Count frequencies then heap.",
+    solutionLink:
+      "https://leetcode.com/problems/top-k-frequent-elements/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=top+k+frequent+elements+leetcode",
+    java: "https://github.com/search?q=top+k+frequent+elements+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-product-of-two-elements-in-an-array",
+    title: "Maximum Product of Two Elements in an Array",
+    topic: "Priority Queue",
+    difficulty: "Easy",
+    solution: "Take two largest elements.",
+    solutionLink:
+      "https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+product+of+two+elements+in+an+array+leetcode",
+    java: "https://github.com/search?q=maximum+product+of+two+elements+in+an+array+leetcode+java&type=code",
+  },
+  {
+    id: "final-array-state-after-k-multiplication-operations",
+    title: "Final Array State After K Multiplication Operations",
+    topic: "Priority Queue",
+    difficulty: "Easy",
+    solution: "Min-heap to apply operations.",
+    solutionLink:
+      "https://leetcode.com/problems/final-array-state-after-k-multiplication-operations/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=final+array+state+after+k+multiplication+operations+leetcode",
+    java: "https://github.com/search?q=final+array+state+after+k+multiplication+operations+leetcode+java&type=code",
+  },
+  {
+    id: "kth-largest-element-in-an-array-pq",
+    title: "Kth Largest Element in an Array",
+    topic: "Priority Queue",
+    difficulty: "Medium",
+    solution: "Min-heap size k or quickselect.",
+    solutionLink:
+      "https://leetcode.com/problems/kth-largest-element-in-an-array/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=kth+largest+element+in+an+array+leetcode",
+    java: "https://github.com/search?q=kth+largest+element+in+an+array+leetcode+java&type=code",
+  },
+  {
+    id: "top-k-frequent-words",
+    title: "Top K Frequent Words",
+    topic: "Priority Queue",
+    difficulty: "Medium",
+    solution: "Heap with frequency and lex order.",
+    solutionLink:
+      "https://leetcode.com/problems/top-k-frequent-words/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=top+k+frequent+words+leetcode",
+    java: "https://github.com/search?q=top+k+frequent+words+leetcode+java&type=code",
+  },
+  {
+    id: "merge-k-sorted-lists-pq",
+    title: "Merge k Sorted Lists",
+    topic: "Priority Queue",
+    difficulty: "Medium",
+    solution: "Min-heap over list heads.",
+    solutionLink:
+      "https://leetcode.com/problems/merge-k-sorted-lists/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=merge+k+sorted+lists+leetcode",
+    java: "https://github.com/search?q=merge+k+sorted+lists+leetcode+java&type=code",
+  },
+  {
+    id: "task-scheduler-pq",
+    title: "Task Scheduler",
+    topic: "Priority Queue",
+    difficulty: "Medium",
+    solution: "Greedy with max-heap for counts.",
+    solutionLink: "https://leetcode.com/problems/task-scheduler/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=task+scheduler+leetcode",
+    java: "https://github.com/search?q=task+scheduler+leetcode+java&type=code",
+  },
+  {
+    id: "reorganize-string-pq",
+    title: "Reorganize String",
+    topic: "Priority Queue",
+    difficulty: "Medium",
+    solution: "Max-heap to arrange chars.",
+    solutionLink: "https://leetcode.com/problems/reorganize-string/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=reorganize+string+leetcode",
+    java: "https://github.com/search?q=reorganize+string+leetcode+java&type=code",
+  },
+  {
+    id: "furthest-building-you-can-reach",
+    title: "Furthest Building You Can Reach",
+    topic: "Priority Queue",
+    difficulty: "Medium",
+    solution: "Use min-heap for ladders on largest climbs.",
+    solutionLink:
+      "https://leetcode.com/problems/furthest-building-you-can-reach/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=furthest+building+you+can+reach+leetcode",
+    java: "https://github.com/search?q=furthest+building+you+can+reach+leetcode+java&type=code",
+  },
+  {
+    id: "find-k-pairs-with-smallest-sums",
+    title: "Find K Pairs with Smallest Sums",
+    topic: "Priority Queue",
+    difficulty: "Medium",
+    solution: "Min-heap over pair sums.",
+    solutionLink:
+      "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+k+pairs+with+smallest+sums+leetcode",
+    java: "https://github.com/search?q=find+k+pairs+with+smallest+sums+leetcode+java&type=code",
+  },
+  {
+    id: "find-k-closest-elements",
+    title: "K Closest Elements",
+    topic: "Priority Queue",
+    difficulty: "Medium",
+    solution: "Heap or binary search + two pointers.",
+    solutionLink:
+      "https://leetcode.com/problems/find-k-closest-elements/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+k+closest+elements+leetcode",
+    java: "https://github.com/search?q=find+k+closest+elements+leetcode+java&type=code",
+  },
+  {
+    id: "ugly-number-ii",
+    title: "Ugly Number II",
+    topic: "Priority Queue",
+    difficulty: "Medium",
+    solution: "Min-heap to generate next numbers.",
+    solutionLink: "https://leetcode.com/problems/ugly-number-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=ugly+number+ii+leetcode",
+    java: "https://github.com/search?q=ugly+number+ii+leetcode+java&type=code",
+  },
+  {
+    id: "smallest-range-covering-elements-from-k-lists",
+    title: "Smallest Range Covering Elements from K Lists",
+    topic: "Priority Queue",
+    difficulty: "Medium",
+    solution: "Min-heap over heads with tracking max.",
+    solutionLink:
+      "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=smallest+range+covering+elements+from+k+lists+leetcode",
+    java: "https://github.com/search?q=smallest+range+covering+elements+from+k+lists+leetcode+java&type=code",
+  },
+  {
+    id: "sliding-window-maximum-pq",
+    title: "Sliding Window Maximum",
+    topic: "Priority Queue",
+    difficulty: "Hard",
+    solution: "Max-heap or deque for window max.",
+    solutionLink:
+      "https://leetcode.com/problems/sliding-window-maximum/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=sliding+window+maximum+leetcode",
+    java: "https://github.com/search?q=sliding+window+maximum+leetcode+java&type=code",
+  },
+  {
+    id: "find-median-from-data-stream",
+    title: "Find Median from Data Stream",
+    topic: "Priority Queue",
+    difficulty: "Hard",
+    solution: "Two heaps for lower/upper halves.",
+    solutionLink:
+      "https://leetcode.com/problems/find-median-from-data-stream/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+median+from+data+stream+leetcode",
+    java: "https://github.com/search?q=find+median+from+data+stream+leetcode+java&type=code",
+  },
+  {
+    id: "ipo-pq",
+    title: "IPO",
+    topic: "Priority Queue",
+    difficulty: "Hard",
+    solution: "Sort by capital, max-heap profits.",
+    solutionLink: "https://leetcode.com/problems/ipo/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=ipo+leetcode",
+    java: "https://github.com/search?q=ipo+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-cost-to-hire-k-workers",
+    title: "Minimum Cost to Hire K Workers",
+    topic: "Priority Queue",
+    difficulty: "Hard",
+    solution: "Sort by ratio, max-heap of quality.",
+    solutionLink:
+      "https://leetcode.com/problems/minimum-cost-to-hire-k-workers/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+cost+to+hire+k+workers+leetcode",
+    java: "https://github.com/search?q=minimum+cost+to+hire+k+workers+leetcode+java&type=code",
+  },
+  {
+    id: "trapping-rain-water-ii",
+    title: "Trapping Rain Water II",
+    topic: "Priority Queue",
+    difficulty: "Hard",
+    solution: "Min-heap BFS over boundary.",
+    solutionLink:
+      "https://leetcode.com/problems/trapping-rain-water-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=trapping+rain+water+ii+leetcode",
+    java: "https://github.com/search?q=trapping+rain+water+ii+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-performance-of-a-team-pq",
+    title: "Maximum Performance of a Team",
+    topic: "Priority Queue",
+    difficulty: "Hard",
+    solution: "Heap speeds with efficiency sorting.",
+    solutionLink:
+      "https://leetcode.com/problems/maximum-performance-of-a-team/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+performance+of+a+team+leetcode",
+    java: "https://github.com/search?q=maximum+performance+of+a+team+leetcode+java&type=code",
+  },
+  {
+    id: "swim-in-rising-water-pq",
+    title: "Swim in Rising Water",
+    topic: "Priority Queue",
+    difficulty: "Hard",
+    solution: "Dijkstra with min-heap.",
+    solutionLink:
+      "https://leetcode.com/problems/swim-in-rising-water/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=swim+in+rising+water+leetcode",
+    java: "https://github.com/search?q=swim+in+rising+water+leetcode+java&type=code",
+  },
+  {
+    id: "meeting-rooms-iii",
+    title: "Meeting Rooms III",
+    topic: "Priority Queue",
+    difficulty: "Hard",
+    solution: "Two heaps for available/occupied rooms.",
+    solutionLink: "https://leetcode.com/problems/meeting-rooms-iii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=meeting+rooms+iii+leetcode",
+    java: "https://github.com/search?q=meeting+rooms+iii+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-number-of-refueling-stops-pq",
+    title: "Minimum Number of Refueling Stops",
+    topic: "Priority Queue",
+    difficulty: "Hard",
+    solution: "Max-heap of fuels as you progress.",
+    solutionLink:
+      "https://leetcode.com/problems/minimum-number-of-refueling-stops/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+number+of+refueling+stops+leetcode",
+    java: "https://github.com/search?q=minimum+number+of+refueling+stops+leetcode+java&type=code",
+  },
+  {
+    id: "the-skyline-problem",
+    title: "The Skyline Problem",
+    topic: "Priority Queue",
+    difficulty: "Hard",
+    solution: "Sweep line with max-heap.",
+    solutionLink: "https://leetcode.com/problems/the-skyline-problem/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=the+skyline+problem+leetcode",
+    java: "https://github.com/search?q=the+skyline+problem+leetcode+java&type=code",
+  },
+];
+
+const STACK_QUEUE_ITEMS: DsaItem[] = [
+  {
+    id: "valid-parentheses-stack",
+    title: "Valid Parentheses",
+    topic: "Stack/Queue",
+    difficulty: "Easy",
+    solution: "Use stack to match brackets.",
+    solutionLink: "https://leetcode.com/problems/valid-parentheses/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=valid+parentheses+leetcode",
+    java: "https://github.com/search?q=valid+parentheses+leetcode+java&type=code",
+  },
+  {
+    id: "implement-stack-using-queues",
+    title: "Implement Stack using Queues",
+    topic: "Stack/Queue",
+    difficulty: "Easy",
+    solution: "Push then rotate queue.",
+    solutionLink:
+      "https://leetcode.com/problems/implement-stack-using-queues/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=implement+stack+using+queues+leetcode",
+    java: "https://github.com/search?q=implement+stack+using+queues+leetcode+java&type=code",
+  },
+  {
+    id: "implement-queue-using-stacks",
+    title: "Implement Queue using Stacks",
+    topic: "Stack/Queue",
+    difficulty: "Easy",
+    solution: "Use two stacks for amortized O(1).",
+    solutionLink:
+      "https://leetcode.com/problems/implement-queue-using-stacks/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=implement+queue+using+stacks+leetcode",
+    java: "https://github.com/search?q=implement+queue+using+stacks+leetcode+java&type=code",
+  },
+  {
+    id: "min-stack",
+    title: "Min Stack",
+    topic: "Stack/Queue",
+    difficulty: "Easy",
+    solution: "Stack with running min.",
+    solutionLink: "https://leetcode.com/problems/min-stack/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=min+stack+leetcode",
+    java: "https://github.com/search?q=min+stack+leetcode+java&type=code",
+  },
+  {
+    id: "baseball-game",
+    title: "Baseball Game",
+    topic: "Stack/Queue",
+    difficulty: "Easy",
+    solution: "Stack simulate operations.",
+    solutionLink: "https://leetcode.com/problems/baseball-game/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=baseball+game+leetcode",
+    java: "https://github.com/search?q=baseball+game+leetcode+java&type=code",
+  },
+  {
+    id: "backspace-string-compare",
+    title: "Backspace String Compare",
+    topic: "Stack/Queue",
+    difficulty: "Easy",
+    solution: "Process with stack or two pointers.",
+    solutionLink:
+      "https://leetcode.com/problems/backspace-string-compare/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=backspace+string+compare+leetcode",
+    java: "https://github.com/search?q=backspace+string+compare+leetcode+java&type=code",
+  },
+  {
+    id: "remove-all-adjacent-duplicates-in-string",
+    title: "Remove All Adjacent Duplicates In String",
+    topic: "Stack/Queue",
+    difficulty: "Easy",
+    solution: "Stack remove duplicates.",
+    solutionLink:
+      "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=remove+all+adjacent+duplicates+in+string+leetcode",
+    java: "https://github.com/search?q=remove+all+adjacent+duplicates+in+string+leetcode+java&type=code",
+  },
+  {
+    id: "next-greater-element-i",
+    title: "Next Greater Element I",
+    topic: "Stack/Queue",
+    difficulty: "Easy",
+    solution: "Monotonic stack for next greater.",
+    solutionLink:
+      "https://leetcode.com/problems/next-greater-element-i/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=next+greater+element+i+leetcode",
+    java: "https://github.com/search?q=next+greater+element+i+leetcode+java&type=code",
+  },
+  {
+    id: "number-of-recent-calls",
+    title: "Number of Recent Calls",
+    topic: "Stack/Queue",
+    difficulty: "Easy",
+    solution: "Queue of timestamps.",
+    solutionLink:
+      "https://leetcode.com/problems/number-of-recent-calls/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=number+of+recent+calls+leetcode",
+    java: "https://github.com/search?q=number+of+recent+calls+leetcode+java&type=code",
+  },
+  {
+    id: "make-the-string-great",
+    title: "Make The String Great",
+    topic: "Stack/Queue",
+    difficulty: "Easy",
+    solution: "Stack remove adjacent cases.",
+    solutionLink:
+      "https://leetcode.com/problems/make-the-string-great/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=make+the+string+great+leetcode",
+    java: "https://github.com/search?q=make+the+string+great+leetcode+java&type=code",
+  },
+  {
+    id: "daily-temperatures",
+    title: "Daily Temperatures",
+    topic: "Stack/Queue",
+    difficulty: "Medium",
+    solution: "Monotonic stack of indices.",
+    solutionLink: "https://leetcode.com/problems/daily-temperatures/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=daily+temperatures+leetcode",
+    java: "https://github.com/search?q=daily+temperatures+leetcode+java&type=code",
+  },
+  {
+    id: "next-greater-element-ii",
+    title: "Next Greater Element II",
+    topic: "Stack/Queue",
+    difficulty: "Medium",
+    solution: "Monotonic stack with circular array.",
+    solutionLink:
+      "https://leetcode.com/problems/next-greater-element-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=next+greater+element+ii+leetcode",
+    java: "https://github.com/search?q=next+greater+element+ii+leetcode+java&type=code",
+  },
+  {
+    id: "online-stock-span",
+    title: "Online Stock Span",
+    topic: "Stack/Queue",
+    difficulty: "Medium",
+    solution: "Monotonic stack of pairs.",
+    solutionLink:
+      "https://leetcode.com/problems/online-stock-span/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=online+stock+span+leetcode",
+    java: "https://github.com/search?q=online+stock+span+leetcode+java&type=code",
+  },
+  {
+    id: "evaluate-reverse-polish-notation",
+    title: "Evaluate Reverse Polish Notation",
+    topic: "Stack/Queue",
+    difficulty: "Medium",
+    solution: "Stack evaluate tokens.",
+    solutionLink:
+      "https://leetcode.com/problems/evaluate-reverse-polish-notation/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=evaluate+reverse+polish+notation+leetcode",
+    java: "https://github.com/search?q=evaluate+reverse+polish+notation+leetcode+java&type=code",
+  },
+  {
+    id: "decode-string",
+    title: "Decode String",
+    topic: "Stack/Queue",
+    difficulty: "Medium",
+    solution: "Stack for counts and partial strings.",
+    solutionLink: "https://leetcode.com/problems/decode-string/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=decode+string+leetcode",
+    java: "https://github.com/search?q=decode+string+leetcode+java&type=code",
+  },
+  {
+    id: "asteroid-collision",
+    title: "Asteroid Collision",
+    topic: "Stack/Queue",
+    difficulty: "Medium",
+    solution: "Stack simulate collisions.",
+    solutionLink:
+      "https://leetcode.com/problems/asteroid-collision/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=asteroid+collision+leetcode",
+    java: "https://github.com/search?q=asteroid+collision+leetcode+java&type=code",
+  },
+  {
+    id: "simplify-path",
+    title: "Simplify Path",
+    topic: "Stack/Queue",
+    difficulty: "Medium",
+    solution: "Stack directories.",
+    solutionLink: "https://leetcode.com/problems/simplify-path/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=simplify+path+leetcode",
+    java: "https://github.com/search?q=simplify+path+leetcode+java&type=code",
+  },
+  {
+    id: "remove-k-digits-stack",
+    title: "Remove K Digits",
+    topic: "Stack/Queue",
+    difficulty: "Medium",
+    solution: "Monotonic stack to remove larger digits.",
+    solutionLink: "https://leetcode.com/problems/remove-k-digits/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=remove+k+digits+leetcode",
+    java: "https://github.com/search?q=remove+k+digits+leetcode+java&type=code",
+  },
+  {
+    id: "sum-of-subarray-minimums",
+    title: "Sum of Subarray Minimums",
+    topic: "Stack/Queue",
+    difficulty: "Medium",
+    solution: "Monotonic stack for contribution.",
+    solutionLink:
+      "https://leetcode.com/problems/sum-of-subarray-minimums/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=sum+of+subarray+minimums+leetcode",
+    java: "https://github.com/search?q=sum+of+subarray+minimums+leetcode+java&type=code",
+  },
+  {
+    id: "largest-rectangle-in-histogram-stack",
+    title: "Largest Rectangle in Histogram",
+    topic: "Stack/Queue",
+    difficulty: "Medium",
+    solution: "Monotonic stack of heights.",
+    solutionLink:
+      "https://leetcode.com/problems/largest-rectangle-in-histogram/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=largest+rectangle+in+histogram+leetcode",
+    java: "https://github.com/search?q=largest+rectangle+in+histogram+leetcode+java&type=code",
+  },
+  {
+    id: "trapping-rain-water-stack",
+    title: "Trapping Rain Water",
+    topic: "Stack/Queue",
+    difficulty: "Hard",
+    solution: "Stack or two pointers.",
+    solutionLink:
+      "https://leetcode.com/problems/trapping-rain-water/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=trapping+rain+water+leetcode",
+    java: "https://github.com/search?q=trapping+rain+water+leetcode+java&type=code",
+  },
+  {
+    id: "sliding-window-maximum-stack",
+    title: "Sliding Window Maximum",
+    topic: "Stack/Queue",
+    difficulty: "Hard",
+    solution: "Deque or heap for window max.",
+    solutionLink:
+      "https://leetcode.com/problems/sliding-window-maximum/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=sliding+window+maximum+leetcode",
+    java: "https://github.com/search?q=sliding+window+maximum+leetcode+java&type=code",
+  },
+  {
+    id: "shortest-subarray-with-sum-at-least-k",
+    title: "Shortest Subarray with Sum at Least K",
+    topic: "Stack/Queue",
+    difficulty: "Hard",
+    solution: "Monotonic queue with prefix sums.",
+    solutionLink:
+      "https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=shortest+subarray+with+sum+at+least+k+leetcode",
+    java: "https://github.com/search?q=shortest+subarray+with+sum+at+least+k+leetcode+java&type=code",
+  },
+  {
+    id: "maximal-rectangle",
+    title: "Maximal Rectangle",
+    topic: "Stack/Queue",
+    difficulty: "Hard",
+    solution: "Histogram stack per row.",
+    solutionLink: "https://leetcode.com/problems/maximal-rectangle/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximal+rectangle+leetcode",
+    java: "https://github.com/search?q=maximal+rectangle+leetcode+java&type=code",
+  },
+  {
+    id: "basic-calculator",
+    title: "Basic Calculator",
+    topic: "Stack/Queue",
+    difficulty: "Hard",
+    solution: "Stack for sign and nested expressions.",
+    solutionLink: "https://leetcode.com/problems/basic-calculator/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=basic+calculator+leetcode",
+    java: "https://github.com/search?q=basic+calculator+leetcode+java&type=code",
+  },
+  {
+    id: "basic-calculator-ii",
+    title: "Basic Calculator II",
+    topic: "Stack/Queue",
+    difficulty: "Hard",
+    solution: "Stack for precedence of * and /.",
+    solutionLink: "https://leetcode.com/problems/basic-calculator-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=basic+calculator+ii+leetcode",
+    java: "https://github.com/search?q=basic+calculator+ii+leetcode+java&type=code",
+  },
+  {
+    id: "basic-calculator-iii",
+    title: "Basic Calculator III",
+    topic: "Stack/Queue",
+    difficulty: "Hard",
+    solution: "Stack/recursion with parentheses.",
+    solutionLink: "https://leetcode.com/problems/basic-calculator-iii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=basic+calculator+iii+leetcode",
+    java: "https://github.com/search?q=basic+calculator+iii+leetcode+java&type=code",
+  },
+  {
+    id: "longest-valid-parentheses-stack",
+    title: "Longest Valid Parentheses",
+    topic: "Stack/Queue",
+    difficulty: "Hard",
+    solution: "Stack indices to track valid lengths.",
+    solutionLink:
+      "https://leetcode.com/problems/longest-valid-parentheses/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=longest+valid+parentheses+leetcode",
+    java: "https://github.com/search?q=longest+valid+parentheses+leetcode+java&type=code",
+  },
+  {
+    id: "remove-invalid-parentheses-stack",
+    title: "Remove Invalid Parentheses",
+    topic: "Stack/Queue",
+    difficulty: "Hard",
+    solution: "BFS/DFS remove minimal invalid.",
+    solutionLink:
+      "https://leetcode.com/problems/remove-invalid-parentheses/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=remove+invalid+parentheses+leetcode",
+    java: "https://github.com/search?q=remove+invalid+parentheses+leetcode+java&type=code",
+  },
+  {
+    id: "parse-lisp-expression",
+    title: "Parse Lisp Expression",
+    topic: "Stack/Queue",
+    difficulty: "Hard",
+    solution: "Recursive descent / stack parse.",
+    solutionLink:
+      "https://leetcode.com/problems/parse-lisp-expression/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=parse+lisp+expression+leetcode",
+    java: "https://github.com/search?q=parse+lisp+expression+leetcode+java&type=code",
+  },
+];
 const DSA_ITEMS: DsaItem[] = [
   ...LINKED_LIST_ITEMS,
   ...DP_ITEMS,
@@ -2743,6 +3802,9 @@ const DSA_ITEMS: DsaItem[] = [
   ...GRAPH_ITEMS,
   ...ARRAYS_ITEMS,
   ...BACKTRACKING_ITEMS,
+  ...BINARY_SEARCH_ITEMS,
+  ...PRIORITY_QUEUE_ITEMS,
+  ...STACK_QUEUE_ITEMS,
 ];
 
 const difficultyClass: Record<DsaItem["difficulty"], string> = {
@@ -2755,6 +3817,9 @@ const TOPICS = [
   "All",
   "Arrays",
   "Linked List",
+  "Binary Search",
+  "Priority Queue",
+  "Stack/Queue",
   "Greedy",
   "Tree",
   "Graph",
