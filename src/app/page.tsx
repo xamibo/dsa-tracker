@@ -14,6 +14,19 @@ type DsaItem = {
 };
 
 const STORAGE_KEY = "dsa-sheet-progress-v1";
+const DAILY_KEY_PREFIX = "dsa-sheet-daily-";
+
+const getTodayKey = () =>
+  `${DAILY_KEY_PREFIX}${new Date().toISOString().slice(0, 10)}`;
+
+const shuffle = <T,>(list: T[]) => {
+  const array = [...list];
+  for (let i = array.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
 
 const LINKED_LIST_ITEMS: DsaItem[] = [
   {
@@ -2297,6 +2310,391 @@ const ARRAYS_ITEMS: DsaItem[] = [
     java: "https://github.com/search?q=create+maximum+number+leetcode+java&type=code",
   },
 ];
+
+const BACKTRACKING_ITEMS: DsaItem[] = [
+  {
+    id: "sudoku-solver",
+    title: "Sudoku Solver",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Backtrack with constraints per row/col/box.",
+    solutionLink: "https://leetcode.com/problems/sudoku-solver/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=sudoku+solver+leetcode",
+    java: "https://github.com/search?q=sudoku+solver+leetcode+java&type=code",
+  },
+  {
+    id: "n-queens",
+    title: "N-Queens",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Backtrack with column/diagonal sets.",
+    solutionLink: "https://leetcode.com/problems/n-queens/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=n+queens+leetcode",
+    java: "https://github.com/search?q=n+queens+leetcode+java&type=code",
+  },
+  {
+    id: "n-queens-ii",
+    title: "N-Queens II",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Count solutions using backtracking.",
+    solutionLink: "https://leetcode.com/problems/n-queens-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=n+queens+ii+leetcode",
+    java: "https://github.com/search?q=n+queens+ii+leetcode+java&type=code",
+  },
+  {
+    id: "word-ladder-ii-backtracking",
+    title: "Word Ladder II",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "BFS levels then backtrack paths.",
+    solutionLink: "https://leetcode.com/problems/word-ladder-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=word+ladder+ii+leetcode",
+    java: "https://github.com/search?q=word+ladder+ii+leetcode+java&type=code",
+  },
+  {
+    id: "word-break-ii",
+    title: "Word Break II",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "DFS with memo to build sentences.",
+    solutionLink: "https://leetcode.com/problems/word-break-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=word+break+ii+leetcode",
+    java: "https://github.com/search?q=word+break+ii+leetcode+java&type=code",
+  },
+  {
+    id: "word-search-ii",
+    title: "Word Search II",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Backtracking with trie pruning.",
+    solutionLink: "https://leetcode.com/problems/word-search-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=word+search+ii+leetcode",
+    java: "https://github.com/search?q=word+search+ii+leetcode+java&type=code",
+  },
+  {
+    id: "expression-add-operators",
+    title: "Expression Add Operators",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "DFS building expression with prev term tracking.",
+    solutionLink:
+      "https://leetcode.com/problems/expression-add-operators/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=expression+add+operators+leetcode",
+    java: "https://github.com/search?q=expression+add+operators+leetcode+java&type=code",
+  },
+  {
+    id: "remove-invalid-parentheses",
+    title: "Remove Invalid Parentheses",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "DFS remove minimal invalid; dedupe with set.",
+    solutionLink:
+      "https://leetcode.com/problems/remove-invalid-parentheses/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=remove+invalid+parentheses+leetcode",
+    java: "https://github.com/search?q=remove+invalid+parentheses+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-unique-word-abbreviation",
+    title: "Minimum Unique Word Abbreviation",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Backtrack abbreviations with pruning.",
+    solutionLink:
+      "https://leetcode.com/problems/minimum-unique-word-abbreviation/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+unique+word+abbreviation+leetcode",
+    java: "https://github.com/search?q=minimum+unique+word+abbreviation+leetcode+java&type=code",
+  },
+  {
+    id: "word-squares",
+    title: "Word Squares",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Backtracking with prefix map.",
+    solutionLink: "https://leetcode.com/problems/word-squares/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=word+squares+leetcode",
+    java: "https://github.com/search?q=word+squares+leetcode+java&type=code",
+  },
+  {
+    id: "optimal-account-balancing",
+    title: "Optimal Account Balancing",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "DFS over debt list with pruning.",
+    solutionLink:
+      "https://leetcode.com/problems/optimal-account-balancing/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=optimal+account+balancing+leetcode",
+    java: "https://github.com/search?q=optimal+account+balancing+leetcode+java&type=code",
+  },
+  {
+    id: "robot-room-cleaner",
+    title: "Robot Room Cleaner",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "DFS with backtracking turns and moves.",
+    solutionLink: "https://leetcode.com/problems/robot-room-cleaner/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=robot+room+cleaner+leetcode",
+    java: "https://github.com/search?q=robot+room+cleaner+leetcode+java&type=code",
+  },
+  {
+    id: "24-game",
+    title: "24 Game",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Try all pair ops with recursion.",
+    solutionLink: "https://leetcode.com/problems/24-game/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=24+game+leetcode",
+    java: "https://github.com/search?q=24+game+leetcode+java&type=code",
+  },
+  {
+    id: "stickers-to-spell-word",
+    title: "Stickers to Spell Word",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "DFS with memo on remaining target.",
+    solutionLink:
+      "https://leetcode.com/problems/stickers-to-spell-word/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=stickers+to+spell+word+leetcode",
+    java: "https://github.com/search?q=stickers+to+spell+word+leetcode+java&type=code",
+  },
+  {
+    id: "sliding-puzzle",
+    title: "Sliding Puzzle",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "BFS over board states.",
+    solutionLink: "https://leetcode.com/problems/sliding-puzzle/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=sliding+puzzle+leetcode",
+    java: "https://github.com/search?q=sliding+puzzle+leetcode+java&type=code",
+  },
+  {
+    id: "unique-paths-iii",
+    title: "Unique Paths III",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "DFS visiting all cells exactly once.",
+    solutionLink: "https://leetcode.com/problems/unique-paths-iii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=unique+paths+iii+leetcode",
+    java: "https://github.com/search?q=unique+paths+iii+leetcode+java&type=code",
+  },
+  {
+    id: "number-of-squareful-arrays",
+    title: "Number of Squareful Arrays",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Backtrack permutations with pruning.",
+    solutionLink:
+      "https://leetcode.com/problems/number-of-squareful-arrays/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=number+of+squareful+arrays+leetcode",
+    java: "https://github.com/search?q=number+of+squareful+arrays+leetcode+java&type=code",
+  },
+  {
+    id: "confusing-number-ii",
+    title: "Confusing Number II",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "DFS build numbers with rotation mapping.",
+    solutionLink:
+      "https://leetcode.com/problems/confusing-number-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=confusing+number+ii+leetcode",
+    java: "https://github.com/search?q=confusing+number+ii+leetcode+java&type=code",
+  },
+  {
+    id: "brace-expansion-ii",
+    title: "Brace Expansion II",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "DFS parse unions/concats with sets.",
+    solutionLink: "https://leetcode.com/problems/brace-expansion-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=brace+expansion+ii+leetcode",
+    java: "https://github.com/search?q=brace+expansion+ii+leetcode+java&type=code",
+  },
+  {
+    id: "tiling-a-rectangle-with-the-fewest-squares",
+    title: "Tiling a Rectangle with the Fewest Squares",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Backtrack placements with pruning.",
+    solutionLink:
+      "https://leetcode.com/problems/tiling-a-rectangle-with-the-fewest-squares/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=tiling+a+rectangle+with+the+fewest+squares+leetcode",
+    java: "https://github.com/search?q=tiling+a+rectangle+with+the+fewest+squares+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-score-words-formed-by-letters",
+    title: "Maximum Score Words Formed by Letters",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "DFS include/exclude with letter counts.",
+    solutionLink:
+      "https://leetcode.com/problems/maximum-score-words-formed-by-letters/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+score+words+formed+by+letters+leetcode",
+    java: "https://github.com/search?q=maximum+score+words+formed+by+letters+leetcode+java&type=code",
+  },
+  {
+    id: "verbal-arithmetic-puzzle",
+    title: "Verbal Arithmetic Puzzle",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Column-wise DFS with digit assignments.",
+    solutionLink:
+      "https://leetcode.com/problems/verbal-arithmetic-puzzle/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=verbal+arithmetic+puzzle+leetcode",
+    java: "https://github.com/search?q=verbal+arithmetic+puzzle+leetcode+java&type=code",
+  },
+  {
+    id: "probability-of-a-two-boxes-having-the-same-number-of-distinct-balls",
+    title: "Probability of a Two Boxes Having The Same Number of Distinct Balls",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "DFS distributions with combinatorics.",
+    solutionLink:
+      "https://leetcode.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=probability+of+a+two+boxes+having+the+same+number+of+distinct+balls+leetcode",
+    java: "https://github.com/search?q=probability+of+a+two+boxes+having+the+same+number+of+distinct+balls+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-number-of-achievable-transfer-requests",
+    title: "Maximum Number of Achievable Transfer Requests",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Backtrack subsets with balance checks.",
+    solutionLink:
+      "https://leetcode.com/problems/maximum-number-of-achievable-transfer-requests/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+number+of+achievable+transfer+requests+leetcode",
+    java: "https://github.com/search?q=maximum+number+of+achievable+transfer+requests+leetcode+java&type=code",
+  },
+  {
+    id: "distribute-repeating-integers",
+    title: "Distribute Repeating Integers",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Backtrack counts with pruning.",
+    solutionLink:
+      "https://leetcode.com/problems/distribute-repeating-integers/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=distribute+repeating+integers+leetcode",
+    java: "https://github.com/search?q=distribute+repeating+integers+leetcode+java&type=code",
+  },
+  {
+    id: "find-minimum-time-to-finish-all-jobs",
+    title: "Find Minimum Time to Finish All Jobs",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Backtrack worker assignments with pruning.",
+    solutionLink:
+      "https://leetcode.com/problems/find-minimum-time-to-finish-all-jobs/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+minimum+time+to+finish+all+jobs+leetcode",
+    java: "https://github.com/search?q=find+minimum+time+to+finish+all+jobs+leetcode+java&type=code",
+  },
+  {
+    id: "maximize-score-after-n-operations",
+    title: "Maximize Score After N Operations",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "DP/backtracking on pairs with bitmask.",
+    solutionLink:
+      "https://leetcode.com/problems/maximize-score-after-n-operations/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximize+score+after+n+operations+leetcode",
+    java: "https://github.com/search?q=maximize+score+after+n+operations+leetcode+java&type=code",
+  },
+  {
+    id: "longest-subsequence-repeated-k-times",
+    title: "Longest Subsequence Repeated k Times",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Backtrack candidates with pruning by frequency.",
+    solutionLink:
+      "https://leetcode.com/problems/longest-subsequence-repeated-k-times/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=longest+subsequence+repeated+k+times+leetcode",
+    java: "https://github.com/search?q=longest+subsequence+repeated+k+times+leetcode+java&type=code",
+  },
+  {
+    id: "number-of-valid-move-combinations-on-chessboard",
+    title: "Number of Valid Move Combinations On Chessboard",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Backtrack moves with collision checks.",
+    solutionLink:
+      "https://leetcode.com/problems/number-of-valid-move-combinations-on-chessboard/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=number+of+valid+move+combinations+on+chessboard+leetcode",
+    java: "https://github.com/search?q=number+of+valid+move+combinations+on+chessboard+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-path-quality-of-a-graph",
+    title: "Maximum Path Quality of a Graph",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "DFS with time limit and revisit handling.",
+    solutionLink:
+      "https://leetcode.com/problems/maximum-path-quality-of-a-graph/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+path+quality+of+a+graph+leetcode",
+    java: "https://github.com/search?q=maximum+path+quality+of+a+graph+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-good-people-based-on-statements",
+    title: "Maximum Good People Based on Statements",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Backtrack assignments with consistency checks.",
+    solutionLink:
+      "https://leetcode.com/problems/maximum-good-people-based-on-statements/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+good+people+based+on+statements+leetcode",
+    java: "https://github.com/search?q=maximum+good+people+based+on+statements+leetcode+java&type=code",
+  },
+  {
+    id: "smallest-divisible-digit-product-ii",
+    title: "Smallest Divisible Digit Product II",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Search with pruning on digit products.",
+    solutionLink:
+      "https://leetcode.com/problems/smallest-divisible-digit-product-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=smallest+divisible+digit+product+ii+leetcode",
+    java: "https://github.com/search?q=smallest+divisible+digit+product+ii+leetcode+java&type=code",
+  },
+  {
+    id: "next-special-palindrome-number",
+    title: "Next Special Palindrome Number",
+    topic: "Backtracking",
+    difficulty: "Hard",
+    solution: "Backtrack palindromes with digit constraints.",
+    solutionLink:
+      "https://leetcode.com/problems/next-special-palindrome-number/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=next+special+palindrome+number+leetcode",
+    java: "https://github.com/search?q=next+special+palindrome+number+leetcode+java&type=code",
+  },
+];
 const DSA_ITEMS: DsaItem[] = [
   ...LINKED_LIST_ITEMS,
   ...DP_ITEMS,
@@ -2304,6 +2702,7 @@ const DSA_ITEMS: DsaItem[] = [
   ...GREEDY_ITEMS,
   ...GRAPH_ITEMS,
   ...ARRAYS_ITEMS,
+  ...BACKTRACKING_ITEMS,
 ];
 
 const difficultyClass: Record<DsaItem["difficulty"], string> = {
@@ -2320,6 +2719,7 @@ const TOPICS = [
   "Tree",
   "Graph",
   "DP",
+  "Backtracking",
 ] as const;
 
 export default function Home() {
@@ -2329,6 +2729,10 @@ export default function Home() {
   const [topicFilter, setTopicFilter] =
     useState<(typeof TOPICS)[number]>("All");
   const [page, setPage] = useState(1);
+  const [viewMode, setViewMode] = useState<"all" | "today">("all");
+  const [dailyIds, setDailyIds] = useState<string[]>([]);
+  const [dailyCount, setDailyCount] = useState(10);
+  const [dailyError, setDailyError] = useState<string | null>(null);
   const pageSize = 10;
 
   useEffect(() => {
@@ -2340,18 +2744,41 @@ export default function Home() {
         setProgress({});
       }
     }
+    const todayRaw = localStorage.getItem(getTodayKey());
+    if (todayRaw) {
+      try {
+        const parsed = JSON.parse(todayRaw) as { ids?: string[] };
+        if (Array.isArray(parsed.ids)) {
+          setDailyIds(parsed.ids);
+        }
+      } catch {
+        setDailyIds([]);
+      }
+    }
     setHydrated(true);
   }, []);
 
+  const idMap = useMemo(() => {
+    return new Map(DSA_ITEMS.map((item) => [item.id, item]));
+  }, []);
+
+  const dailyItems = useMemo(() => {
+    return dailyIds
+      .map((id) => idMap.get(id))
+      .filter(Boolean) as DsaItem[];
+  }, [dailyIds, idMap]);
+
   const filteredItems = useMemo(() => {
+    if (viewMode === "today") return dailyItems;
     return DSA_ITEMS.filter((item) => {
       const matchDifficulty = filter === "All" || item.difficulty === filter;
       const matchTopic = topicFilter === "All" || item.topic === topicFilter;
       return matchDifficulty && matchTopic;
     });
-  }, [filter, topicFilter]);
+  }, [filter, topicFilter, viewMode, dailyItems]);
 
-  const isAllSection = filter === "All" && topicFilter === "All";
+  const isAllSection =
+    viewMode === "all" && filter === "All" && topicFilter === "All";
   const totalPages = Math.max(
     1,
     Math.ceil(filteredItems.length / pageSize),
@@ -2365,7 +2792,50 @@ export default function Home() {
 
   useEffect(() => {
     setPage(1);
-  }, [filter, topicFilter]);
+  }, [filter, topicFilter, viewMode]);
+
+  const generateDailySheet = (requested = dailyCount) => {
+    setDailyError(null);
+    if (requested <= 0 || requested > DSA_ITEMS.length) {
+      setDailyError(
+        `Please choose a number between 1 and ${DSA_ITEMS.length}.`,
+      );
+      return;
+    }
+    const byTopic = new Map<string, DsaItem[]>();
+    DSA_ITEMS.forEach((item) => {
+      const list = byTopic.get(item.topic) ?? [];
+      list.push(item);
+      byTopic.set(item.topic, list);
+    });
+    const topics = shuffle([...byTopic.keys()]);
+    const selected: DsaItem[] = [];
+    const used = new Set<string>();
+    for (const topic of topics) {
+      if (selected.length >= requested) break;
+      const pool = byTopic.get(topic)?.filter((item) => !used.has(item.id));
+      if (!pool || pool.length === 0) continue;
+      const pick = pool[Math.floor(Math.random() * pool.length)];
+      selected.push(pick);
+      used.add(pick.id);
+    }
+    if (selected.length < requested) {
+      const remaining = shuffle(
+        DSA_ITEMS.filter((item) => !used.has(item.id)),
+      );
+      selected.push(...remaining.slice(0, requested - selected.length));
+    }
+    const ids = selected.map((item) => item.id);
+    setDailyIds(ids);
+    localStorage.setItem(getTodayKey(), JSON.stringify({ ids }));
+    setViewMode("today");
+  };
+
+  const clearDailySheet = () => {
+    setDailyIds([]);
+    localStorage.removeItem(getTodayKey());
+    setViewMode("all");
+  };
 
   const doneCount = useMemo(() => {
     if (!hydrated) return 0;
@@ -2463,6 +2933,82 @@ export default function Home() {
               ))}
             </div>
           </div>
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
+            <div className="flex flex-col gap-1">
+              <span className="text-soft text-xs uppercase tracking-[0.3em]">
+                Today Sheet
+              </span>
+              <p className="text-sm">
+                {dailyIds.length > 0
+                  ? `${dailyIds.length} questions ready`
+                  : "Generate a fresh random set for today."}
+              </p>
+              {dailyError && (
+                <p className="text-xs text-rose-200">{dailyError}</p>
+              )}
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <label className="text-soft text-xs">Count</label>
+              <input
+                type="number"
+                min={1}
+                max={DSA_ITEMS.length}
+                value={dailyCount}
+                onChange={(event) => {
+                  const next = Number.parseInt(event.target.value, 10);
+                  if (Number.isNaN(next)) {
+                    setDailyCount(1);
+                    return;
+                  }
+                  setDailyCount(next);
+                }}
+                className="h-9 w-20 rounded-full border border-white/10 bg-white/10 px-3 text-sm text-violet-50 outline-none focus:border-violet-400"
+              />
+              <button
+                type="button"
+                className="link-pill"
+                onClick={() => generateDailySheet()}
+              >
+                Generate
+              </button>
+              {dailyIds.length > 0 && (
+                <button
+                  type="button"
+                  className="link-pill"
+                  onClick={() => generateDailySheet(dailyCount)}
+                >
+                  Regenerate
+                </button>
+              )}
+              {dailyIds.length > 0 && viewMode !== "today" && (
+                <button
+                  type="button"
+                  className="link-pill"
+                  onClick={() => setViewMode("today")}
+                >
+                  View Today
+                </button>
+              )}
+              {viewMode === "today" && (
+                <button
+                  type="button"
+                  className="link-pill"
+                  onClick={() => setViewMode("all")}
+                >
+                  Back to Full
+                </button>
+              )}
+              {dailyIds.length > 0 && (
+                <button
+                  type="button"
+                  className="link-pill"
+                  onClick={clearDailySheet}
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+          </div>
           <div className="mt-4 flex flex-wrap gap-2">
             {TOPICS.map((topic) => (
               <button
@@ -2488,7 +3034,7 @@ export default function Home() {
                         <th>Question</th>
                         <th>Topic</th>
                         <th>Difficulty</th>
-                        <th>Written Solution</th>
+                        <th className="hint-col">Hint</th>
                         <th>YouTube</th>
                         <th>Java Code</th>
                       </tr>
@@ -2540,17 +3086,9 @@ export default function Home() {
                                 {item.difficulty}
                               </span>
                             </td>
-                            <td>
-                              <div className="flex flex-col gap-2">
+                            <td className="hint-col">
+                              <div className="flex flex-col items-center gap-2">
                                 <span className="text-soft">{item.solution}</span>
-                                <a
-                                  className="link-pill"
-                                  href={item.solutionLink}
-                                  target="_blank"
-                                  rel="noreferrer"
-                                >
-                                  Written
-                                </a>
                               </div>
                             </td>
                             <td>
@@ -2633,14 +3171,6 @@ export default function Home() {
                           {item.solution}
                         </p>
                         <div className="mt-3 flex flex-wrap gap-2">
-                          <a
-                            className="link-pill"
-                            href={item.solutionLink}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            Written
-                          </a>
                           <a
                             className="link-pill"
                             href={item.youtube}

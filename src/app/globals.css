@@ -114,6 +114,14 @@ body {
   background: rgba(20, 12, 42, 0.95);
 }
 
+.table-shell thead th.hint-col {
+  text-align: center;
+}
+
+.table-shell tbody td.hint-col {
+  text-align: center;
+}
+
 .table-shell tbody tr {
   transition: background 0.2s ease, transform 0.2s ease;
 }
