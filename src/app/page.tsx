@@ -9,6 +9,7 @@ type DsaItem = {
   difficulty: "Easy" | "Medium" | "Hard";
   solution: string;
   solutionLink: string;
+  problemLink?: string;
   youtube: string;
   java: string;
 };
@@ -26,6 +27,12 @@ const shuffle = <T,>(list: T[]) => {
     [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
+};
+
+const getProblemLink = (item: DsaItem) => {
+  if (item.problemLink) return item.problemLink;
+  if (!item.solutionLink) return undefined;
+  return item.solutionLink.replace(/\/solutions\/?$/i, "/");
 };
 
 const LINKED_LIST_ITEMS: DsaItem[] = [
@@ -2318,6 +2325,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Backtrack with constraints per row/col/box.",
+    problemLink: "https://leetcode.com/problems/sudoku-solver/",
     solutionLink: "https://leetcode.com/problems/sudoku-solver/solutions/",
     youtube:
       "https://www.youtube.com/results?search_query=sudoku+solver+leetcode",
@@ -2329,6 +2337,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Backtrack with column/diagonal sets.",
+    problemLink: "https://leetcode.com/problems/n-queens/",
     solutionLink: "https://leetcode.com/problems/n-queens/solutions/",
     youtube: "https://www.youtube.com/results?search_query=n+queens+leetcode",
     java: "https://github.com/search?q=n+queens+leetcode+java&type=code",
@@ -2339,6 +2348,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Count solutions using backtracking.",
+    problemLink: "https://leetcode.com/problems/n-queens-ii/",
     solutionLink: "https://leetcode.com/problems/n-queens-ii/solutions/",
     youtube:
       "https://www.youtube.com/results?search_query=n+queens+ii+leetcode",
@@ -2350,6 +2360,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "BFS levels then backtrack paths.",
+    problemLink: "https://leetcode.com/problems/word-ladder-ii/",
     solutionLink: "https://leetcode.com/problems/word-ladder-ii/solutions/",
     youtube:
       "https://www.youtube.com/results?search_query=word+ladder+ii+leetcode",
@@ -2361,6 +2372,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "DFS with memo to build sentences.",
+    problemLink: "https://leetcode.com/problems/word-break-ii/",
     solutionLink: "https://leetcode.com/problems/word-break-ii/solutions/",
     youtube:
       "https://www.youtube.com/results?search_query=word+break+ii+leetcode",
@@ -2372,6 +2384,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Backtracking with trie pruning.",
+    problemLink: "https://leetcode.com/problems/word-search-ii/",
     solutionLink: "https://leetcode.com/problems/word-search-ii/solutions/",
     youtube:
       "https://www.youtube.com/results?search_query=word+search+ii+leetcode",
@@ -2383,6 +2396,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "DFS building expression with prev term tracking.",
+    problemLink: "https://leetcode.com/problems/expression-add-operators/",
     solutionLink:
       "https://leetcode.com/problems/expression-add-operators/solutions/",
     youtube:
@@ -2395,6 +2409,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "DFS remove minimal invalid; dedupe with set.",
+    problemLink: "https://leetcode.com/problems/remove-invalid-parentheses/",
     solutionLink:
       "https://leetcode.com/problems/remove-invalid-parentheses/solutions/",
     youtube:
@@ -2407,6 +2422,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Backtrack abbreviations with pruning.",
+    problemLink: "https://leetcode.com/problems/minimum-unique-word-abbreviation/",
     solutionLink:
       "https://leetcode.com/problems/minimum-unique-word-abbreviation/solutions/",
     youtube:
@@ -2419,6 +2435,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Backtracking with prefix map.",
+    problemLink: "https://leetcode.com/problems/word-squares/",
     solutionLink: "https://leetcode.com/problems/word-squares/solutions/",
     youtube:
       "https://www.youtube.com/results?search_query=word+squares+leetcode",
@@ -2430,6 +2447,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "DFS over debt list with pruning.",
+    problemLink: "https://leetcode.com/problems/optimal-account-balancing/",
     solutionLink:
       "https://leetcode.com/problems/optimal-account-balancing/solutions/",
     youtube:
@@ -2442,6 +2460,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "DFS with backtracking turns and moves.",
+    problemLink: "https://leetcode.com/problems/robot-room-cleaner/",
     solutionLink: "https://leetcode.com/problems/robot-room-cleaner/solutions/",
     youtube:
       "https://www.youtube.com/results?search_query=robot+room+cleaner+leetcode",
@@ -2453,6 +2472,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Try all pair ops with recursion.",
+    problemLink: "https://leetcode.com/problems/24-game/",
     solutionLink: "https://leetcode.com/problems/24-game/solutions/",
     youtube: "https://www.youtube.com/results?search_query=24+game+leetcode",
     java: "https://github.com/search?q=24+game+leetcode+java&type=code",
@@ -2463,6 +2483,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "DFS with memo on remaining target.",
+    problemLink: "https://leetcode.com/problems/stickers-to-spell-word/",
     solutionLink:
       "https://leetcode.com/problems/stickers-to-spell-word/solutions/",
     youtube:
@@ -2475,6 +2496,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "BFS over board states.",
+    problemLink: "https://leetcode.com/problems/sliding-puzzle/",
     solutionLink: "https://leetcode.com/problems/sliding-puzzle/solutions/",
     youtube:
       "https://www.youtube.com/results?search_query=sliding+puzzle+leetcode",
@@ -2486,6 +2508,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "DFS visiting all cells exactly once.",
+    problemLink: "https://leetcode.com/problems/unique-paths-iii/",
     solutionLink: "https://leetcode.com/problems/unique-paths-iii/solutions/",
     youtube:
       "https://www.youtube.com/results?search_query=unique+paths+iii+leetcode",
@@ -2497,6 +2520,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Backtrack permutations with pruning.",
+    problemLink: "https://leetcode.com/problems/number-of-squareful-arrays/",
     solutionLink:
       "https://leetcode.com/problems/number-of-squareful-arrays/solutions/",
     youtube:
@@ -2509,6 +2533,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "DFS build numbers with rotation mapping.",
+    problemLink: "https://leetcode.com/problems/confusing-number-ii/",
     solutionLink:
       "https://leetcode.com/problems/confusing-number-ii/solutions/",
     youtube:
@@ -2521,6 +2546,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "DFS parse unions/concats with sets.",
+    problemLink: "https://leetcode.com/problems/brace-expansion-ii/",
     solutionLink: "https://leetcode.com/problems/brace-expansion-ii/solutions/",
     youtube:
       "https://www.youtube.com/results?search_query=brace+expansion+ii+leetcode",
@@ -2532,6 +2558,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Backtrack placements with pruning.",
+    problemLink: "https://leetcode.com/problems/tiling-a-rectangle-with-the-fewest-squares/",
     solutionLink:
       "https://leetcode.com/problems/tiling-a-rectangle-with-the-fewest-squares/solutions/",
     youtube:
@@ -2544,6 +2571,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "DFS include/exclude with letter counts.",
+    problemLink: "https://leetcode.com/problems/maximum-score-words-formed-by-letters/",
     solutionLink:
       "https://leetcode.com/problems/maximum-score-words-formed-by-letters/solutions/",
     youtube:
@@ -2556,6 +2584,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Column-wise DFS with digit assignments.",
+    problemLink: "https://leetcode.com/problems/verbal-arithmetic-puzzle/",
     solutionLink:
       "https://leetcode.com/problems/verbal-arithmetic-puzzle/solutions/",
     youtube:
@@ -2568,6 +2597,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "DFS distributions with combinatorics.",
+    problemLink: "https://leetcode.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls/",
     solutionLink:
       "https://leetcode.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls/solutions/",
     youtube:
@@ -2580,6 +2610,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Backtrack subsets with balance checks.",
+    problemLink: "https://leetcode.com/problems/maximum-number-of-achievable-transfer-requests/",
     solutionLink:
       "https://leetcode.com/problems/maximum-number-of-achievable-transfer-requests/solutions/",
     youtube:
@@ -2592,6 +2623,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Backtrack counts with pruning.",
+    problemLink: "https://leetcode.com/problems/distribute-repeating-integers/",
     solutionLink:
       "https://leetcode.com/problems/distribute-repeating-integers/solutions/",
     youtube:
@@ -2604,6 +2636,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Backtrack worker assignments with pruning.",
+    problemLink: "https://leetcode.com/problems/find-minimum-time-to-finish-all-jobs/",
     solutionLink:
       "https://leetcode.com/problems/find-minimum-time-to-finish-all-jobs/solutions/",
     youtube:
@@ -2616,6 +2649,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "DP/backtracking on pairs with bitmask.",
+    problemLink: "https://leetcode.com/problems/maximize-score-after-n-operations/",
     solutionLink:
       "https://leetcode.com/problems/maximize-score-after-n-operations/solutions/",
     youtube:
@@ -2628,6 +2662,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Backtrack candidates with pruning by frequency.",
+    problemLink: "https://leetcode.com/problems/longest-subsequence-repeated-k-times/",
     solutionLink:
       "https://leetcode.com/problems/longest-subsequence-repeated-k-times/solutions/",
     youtube:
@@ -2640,6 +2675,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Backtrack moves with collision checks.",
+    problemLink: "https://leetcode.com/problems/number-of-valid-move-combinations-on-chessboard/",
     solutionLink:
       "https://leetcode.com/problems/number-of-valid-move-combinations-on-chessboard/solutions/",
     youtube:
@@ -2652,6 +2688,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "DFS with time limit and revisit handling.",
+    problemLink: "https://leetcode.com/problems/maximum-path-quality-of-a-graph/",
     solutionLink:
       "https://leetcode.com/problems/maximum-path-quality-of-a-graph/solutions/",
     youtube:
@@ -2664,6 +2701,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Backtrack assignments with consistency checks.",
+    problemLink: "https://leetcode.com/problems/maximum-good-people-based-on-statements/",
     solutionLink:
       "https://leetcode.com/problems/maximum-good-people-based-on-statements/solutions/",
     youtube:
@@ -2676,6 +2714,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Search with pruning on digit products.",
+    problemLink: "https://leetcode.com/problems/smallest-divisible-digit-product-ii/",
     solutionLink:
       "https://leetcode.com/problems/smallest-divisible-digit-product-ii/solutions/",
     youtube:
@@ -2688,6 +2727,7 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
     topic: "Backtracking",
     difficulty: "Hard",
     solution: "Backtrack palindromes with digit constraints.",
+    problemLink: "https://leetcode.com/problems/next-special-palindrome-number/",
     solutionLink:
       "https://leetcode.com/problems/next-special-palindrome-number/solutions/",
     youtube:
@@ -3072,9 +3112,20 @@ export default function Home() {
                             </td>
                             <td>
                               <div className="flex flex-col gap-1">
-                                <span className="font-semibold text-violet-50">
-                                  {item.title}
-                                </span>
+                                {getProblemLink(item) ? (
+                                  <a
+                                    href={getProblemLink(item)}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="font-semibold text-violet-50 transition hover:text-white"
+                                  >
+                                    {item.title}
+                                  </a>
+                                ) : (
+                                  <span className="font-semibold text-violet-50">
+                                    {item.title}
+                                  </span>
+                                )}
                                 <span className="text-soft text-xs">
                                   {item.id.replaceAll("-", " ")}
                                 </span>
@@ -3129,9 +3180,20 @@ export default function Home() {
                       >
                         <div className="flex items-start justify-between gap-3">
                           <div className="min-w-0">
-                            <p className="font-semibold text-violet-50">
-                              {item.title}
-                            </p>
+                            {getProblemLink(item) ? (
+                              <a
+                                href={getProblemLink(item)}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="font-semibold text-violet-50 transition hover:text-white"
+                              >
+                                {item.title}
+                              </a>
+                            ) : (
+                              <p className="font-semibold text-violet-50">
+                                {item.title}
+                              </p>
+                            )}
                             <p className="text-soft text-xs">
                               {item.id.replaceAll("-", " ")}
                             </p>
