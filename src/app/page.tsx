@@ -3295,6 +3295,15 @@ export default function Home() {
             extend the sheet.
           </p>
         </section>
+        <footer className="footer-glow text-soft text-center text-xs sm:text-sm">
+          <a
+            href="https://www.linkedin.com/in/soumik-karmakar-547a591a5/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Made with 💗 by Soumik
+          </a>
+        </footer>
       </div>
     </div>
   );
