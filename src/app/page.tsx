@@ -3864,6 +3864,22 @@ export default function Home() {
     setHydrated(true);
   }, []);
 
+  const topicOrder = useMemo(() => {
+    return TOPICS.filter((topic) => topic !== "All");
+  }, []);
+
+  const orderedAllItems = useMemo(() => {
+    const orderMap = new Map<string, number>(
+      topicOrder.map((topic, index) => [topic, index]),
+    );
+    return [...DSA_ITEMS].sort((a, b) => {
+      const aOrder = orderMap.get(a.topic) ?? 999;
+      const bOrder = orderMap.get(b.topic) ?? 999;
+      if (aOrder !== bOrder) return aOrder - bOrder;
+      return a.title.localeCompare(b.title);
+    });
+  }, [topicOrder]);
+
   const idMap = useMemo(() => {
     return new Map(DSA_ITEMS.map((item) => [item.id, item]));
   }, []);
@@ -3876,12 +3892,16 @@ export default function Home() {
 
   const filteredItems = useMemo(() => {
     if (viewMode === "today") return dailyItems;
-    return DSA_ITEMS.filter((item) => {
+    const baseList =
+      filter === "All" && topicFilter === "All"
+        ? orderedAllItems
+        : DSA_ITEMS;
+    return baseList.filter((item) => {
       const matchDifficulty = filter === "All" || item.difficulty === filter;
       const matchTopic = topicFilter === "All" || item.topic === topicFilter;
       return matchDifficulty && matchTopic;
     });
-  }, [filter, topicFilter, viewMode, dailyItems]);
+  }, [filter, topicFilter, viewMode, dailyItems, orderedAllItems]);
 
   const isAllSection =
     viewMode === "all" && filter === "All" && topicFilter === "All";
