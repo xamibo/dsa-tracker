@@ -3444,6 +3444,409 @@ const PRIORITY_QUEUE_ITEMS: DsaItem[] = [
   },
 ];
 
+const INTERVAL_ITEMS: DsaItem[] = [
+  {
+    id: "merge-sorted-array-interval",
+    title: "Merge Sorted Array",
+    topic: "Interval",
+    difficulty: "Easy",
+    solution: "Two-pointer merge from the end.",
+    solutionLink: "https://leetcode.com/problems/merge-sorted-array/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=merge+sorted+array+leetcode",
+    java: "https://github.com/search?q=merge+sorted+array+leetcode+java&type=code",
+  },
+  {
+    id: "summary-ranges-interval",
+    title: "Summary Ranges",
+    topic: "Interval",
+    difficulty: "Easy",
+    solution: "Scan consecutive ranges and emit endpoints.",
+    solutionLink: "https://leetcode.com/problems/summary-ranges/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=summary+ranges+leetcode",
+    java: "https://github.com/search?q=summary+ranges+leetcode+java&type=code",
+  },
+  {
+    id: "missing-ranges-interval",
+    title: "Missing Ranges",
+    topic: "Interval",
+    difficulty: "Easy",
+    solution: "Track previous value and build missing spans.",
+    solutionLink: "https://leetcode.com/problems/missing-ranges/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=missing+ranges+leetcode",
+    java: "https://github.com/search?q=missing+ranges+leetcode+java&type=code",
+  },
+  {
+    id: "can-attend-meetings-interval",
+    title: "Can Attend Meetings",
+    topic: "Interval",
+    difficulty: "Easy",
+    solution: "Sort by start and check overlap.",
+    solutionLink: "https://leetcode.com/problems/meeting-rooms/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=can+attend+meetings+leetcode",
+    java: "https://github.com/search?q=can+attend+meetings+leetcode+java&type=code",
+  },
+  {
+    id: "remove-covered-intervals-interval",
+    title: "Remove Covered Intervals",
+    topic: "Interval",
+    difficulty: "Easy",
+    solution: "Sort by start/end and count non-covered.",
+    solutionLink:
+      "https://leetcode.com/problems/remove-covered-intervals/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=remove+covered+intervals+leetcode",
+    java: "https://github.com/search?q=remove+covered+intervals+leetcode+java&type=code",
+  },
+  {
+    id: "points-that-intersect-with-cars-interval",
+    title: "Points That Intersect With Cars",
+    topic: "Interval",
+    difficulty: "Easy",
+    solution: "Merge intervals then sum covered points.",
+    solutionLink:
+      "https://leetcode.com/problems/points-that-intersect-with-cars/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=points+that+intersect+with+cars+leetcode",
+    java: "https://github.com/search?q=points+that+intersect+with+cars+leetcode+java&type=code",
+  },
+  {
+    id: "merge-intervals-interval-topic",
+    title: "Merge Intervals",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Sort intervals and merge overlaps.",
+    solutionLink: "https://leetcode.com/problems/merge-intervals/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=merge+intervals+leetcode",
+    java: "https://github.com/search?q=merge+intervals+leetcode+java&type=code",
+  },
+  {
+    id: "insert-interval-interval-topic",
+    title: "Insert Interval",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Insert and merge with neighboring intervals.",
+    solutionLink: "https://leetcode.com/problems/insert-interval/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=insert+interval+leetcode",
+    java: "https://github.com/search?q=insert+interval+leetcode+java&type=code",
+  },
+  {
+    id: "non-overlapping-intervals-interval-topic",
+    title: "Non-overlapping Intervals",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Greedy by end time to minimize removals.",
+    solutionLink:
+      "https://leetcode.com/problems/non-overlapping-intervals/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=non+overlapping+intervals+leetcode",
+    java: "https://github.com/search?q=non+overlapping+intervals+leetcode+java&type=code",
+  },
+  {
+    id: "meeting-rooms-ii-interval-topic",
+    title: "Meeting Rooms II",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Min-heap of end times for room count.",
+    solutionLink: "https://leetcode.com/problems/meeting-rooms-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=meeting+rooms+ii+leetcode",
+    java: "https://github.com/search?q=meeting+rooms+ii+leetcode+java&type=code",
+  },
+  {
+    id: "interval-list-intersections-interval-topic",
+    title: "Interval List Intersections",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Two pointers across sorted interval lists.",
+    solutionLink:
+      "https://leetcode.com/problems/interval-list-intersections/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=interval+list+intersections+leetcode",
+    java: "https://github.com/search?q=interval+list+intersections+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-number-of-arrows-to-burst-balloons-interval-topic",
+    title: "Minimum Number of Arrows to Burst Balloons",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Sort by end, greedily place arrows.",
+    solutionLink:
+      "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+number+of+arrows+to+burst+balloons+leetcode",
+    java: "https://github.com/search?q=minimum+number+of+arrows+to+burst+balloons+leetcode+java&type=code",
+  },
+  {
+    id: "remove-interval-interval-topic",
+    title: "Remove Interval",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Split overlap portions around removal range.",
+    solutionLink: "https://leetcode.com/problems/remove-interval/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=remove+interval+leetcode",
+    java: "https://github.com/search?q=remove+interval+leetcode+java&type=code",
+  },
+  {
+    id: "my-calendar-i-interval-topic",
+    title: "My Calendar I",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Ordered map / BST of booked intervals.",
+    solutionLink: "https://leetcode.com/problems/my-calendar-i/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=my+calendar+i+leetcode",
+    java: "https://github.com/search?q=my+calendar+i+leetcode+java&type=code",
+  },
+  {
+    id: "my-calendar-ii-interval-topic",
+    title: "My Calendar II",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Track overlaps and reject triple booking.",
+    solutionLink: "https://leetcode.com/problems/my-calendar-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=my+calendar+ii+leetcode",
+    java: "https://github.com/search?q=my+calendar+ii+leetcode+java&type=code",
+  },
+  {
+    id: "set-intersection-size-at-least-two-interval-topic",
+    title: "Set Intersection Size At Least Two",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Greedy sort by end and place points.",
+    solutionLink:
+      "https://leetcode.com/problems/set-intersection-size-at-least-two/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=set+intersection+size+at+least+two+leetcode",
+    java: "https://github.com/search?q=set+intersection+size+at+least+two+leetcode+java&type=code",
+  },
+  {
+    id: "employee-free-time-interval-topic",
+    title: "Employee Free Time",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Merge schedules and capture gaps.",
+    solutionLink: "https://leetcode.com/problems/employee-free-time/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=employee+free+time+leetcode",
+    java: "https://github.com/search?q=employee+free+time+leetcode+java&type=code",
+  },
+  {
+    id: "divide-intervals-into-minimum-number-of-groups-interval-topic",
+    title: "Divide Intervals Into Minimum Number of Groups",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Min-heap of end points for active groups.",
+    solutionLink:
+      "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=divide+intervals+into+minimum+number+of+groups+leetcode",
+    java: "https://github.com/search?q=divide+intervals+into+minimum+number+of+groups+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-interval-to-include-each-query-interval-topic",
+    title: "Minimum Interval to Include Each Query",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Sort queries/intervals with min-heap by size.",
+    solutionLink:
+      "https://leetcode.com/problems/minimum-interval-to-include-each-query/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+interval+to+include+each+query+leetcode",
+    java: "https://github.com/search?q=minimum+interval+to+include+each+query+leetcode+java&type=code",
+  },
+  {
+    id: "data-stream-as-disjoint-intervals-interval-topic",
+    title: "Data Stream as Disjoint Intervals",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Maintain merged disjoint ranges.",
+    solutionLink:
+      "https://leetcode.com/problems/data-stream-as-disjoint-intervals/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=data+stream+as+disjoint+intervals+leetcode",
+    java: "https://github.com/search?q=data+stream+as+disjoint+intervals+leetcode+java&type=code",
+  },
+  {
+    id: "check-if-all-the-integers-in-a-range-are-covered-interval-topic",
+    title: "Check if All the Integers in a Range Are Covered",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Difference array / prefix coverage.",
+    solutionLink:
+      "https://leetcode.com/problems/check-if-all-the-integers-in-a-range-are-covered/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=check+if+all+the+integers+in+a+range+are+covered+leetcode",
+    java: "https://github.com/search?q=check+if+all+the+integers+in+a+range+are+covered+leetcode+java&type=code",
+  },
+  {
+    id: "count-ways-to-group-overlapping-ranges-interval-topic",
+    title: "Count Ways to Group Overlapping Ranges",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Merge components, answer is 2^components.",
+    solutionLink:
+      "https://leetcode.com/problems/count-ways-to-group-overlapping-ranges/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=count+ways+to+group+overlapping+ranges+leetcode",
+    java: "https://github.com/search?q=count+ways+to+group+overlapping+ranges+leetcode+java&type=code",
+  },
+  {
+    id: "car-pooling-interval-topic",
+    title: "Car Pooling",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Difference array of passenger changes.",
+    solutionLink: "https://leetcode.com/problems/car-pooling/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=car+pooling+leetcode",
+    java: "https://github.com/search?q=car+pooling+leetcode+java&type=code",
+  },
+  {
+    id: "corporate-flight-bookings-interval-topic",
+    title: "Corporate Flight Bookings",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Range updates with difference array.",
+    solutionLink:
+      "https://leetcode.com/problems/corporate-flight-bookings/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=corporate+flight+bookings+leetcode",
+    java: "https://github.com/search?q=corporate+flight+bookings+leetcode+java&type=code",
+  },
+  {
+    id: "describe-the-painting-interval-topic",
+    title: "Describe the Painting",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Sweep line on segment color sums.",
+    solutionLink: "https://leetcode.com/problems/describe-the-painting/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=describe+the+painting+leetcode",
+    java: "https://github.com/search?q=describe+the+painting+leetcode+java&type=code",
+  },
+  {
+    id: "brightest-position-on-street-interval-topic",
+    title: "Brightest Position on Street",
+    topic: "Interval",
+    difficulty: "Medium",
+    solution: "Sweep line with diff events.",
+    solutionLink:
+      "https://leetcode.com/problems/brightest-position-on-street/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=brightest+position+on+street+leetcode",
+    java: "https://github.com/search?q=brightest+position+on+street+leetcode+java&type=code",
+  },
+  {
+    id: "my-calendar-iii-interval-topic",
+    title: "My Calendar III",
+    topic: "Interval",
+    difficulty: "Hard",
+    solution: "Sweep-line map for max overlap.",
+    solutionLink: "https://leetcode.com/problems/my-calendar-iii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=my+calendar+iii+leetcode",
+    java: "https://github.com/search?q=my+calendar+iii+leetcode+java&type=code",
+  },
+  {
+    id: "falling-squares-interval-topic",
+    title: "Falling Squares",
+    topic: "Interval",
+    difficulty: "Hard",
+    solution: "Coordinate compress + segment structure.",
+    solutionLink: "https://leetcode.com/problems/falling-squares/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=falling+squares+leetcode",
+    java: "https://github.com/search?q=falling+squares+leetcode+java&type=code",
+  },
+  {
+    id: "count-of-range-sum-interval-topic",
+    title: "Count of Range Sum",
+    topic: "Interval",
+    difficulty: "Hard",
+    solution: "Prefix sums with merge sort / BIT.",
+    solutionLink: "https://leetcode.com/problems/count-of-range-sum/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=count+of+range+sum+leetcode",
+    java: "https://github.com/search?q=count+of+range+sum+leetcode+java&type=code",
+  },
+  {
+    id: "the-skyline-problem-interval-topic",
+    title: "The Skyline Problem",
+    topic: "Interval",
+    difficulty: "Hard",
+    solution: "Sweep line with active heights.",
+    solutionLink: "https://leetcode.com/problems/the-skyline-problem/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=the+skyline+problem+leetcode",
+    java: "https://github.com/search?q=the+skyline+problem+leetcode+java&type=code",
+  },
+  {
+    id: "rectangle-area-ii-interval-topic",
+    title: "Rectangle Area II",
+    topic: "Interval",
+    difficulty: "Hard",
+    solution: "Sweep line with segment counting.",
+    solutionLink: "https://leetcode.com/problems/rectangle-area-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=rectangle+area+ii+leetcode",
+    java: "https://github.com/search?q=rectangle+area+ii+leetcode+java&type=code",
+  },
+  {
+    id: "perfect-rectangle-interval-topic",
+    title: "Perfect Rectangle",
+    topic: "Interval",
+    difficulty: "Hard",
+    solution: "Area + corner parity validation.",
+    solutionLink: "https://leetcode.com/problems/perfect-rectangle/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=perfect+rectangle+leetcode",
+    java: "https://github.com/search?q=perfect+rectangle+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-number-of-events-that-can-be-attended-ii-interval-topic",
+    title: "Maximum Number of Events That Can Be Attended II",
+    topic: "Interval",
+    difficulty: "Hard",
+    solution: "DP + binary search on next event.",
+    solutionLink:
+      "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+number+of+events+that+can+be+attended+ii+leetcode",
+    java: "https://github.com/search?q=maximum+number+of+events+that+can+be+attended+ii+leetcode+java&type=code",
+  },
+  {
+    id: "number-of-flowers-in-full-bloom-interval-topic",
+    title: "Number of Flowers in Full Bloom",
+    topic: "Interval",
+    difficulty: "Hard",
+    solution: "Sort starts/ends and binary search counts.",
+    solutionLink:
+      "https://leetcode.com/problems/number-of-flowers-in-full-bloom/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=number+of+flowers+in+full+bloom+leetcode",
+    java: "https://github.com/search?q=number+of+flowers+in+full+bloom+leetcode+java&type=code",
+  },
+  {
+    id: "range-module-interval-topic",
+    title: "Range Module",
+    topic: "Interval",
+    difficulty: "Hard",
+    solution: "Maintain union of intervals with updates.",
+    solutionLink: "https://leetcode.com/problems/range-module/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=range+module+leetcode",
+    java: "https://github.com/search?q=range+module+leetcode+java&type=code",
+  },
+];
+
 const STACK_QUEUE_ITEMS: DsaItem[] = [
   {
     id: "valid-parentheses-stack",
@@ -3804,6 +4207,7 @@ const DSA_ITEMS: DsaItem[] = [
   ...BACKTRACKING_ITEMS,
   ...BINARY_SEARCH_ITEMS,
   ...PRIORITY_QUEUE_ITEMS,
+  ...INTERVAL_ITEMS,
   ...STACK_QUEUE_ITEMS,
 ];
 
@@ -3819,6 +4223,7 @@ const TOPICS = [
   "Linked List",
   "Binary Search",
   "Priority Queue",
+  "Interval",
   "Stack/Queue",
   "Greedy",
   "Tree",
