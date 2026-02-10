@@ -3553,6 +3553,7 @@ const INTERVAL_ITEMS: DsaItem[] = [
     topic: "Interval",
     difficulty: "Medium",
     solution: "Min-heap of end times for room count.",
+    problemLink: "https://www.geeksforgeeks.org/problems/attend-all-meetings-ii/1",
     solutionLink: "https://leetcode.com/problems/meeting-rooms-ii/solutions/",
     youtube:
       "https://www.youtube.com/results?search_query=meeting+rooms+ii+leetcode",
