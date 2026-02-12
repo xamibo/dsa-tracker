@@ -2734,6 +2734,383 @@ const BACKTRACKING_ITEMS: DsaItem[] = [
       "https://www.youtube.com/results?search_query=next+special+palindrome+number+leetcode",
     java: "https://github.com/search?q=next+special+palindrome+number+leetcode+java&type=code",
   },
+  {
+    id: "subsets-backtracking-easy",
+    title: "Subsets",
+    topic: "Backtracking",
+    difficulty: "Easy",
+    solution: "Backtrack include/exclude choices.",
+    problemLink: "https://leetcode.com/problems/subsets/",
+    solutionLink: "https://leetcode.com/problems/subsets/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=subsets+leetcode",
+    java: "https://github.com/search?q=subsets+leetcode+java&type=code",
+  },
+  {
+    id: "binary-tree-paths-backtracking-easy",
+    title: "Binary Tree Paths",
+    topic: "Backtracking",
+    difficulty: "Easy",
+    solution: "DFS paths from root to leaves.",
+    problemLink: "https://leetcode.com/problems/binary-tree-paths/",
+    solutionLink: "https://leetcode.com/problems/binary-tree-paths/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=binary+tree+paths+leetcode",
+    java: "https://github.com/search?q=binary+tree+paths+leetcode+java&type=code",
+  },
+  {
+    id: "letter-tile-possibilities-backtracking-easy",
+    title: "Letter Tile Possibilities",
+    topic: "Backtracking",
+    difficulty: "Easy",
+    solution: "Backtrack character counts to build sequences.",
+    problemLink: "https://leetcode.com/problems/letter-tile-possibilities/",
+    solutionLink:
+      "https://leetcode.com/problems/letter-tile-possibilities/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=letter+tile+possibilities+leetcode",
+    java: "https://github.com/search?q=letter+tile+possibilities+leetcode+java&type=code",
+  },
+  {
+    id: "sequential-digits-backtracking-easy",
+    title: "Sequential Digits",
+    topic: "Backtracking",
+    difficulty: "Easy",
+    solution: "Generate candidate numbers by growing digit runs.",
+    problemLink: "https://leetcode.com/problems/sequential-digits/",
+    solutionLink: "https://leetcode.com/problems/sequential-digits/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=sequential+digits+leetcode",
+    java: "https://github.com/search?q=sequential+digits+leetcode+java&type=code",
+  },
+  {
+    id: "find-unique-binary-string-backtracking-easy",
+    title: "Find Unique Binary String",
+    topic: "Backtracking",
+    difficulty: "Easy",
+    solution: "Backtrack bitstrings and stop at first missing.",
+    problemLink: "https://leetcode.com/problems/find-unique-binary-string/",
+    solutionLink:
+      "https://leetcode.com/problems/find-unique-binary-string/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=find+unique+binary+string+leetcode",
+    java: "https://github.com/search?q=find+unique+binary+string+leetcode+java&type=code",
+  },
+  {
+    id: "gray-code-backtracking-easy",
+    title: "Gray Code",
+    topic: "Backtracking",
+    difficulty: "Easy",
+    solution: "Construct sequence with one-bit transitions.",
+    problemLink: "https://leetcode.com/problems/gray-code/",
+    solutionLink: "https://leetcode.com/problems/gray-code/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=gray+code+leetcode",
+    java: "https://github.com/search?q=gray+code+leetcode+java&type=code",
+  },
+  {
+    id: "subsets-ii-backtracking-medium",
+    title: "Subsets II",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Backtrack with duplicate-skipping after sort.",
+    problemLink: "https://leetcode.com/problems/subsets-ii/",
+    solutionLink: "https://leetcode.com/problems/subsets-ii/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=subsets+ii+leetcode",
+    java: "https://github.com/search?q=subsets+ii+leetcode+java&type=code",
+  },
+  {
+    id: "permutations-backtracking-medium",
+    title: "Permutations",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Backtrack positions with used markers.",
+    problemLink: "https://leetcode.com/problems/permutations/",
+    solutionLink: "https://leetcode.com/problems/permutations/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=permutations+leetcode",
+    java: "https://github.com/search?q=permutations+leetcode+java&type=code",
+  },
+  {
+    id: "permutations-ii-backtracking-medium",
+    title: "Permutations II",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Sort then backtrack skipping duplicate branches.",
+    problemLink: "https://leetcode.com/problems/permutations-ii/",
+    solutionLink: "https://leetcode.com/problems/permutations-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=permutations+ii+leetcode",
+    java: "https://github.com/search?q=permutations+ii+leetcode+java&type=code",
+  },
+  {
+    id: "combinations-backtracking-medium",
+    title: "Combinations",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Backtrack increasing picks from 1..n.",
+    problemLink: "https://leetcode.com/problems/combinations/",
+    solutionLink: "https://leetcode.com/problems/combinations/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=combinations+leetcode",
+    java: "https://github.com/search?q=combinations+leetcode+java&type=code",
+  },
+  {
+    id: "combination-sum-backtracking-medium",
+    title: "Combination Sum",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "DFS choose/reuse numbers to hit target.",
+    problemLink: "https://leetcode.com/problems/combination-sum/",
+    solutionLink: "https://leetcode.com/problems/combination-sum/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=combination+sum+leetcode",
+    java: "https://github.com/search?q=combination+sum+leetcode+java&type=code",
+  },
+  {
+    id: "combination-sum-ii-backtracking-medium",
+    title: "Combination Sum II",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Backtrack once per index with duplicate pruning.",
+    problemLink: "https://leetcode.com/problems/combination-sum-ii/",
+    solutionLink: "https://leetcode.com/problems/combination-sum-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=combination+sum+ii+leetcode",
+    java: "https://github.com/search?q=combination+sum+ii+leetcode+java&type=code",
+  },
+  {
+    id: "combination-sum-iii-backtracking-medium",
+    title: "Combination Sum III",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Backtrack k picks from 1..9 to sum n.",
+    problemLink: "https://leetcode.com/problems/combination-sum-iii/",
+    solutionLink:
+      "https://leetcode.com/problems/combination-sum-iii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=combination+sum+iii+leetcode",
+    java: "https://github.com/search?q=combination+sum+iii+leetcode+java&type=code",
+  },
+  {
+    id: "letter-combinations-phone-backtracking-medium",
+    title: "Letter Combinations of a Phone Number",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Backtrack over digit->letters mapping.",
+    problemLink:
+      "https://leetcode.com/problems/letter-combinations-of-a-phone-number/",
+    solutionLink:
+      "https://leetcode.com/problems/letter-combinations-of-a-phone-number/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=letter+combinations+of+a+phone+number+leetcode",
+    java: "https://github.com/search?q=letter+combinations+of+a+phone+number+leetcode+java&type=code",
+  },
+  {
+    id: "generate-parentheses-backtracking-medium",
+    title: "Generate Parentheses",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Backtrack with open/close counters.",
+    problemLink: "https://leetcode.com/problems/generate-parentheses/",
+    solutionLink:
+      "https://leetcode.com/problems/generate-parentheses/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=generate+parentheses+leetcode",
+    java: "https://github.com/search?q=generate+parentheses+leetcode+java&type=code",
+  },
+  {
+    id: "palindrome-partitioning-backtracking-medium",
+    title: "Palindrome Partitioning",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "DFS split string on palindrome cuts.",
+    problemLink: "https://leetcode.com/problems/palindrome-partitioning/",
+    solutionLink:
+      "https://leetcode.com/problems/palindrome-partitioning/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=palindrome+partitioning+leetcode",
+    java: "https://github.com/search?q=palindrome+partitioning+leetcode+java&type=code",
+  },
+  {
+    id: "restore-ip-addresses-backtracking-medium",
+    title: "Restore IP Addresses",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Backtrack 4 segments with validity checks.",
+    problemLink: "https://leetcode.com/problems/restore-ip-addresses/",
+    solutionLink:
+      "https://leetcode.com/problems/restore-ip-addresses/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=restore+ip+addresses+leetcode",
+    java: "https://github.com/search?q=restore+ip+addresses+leetcode+java&type=code",
+  },
+  {
+    id: "word-search-backtracking-medium",
+    title: "Word Search",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "DFS grid with visited tracking.",
+    problemLink: "https://leetcode.com/problems/word-search/",
+    solutionLink: "https://leetcode.com/problems/word-search/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=word+search+leetcode",
+    java: "https://github.com/search?q=word+search+leetcode+java&type=code",
+  },
+  {
+    id: "word-search-ii-backtracking-medium",
+    title: "Word Search II",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Backtracking with trie pruning.",
+    problemLink: "https://leetcode.com/problems/word-search-ii/",
+    solutionLink: "https://leetcode.com/problems/word-search-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=word+search+ii+leetcode",
+    java: "https://github.com/search?q=word+search+ii+leetcode+java&type=code",
+  },
+  {
+    id: "path-sum-ii-backtracking-medium",
+    title: "Path Sum II",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "DFS root-to-leaf path sums.",
+    problemLink: "https://leetcode.com/problems/path-sum-ii/",
+    solutionLink: "https://leetcode.com/problems/path-sum-ii/solutions/",
+    youtube: "https://www.youtube.com/results?search_query=path+sum+ii+leetcode",
+    java: "https://github.com/search?q=path+sum+ii+leetcode+java&type=code",
+  },
+  {
+    id: "all-paths-source-target-backtracking-medium",
+    title: "All Paths From Source to Target",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "DFS all path exploration in DAG.",
+    problemLink: "https://leetcode.com/problems/all-paths-from-source-to-target/",
+    solutionLink:
+      "https://leetcode.com/problems/all-paths-from-source-to-target/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=all+paths+from+source+to+target+leetcode",
+    java: "https://github.com/search?q=all+paths+from+source+to+target+leetcode+java&type=code",
+  },
+  {
+    id: "kth-lexicographical-happy-string-backtracking-medium",
+    title: "The k-th Lexicographical String of All Happy Strings of Length n",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Backtrack lexicographically and count valid strings.",
+    problemLink:
+      "https://leetcode.com/problems/the-k-th-lexicographical-string-of-all-happy-strings-of-length-n/",
+    solutionLink:
+      "https://leetcode.com/problems/the-k-th-lexicographical-string-of-all-happy-strings-of-length-n/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=the+k-th+lexicographical+string+of+all+happy+strings+of+length+n+leetcode",
+    java: "https://github.com/search?q=the+k-th+lexicographical+string+of+all+happy+strings+of+length+n+leetcode+java&type=code",
+  },
+  {
+    id: "split-string-max-unique-backtracking-medium",
+    title: "Split a String Into the Max Number of Unique Substrings",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "DFS split with set tracking and pruning.",
+    problemLink:
+      "https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings/",
+    solutionLink:
+      "https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=split+a+string+into+the+max+number+of+unique+substrings+leetcode",
+    java: "https://github.com/search?q=split+a+string+into+the+max+number+of+unique+substrings+leetcode+java&type=code",
+  },
+  {
+    id: "matchsticks-to-square-backtracking-medium",
+    title: "Matchsticks to Square",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Backtrack side assignments with pruning.",
+    problemLink: "https://leetcode.com/problems/matchsticks-to-square/",
+    solutionLink:
+      "https://leetcode.com/problems/matchsticks-to-square/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=matchsticks+to+square+leetcode",
+    java: "https://github.com/search?q=matchsticks+to+square+leetcode+java&type=code",
+  },
+  {
+    id: "beautiful-arrangement-backtracking-medium",
+    title: "Beautiful Arrangement",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Backtrack placement with divisibility rule.",
+    problemLink: "https://leetcode.com/problems/beautiful-arrangement/",
+    solutionLink:
+      "https://leetcode.com/problems/beautiful-arrangement/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=beautiful+arrangement+leetcode",
+    java: "https://github.com/search?q=beautiful+arrangement+leetcode+java&type=code",
+  },
+  {
+    id: "circular-permutation-binary-backtracking-medium",
+    title: "Circular Permutation in Binary Representation",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Build Gray-code-like cyclic permutation.",
+    problemLink:
+      "https://leetcode.com/problems/circular-permutation-in-binary-representation/",
+    solutionLink:
+      "https://leetcode.com/problems/circular-permutation-in-binary-representation/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=circular+permutation+in+binary+representation+leetcode",
+    java: "https://github.com/search?q=circular+permutation+in+binary+representation+leetcode+java&type=code",
+  },
+  {
+    id: "additive-number-backtracking-medium",
+    title: "Additive Number",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Try first two numbers then validate sequence.",
+    problemLink: "https://leetcode.com/problems/additive-number/",
+    solutionLink: "https://leetcode.com/problems/additive-number/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=additive+number+leetcode",
+    java: "https://github.com/search?q=additive+number+leetcode+java&type=code",
+  },
+  {
+    id: "increasing-subsequences-backtracking-medium",
+    title: "Increasing Subsequences",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Backtrack non-decreasing subsequences with dedupe.",
+    problemLink: "https://leetcode.com/problems/increasing-subsequences/",
+    solutionLink:
+      "https://leetcode.com/problems/increasing-subsequences/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=increasing+subsequences+leetcode",
+    java: "https://github.com/search?q=increasing+subsequences+leetcode+java&type=code",
+  },
+  {
+    id: "construct-lexicographically-largest-sequence-backtracking-medium",
+    title: "Construct the Lexicographically Largest Valid Sequence",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Backtrack numbers in descending order with spacing rule.",
+    problemLink:
+      "https://leetcode.com/problems/construct-the-lexicographically-largest-valid-sequence/",
+    solutionLink:
+      "https://leetcode.com/problems/construct-the-lexicographically-largest-valid-sequence/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=construct+the+lexicographically+largest+valid+sequence+leetcode",
+    java: "https://github.com/search?q=construct+the+lexicographically+largest+valid+sequence+leetcode+java&type=code",
+  },
+  {
+    id: "max-length-concat-unique-backtracking-medium",
+    title: "Maximum Length of a Concatenated String with Unique Characters",
+    topic: "Backtracking",
+    difficulty: "Medium",
+    solution: "Backtrack include/exclude with bitmask feasibility.",
+    problemLink:
+      "https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/",
+    solutionLink:
+      "https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+length+of+a+concatenated+string+with+unique+characters+leetcode",
+    java: "https://github.com/search?q=maximum+length+of+a+concatenated+string+with+unique+characters+leetcode+java&type=code",
+  },
 ];
 
 const BINARY_SEARCH_ITEMS: DsaItem[] = [
