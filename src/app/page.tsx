@@ -1191,6 +1191,365 @@ const TREE_ITEMS: DsaItem[] = [
   },
 ];
 
+const BST_ITEMS: DsaItem[] = [
+  {
+    id: "search-in-a-binary-search-tree-bst",
+    title: "Search in a Binary Search Tree",
+    topic: "BST",
+    difficulty: "Easy",
+    solution: "Traverse left/right based on comparison.",
+    solutionLink:
+      "https://leetcode.com/problems/search-in-a-binary-search-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=search+in+a+binary+search+tree+leetcode",
+    java: "https://github.com/search?q=search+in+a+binary+search+tree+leetcode+java&type=code",
+  },
+  {
+    id: "insert-into-a-binary-search-tree-bst",
+    title: "Insert into a Binary Search Tree",
+    topic: "BST",
+    difficulty: "Easy",
+    solution: "Recurse to insertion leaf using BST rule.",
+    solutionLink:
+      "https://leetcode.com/problems/insert-into-a-binary-search-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=insert+into+a+binary+search+tree+leetcode",
+    java: "https://github.com/search?q=insert+into+a+binary+search+tree+leetcode+java&type=code",
+  },
+  {
+    id: "range-sum-of-bst-bst",
+    title: "Range Sum of BST",
+    topic: "BST",
+    difficulty: "Easy",
+    solution: "DFS with pruning outside [low, high].",
+    solutionLink: "https://leetcode.com/problems/range-sum-of-bst/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=range+sum+of+bst+leetcode",
+    java: "https://github.com/search?q=range+sum+of+bst+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-absolute-difference-in-bst-bst",
+    title: "Minimum Absolute Difference in BST",
+    topic: "BST",
+    difficulty: "Easy",
+    solution: "Inorder traversal and compare adjacent values.",
+    solutionLink:
+      "https://leetcode.com/problems/minimum-absolute-difference-in-bst/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+absolute+difference+in+bst+leetcode",
+    java: "https://github.com/search?q=minimum+absolute+difference+in+bst+leetcode+java&type=code",
+  },
+  {
+    id: "minimum-distance-between-bst-nodes-bst",
+    title: "Minimum Distance Between BST Nodes",
+    topic: "BST",
+    difficulty: "Easy",
+    solution: "Inorder traversal yields sorted values.",
+    solutionLink:
+      "https://leetcode.com/problems/minimum-distance-between-bst-nodes/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=minimum+distance+between+bst+nodes+leetcode",
+    java: "https://github.com/search?q=minimum+distance+between+bst+nodes+leetcode+java&type=code",
+  },
+  {
+    id: "two-sum-iv-input-is-a-bst-bst",
+    title: "Two Sum IV - Input is a BST",
+    topic: "BST",
+    difficulty: "Easy",
+    solution: "DFS with hash set of seen values.",
+    solutionLink:
+      "https://leetcode.com/problems/two-sum-iv-input-is-a-bst/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=two+sum+iv+input+is+a+bst+leetcode",
+    java: "https://github.com/search?q=two+sum+iv+input+is+a+bst+leetcode+java&type=code",
+  },
+  {
+    id: "lowest-common-ancestor-of-a-bst-bst",
+    title: "Lowest Common Ancestor of a BST",
+    topic: "BST",
+    difficulty: "Easy",
+    solution: "Move left/right until split point.",
+    solutionLink:
+      "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=lowest+common+ancestor+of+a+binary+search+tree+leetcode",
+    java: "https://github.com/search?q=lowest+common+ancestor+of+a+binary+search+tree+leetcode+java&type=code",
+  },
+  {
+    id: "convert-sorted-array-to-bst-bst",
+    title: "Convert Sorted Array to BST",
+    topic: "BST",
+    difficulty: "Easy",
+    solution: "Pick middle element recursively as root.",
+    solutionLink:
+      "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=convert+sorted+array+to+binary+search+tree+leetcode",
+    java: "https://github.com/search?q=convert+sorted+array+to+binary+search+tree+leetcode+java&type=code",
+  },
+  {
+    id: "two-sum-bsts-bst",
+    title: "Two Sum BSTs",
+    topic: "BST",
+    difficulty: "Easy",
+    solution: "Collect one tree values; search complements in other.",
+    solutionLink: "https://leetcode.com/problems/two-sum-bsts/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=two+sum+bsts+leetcode",
+    java: "https://github.com/search?q=two+sum+bsts+leetcode+java&type=code",
+  },
+  {
+    id: "closest-binary-search-tree-value-bst-easy",
+    title: "Closest Binary Search Tree Value",
+    topic: "BST",
+    difficulty: "Easy",
+    solution: "Traverse by BST rule while tracking nearest.",
+    solutionLink:
+      "https://leetcode.com/problems/closest-binary-search-tree-value/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=closest+binary+search+tree+value+leetcode",
+    java: "https://github.com/search?q=closest+binary+search+tree+value+leetcode+java&type=code",
+  },
+  {
+    id: "validate-binary-search-tree-bst",
+    title: "Validate Binary Search Tree",
+    topic: "BST",
+    difficulty: "Medium",
+    solution: "DFS with min/max bounds.",
+    solutionLink:
+      "https://leetcode.com/problems/validate-binary-search-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=validate+binary+search+tree+leetcode",
+    java: "https://github.com/search?q=validate+binary+search+tree+leetcode+java&type=code",
+  },
+  {
+    id: "kth-smallest-element-in-a-bst-bst",
+    title: "Kth Smallest Element in a BST",
+    topic: "BST",
+    difficulty: "Medium",
+    solution: "Inorder traversal and count nodes.",
+    solutionLink:
+      "https://leetcode.com/problems/kth-smallest-element-in-a-bst/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=kth+smallest+element+in+a+bst+leetcode",
+    java: "https://github.com/search?q=kth+smallest+element+in+a+bst+leetcode+java&type=code",
+  },
+  {
+    id: "binary-search-tree-iterator-bst",
+    title: "Binary Search Tree Iterator",
+    topic: "BST",
+    difficulty: "Medium",
+    solution: "Use stack to simulate inorder iteration.",
+    solutionLink:
+      "https://leetcode.com/problems/binary-search-tree-iterator/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=binary+search+tree+iterator+leetcode",
+    java: "https://github.com/search?q=binary+search+tree+iterator+leetcode+java&type=code",
+  },
+  {
+    id: "delete-node-in-a-bst-bst",
+    title: "Delete Node in a BST",
+    topic: "BST",
+    difficulty: "Medium",
+    solution: "Handle 0/1/2 child delete cases.",
+    solutionLink:
+      "https://leetcode.com/problems/delete-node-in-a-bst/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=delete+node+in+a+bst+leetcode",
+    java: "https://github.com/search?q=delete+node+in+a+bst+leetcode+java&type=code",
+  },
+  {
+    id: "convert-sorted-list-to-bst-bst",
+    title: "Convert Sorted List to BST",
+    topic: "BST",
+    difficulty: "Medium",
+    solution: "Find middle node recursively as root.",
+    solutionLink:
+      "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=convert+sorted+list+to+binary+search+tree+leetcode",
+    java: "https://github.com/search?q=convert+sorted+list+to+binary+search+tree+leetcode+java&type=code",
+  },
+  {
+    id: "recover-binary-search-tree-bst-medium",
+    title: "Recover Binary Search Tree",
+    topic: "BST",
+    difficulty: "Medium",
+    solution: "Detect swapped nodes via inorder violations.",
+    solutionLink:
+      "https://leetcode.com/problems/recover-binary-search-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=recover+binary+search+tree+leetcode",
+    java: "https://github.com/search?q=recover+binary+search+tree+leetcode+java&type=code",
+  },
+  {
+    id: "inorder-successor-in-bst-bst",
+    title: "Inorder Successor in BST",
+    topic: "BST",
+    difficulty: "Medium",
+    solution: "Traverse while tracking best greater candidate.",
+    solutionLink:
+      "https://leetcode.com/problems/inorder-successor-in-bst/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=inorder+successor+in+bst+leetcode",
+    java: "https://github.com/search?q=inorder+successor+in+bst+leetcode+java&type=code",
+  },
+  {
+    id: "inorder-successor-in-bst-ii-bst",
+    title: "Inorder Successor in BST II",
+    topic: "BST",
+    difficulty: "Medium",
+    solution: "Use parent pointers and right-subtree logic.",
+    solutionLink:
+      "https://leetcode.com/problems/inorder-successor-in-bst-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=inorder+successor+in+bst+ii+leetcode",
+    java: "https://github.com/search?q=inorder+successor+in+bst+ii+leetcode+java&type=code",
+  },
+  {
+    id: "balance-a-binary-search-tree-bst",
+    title: "Balance a Binary Search Tree",
+    topic: "BST",
+    difficulty: "Medium",
+    solution: "Inorder to sorted list, rebuild balanced BST.",
+    solutionLink:
+      "https://leetcode.com/problems/balance-a-binary-search-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=balance+a+binary+search+tree+leetcode",
+    java: "https://github.com/search?q=balance+a+binary+search+tree+leetcode+java&type=code",
+  },
+  {
+    id: "trim-a-binary-search-tree-bst",
+    title: "Trim a Binary Search Tree",
+    topic: "BST",
+    difficulty: "Medium",
+    solution: "Prune branches outside the valid range.",
+    solutionLink:
+      "https://leetcode.com/problems/trim-a-binary-search-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=trim+a+binary+search+tree+leetcode",
+    java: "https://github.com/search?q=trim+a+binary+search+tree+leetcode+java&type=code",
+  },
+  {
+    id: "largest-bst-subtree-bst",
+    title: "Largest BST Subtree",
+    topic: "BST",
+    difficulty: "Medium",
+    solution: "Postorder return bst-validity and subtree stats.",
+    solutionLink: "https://leetcode.com/problems/largest-bst-subtree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=largest+bst+subtree+leetcode",
+    java: "https://github.com/search?q=largest+bst+subtree+leetcode+java&type=code",
+  },
+  {
+    id: "closest-binary-search-tree-value-ii-bst",
+    title: "Closest Binary Search Tree Value II",
+    topic: "BST",
+    difficulty: "Medium",
+    solution: "Maintain predecessors/successors around target.",
+    solutionLink:
+      "https://leetcode.com/problems/closest-binary-search-tree-value-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=closest+binary+search+tree+value+ii+leetcode",
+    java: "https://github.com/search?q=closest+binary+search+tree+value+ii+leetcode+java&type=code",
+  },
+  {
+    id: "serialize-and-deserialize-binary-tree-bst",
+    title: "Serialize and Deserialize Binary Tree",
+    topic: "BST",
+    difficulty: "Hard",
+    solution: "Preorder with null markers and decode recursively.",
+    solutionLink:
+      "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=serialize+and+deserialize+binary+tree+leetcode",
+    java: "https://github.com/search?q=serialize+and+deserialize+binary+tree+leetcode+java&type=code",
+  },
+  {
+    id: "unique-binary-search-trees-ii-bst",
+    title: "Unique Binary Search Trees II",
+    topic: "BST",
+    difficulty: "Hard",
+    solution: "Generate all root splits recursively.",
+    solutionLink:
+      "https://leetcode.com/problems/unique-binary-search-trees-ii/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=unique+binary+search+trees+ii+leetcode",
+    java: "https://github.com/search?q=unique+binary+search+trees+ii+leetcode+java&type=code",
+  },
+  {
+    id: "unique-binary-search-trees-bst",
+    title: "Unique Binary Search Trees",
+    topic: "BST",
+    difficulty: "Hard",
+    solution: "Catalan DP counting unique BSTs.",
+    solutionLink:
+      "https://leetcode.com/problems/unique-binary-search-trees/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=unique+binary+search+trees+leetcode",
+    java: "https://github.com/search?q=unique+binary+search+trees+leetcode+java&type=code",
+  },
+  {
+    id: "maximum-sum-bst-in-binary-tree-bst",
+    title: "Maximum Sum BST in Binary Tree",
+    topic: "BST",
+    difficulty: "Hard",
+    solution: "Postorder computes BST validity and subtree sums.",
+    solutionLink:
+      "https://leetcode.com/problems/maximum-sum-bst-in-binary-tree/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=maximum+sum+bst+in+binary+tree+leetcode",
+    java: "https://github.com/search?q=maximum+sum+bst+in+binary+tree+leetcode+java&type=code",
+  },
+  {
+    id: "merge-bsts-to-create-single-bst-bst",
+    title: "Merge BSTs to Create Single BST",
+    topic: "BST",
+    difficulty: "Hard",
+    solution: "Link leaf roots then validate final BST.",
+    solutionLink:
+      "https://leetcode.com/problems/merge-bsts-to-create-single-bst/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=merge+bsts+to+create+single+bst+leetcode",
+    java: "https://github.com/search?q=merge+bsts+to+create+single+bst+leetcode+java&type=code",
+  },
+  {
+    id: "number-of-ways-to-reorder-array-to-get-same-bst-bst",
+    title: "Number of Ways to Reorder Array to Get Same BST",
+    topic: "BST",
+    difficulty: "Hard",
+    solution: "Divide by root and combine with nCr.",
+    solutionLink:
+      "https://leetcode.com/problems/number-of-ways-to-reorder-array-to-get-same-bst/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=number+of+ways+to+reorder+array+to+get+same+bst+leetcode",
+    java: "https://github.com/search?q=number+of+ways+to+reorder+array+to+get+same+bst+leetcode+java&type=code",
+  },
+  {
+    id: "closest-room-bst",
+    title: "Closest Room",
+    topic: "BST",
+    difficulty: "Hard",
+    solution: "Sort queries by size and use balanced set by id.",
+    solutionLink: "https://leetcode.com/problems/closest-room/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=closest+room+leetcode",
+    java: "https://github.com/search?q=closest+room+leetcode+java&type=code",
+  },
+  {
+    id: "count-of-smaller-numbers-after-self-bst",
+    title: "Count of Smaller Numbers After Self",
+    topic: "BST",
+    difficulty: "Hard",
+    solution: "Fenwick/tree or BST order-statistics approach.",
+    solutionLink:
+      "https://leetcode.com/problems/count-of-smaller-numbers-after-self/solutions/",
+    youtube:
+      "https://www.youtube.com/results?search_query=count+of+smaller+numbers+after+self+leetcode",
+    java: "https://github.com/search?q=count+of+smaller+numbers+after+self+leetcode+java&type=code",
+  },
+];
+
 const GREEDY_ITEMS: DsaItem[] = [
   {
     id: "assign-cookies",
@@ -4579,6 +4938,7 @@ const DSA_ITEMS: DsaItem[] = [
   ...LINKED_LIST_ITEMS,
   ...DP_ITEMS,
   ...TREE_ITEMS,
+  ...BST_ITEMS,
   ...GREEDY_ITEMS,
   ...GRAPH_ITEMS,
   ...ARRAYS_ITEMS,
@@ -4605,6 +4965,7 @@ const TOPICS = [
   "Stack/Queue",
   "Greedy",
   "Tree",
+  "BST",
   "Graph",
   "DP",
   "Backtracking",
